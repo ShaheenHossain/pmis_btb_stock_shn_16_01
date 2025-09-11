@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    Hide quotation/ order menu from print menu-->
+    <record id="sale.action_report_saleorder" model="ir.actions.report">
+        <field name="name">Quotation / Order</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale.report_saleorder</field>
+        <field name="report_file">sale.report_saleorder</field>
+        <field name="print_report_name">(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)</field>
+        <field name="binding_model_id" ref=""/>
+    </record>
+    <record id="btb_print_adhijachan_patra" model="ir.actions.report">
+        <field name="name">Requisition/অধিযাচন পত্র</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">btb_stock.adhijachan_patra</field>
+        <!--        <field name="report_file">hr.print_person_badge</field>-->
+        <!--        <field name="print_report_name">'Print Badge - %s' % (object.name).replace('/', '')</field>-->
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="adhijachan_patra">
+
+        <t t-call="web.html_container">
+            <t t-call="btb_layout.external_layout_btb">
+                <style>
+                    .heading{
+                    padding-top:20px;
+                    padding-left:5px;
+                    padding-bottom:15px;
+                    font-size:.1.5rem;
+                    border-bottom:1px;
+                    border-left:1px;
+                    border-color:#E7E2E1;
+                    }
+
+                    .label{
+                    padding-top:5px;
+                    padding-left:5px;
+                    padding-bottom:5px;
+                    font-size:.8rem;
+                    border-top:1px;
+                    border-bottom:1px;
+                    border-left:1px;
+                    border-color:#E7E2E1;
+                    border-top-style:solid;
+                    border-bottom-style:solid;
+                    border-right-style:solid;
+                    border-left-style:solid;
+                    }
+                    .data{
+                    padding-top:3px;
+                    padding-left:5px;
+                    padding-bottom:3px;
+                    font-size:0.8rem;
+                    border-bottom:1px;
+                    border-left:1px;
+                    border-color:#E7E2E1;
+                    border-bottom-style:solid;
+                    border-right-style:solid;
+                    border-left-style:solid;
+                    }
+                    .bg-grey{
+                    background-color: #E7E2E1;
+                    }
+                    .txt-center{
+                    text-align: center;
+                    }
+                </style>
+
+                <div class="page">
+                    <t t-set="company" t-value="env.company"/>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-8 heading">
+                                Request ID:
+                                <t t-esc="doc.name"/>
+                            </div>
+                            <div class="col-4 heading">
+                                Date:
+                                <t t-esc="doc.date_order.strftime('%d-%B -%Y')"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 heading">
+                                Subject: Requisition
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 heading">
+                                Purpose:To supply the following product for
+                                <t t-esc="doc.purpose"/>
+                                is requested
+                            </div>
+                        </div>
+                        <div class="row heading">
+                        </div>
+                        <div class="row">
+                            <div class="col-1 label">
+                                Sl
+                            </div>
+                            <div class="col-9 label">
+                                Product
+                            </div>
+                            <div class="col-2 label">
+                                Requested Qty
+                            </div>
+                        </div>
+                        <t t-set="sl" t-value="0"/>
+                        <t t-foreach="doc.order_line" t-as="line">
+                            <t t-set="sl" t-value="sl+1"/>
+                            <div class="row">
+                                <div class="col-1 data">
+                                    <t t-esc="sl"/>
+                                </div>
+                                <div class="col-9 data">
+                                    <t t-esc="line.product_id.name"/>
+                                </div>
+                                <div class="col-2 data">
+                                    <t t-esc="line.product_uom_qty"/>
+                                    <t t-esc="line.product_uom.name"/>
+                                </div>
+                            </div>
+                        </t>
+                        <div class="row heading">
+                            <br/>
+                            <br/>
+                        </div>
+                        <div class="row ">
+                            <div class="col-6 heading">
+                                Requested By:
+                                <br/><t t-esc="doc.partner_id.name"/>
+                                <br/>
+                            </div>
+                            <div class="col-6 heading">
+                                Approved by
+                                <br/><t t-esc="doc.approved_by.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br/>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 heading">
+                                Date:<t t-esc="doc.date_order.strftime('%d-%B -%Y')"/>
+                            </div>
+                            <div class="col-6 heading">
+                                Date:<t t-if="doc.approved_on">
+                                        <t t-esc="doc.approved_on.strftime('%d-%B -%Y')"/>
+                                    </t>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 heading">
+                                Seal:
+                                <br/>
+                            </div>
+                            <div class="col-6 heading">
+                                Seal:
+                                <br/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 " style="border:1px solid black;padding:20px;">
+                                Sign and date of store Manager
+
+                            </div>
+                        <div class="col-6 " style="border:1px solid black;padding:20px;">
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 label">
+                                Supplied
+                            </div>
+                            <div class="col-6 label">
+                                Posted to Software
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

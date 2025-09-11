@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >
+        <record id="gender_male" model="pmis.gender">
+            <field name="name" >Male</field>
+        </record>
+        <record id="gender_female" model="pmis.gender">
+            <field name="name" >Female</field>
+            <field name="spouse_gender" ref="pmis.gender_male"/>
+        </record>
+        <record id="gender_male" model="pmis.gender">
+            <field name="spouse_gender" ref="pmis.gender_female"/>
+        </record>
+        <record id="marital_status_married" model="pmis.marital">
+            <field name="status" >Married</field>
+        </record>
+        <record id="marital_status_divorced" model="pmis.marital">
+            <field name="status" >Divorced</field>
+        </record>
+        <record id="marital_status_unmarried" model="pmis.marital">
+            <field name="status" >Unmarried</field>
+        </record>
+
+        <record id="religion_islam" model="pmis.religion">
+            <field name="name">Islam</field>
+            <field name="abv">Islam</field>
+        </record>
+        <record id="religion_hindu" model="pmis.religion">
+            <field name="name">Hindu</field>
+            <field name="abv">Hindu</field>
+        </record>
+        <record id="religion_christian" model="pmis.religion">
+            <field name="name">Christian</field>
+            <field name="abv">Chr</field>
+        </record>
+        <record id="religion_buddist" model="pmis.religion">
+            <field name="name">Buddist</field>
+            <field name="abv">Budd</field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

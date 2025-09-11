@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bhf" name="Pataint Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container" style="margin-top:20px; margin-bottom:20px">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-2">
+                                <h3>PMIS Information</h3>
+<!--                                <form role="form" action="/create/bhf/" method="post">-->
+                                    <form role="form" action="/create/bhf/" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+
+                                    <div class="form-group">
+<!--                                        <label for="pds_id_number" class="form-label">PDS ID</label>-->
+                                        <input type="text" id="pds_id_number" name="pds_id_number" placeholder="PDS ID" class="form-control" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+<!--                                        <label for="govt_id_number" class="form-label">GOVT ID</label>-->
+                                        <input type="text" id="govt_id_number" name="govt_id_number" placeholder="GOVT ID" class="form-control" required="required"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <input type="text" id="name" name="name" placeholder="Name English" class="form-control" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" id="name_bn" name="name_bn" placeholder="Name Bangla" class="form-control" required="required"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <input type="text" id="father_name" name="father_name" placeholder="Father Name" class="form-control" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" id="father_name_bn" name="father_name_bn" placeholder="Father Name Bangla" class="form-control" required="required"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <input type="text" id="mother_name" name="mother_name" placeholder="Mother Name" class="form-control" required="required"/>
+                                    </div>
+
+                                        <div class="form-group">
+                                            <input type="text" id="mother_name_bn" name="mother_name_bn" placeholder="Mother Name Bangla" class="form-control" required="required"/>
+                                        </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="email" class="control-label">Email</label>
+                                        <input type="text" name="email"  t-att-value="email" id="email" class="form-control" placeholder="Email Address"/>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="phone_number" class="form-label">Telefon</label>
+                                        <input type="tel" id="phone_number" name="phone_number" placeholder="Telefon" class="form-control"/>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="street" class="form-label">Straße</label>
+                                        <input type="text" id="street" name="street" placeholder="Straße" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="house_number" class="form-label">Nr.</label>
+                                        <input type="text" id="house_number" name="house_number" placeholder="Nr." class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postal_code" class="form-label">PLZ</label>
+                                        <input type="text" id="postal_code" name="postal_code" placeholder="PLZ" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city" class="form-label">Ort</label>
+                                        <input type="text" id="city" name="city" placeholder="Ort" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="country" class="form-label">Land</label>
+                                        <select id="country" name="country" class="form-select">
+                                            <option value="CH">Schweiz</option>
+                                            <option value="DE">Deutschland</option>
+                                            <option value="AT">Österreich</option>
+                                        </select>
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        <label>Identity Card Front* (JPG/PNG)</label>
+                                        <input type="file" name="identity_card_front" accept=".jpg,.jpeg,.png" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Identity Card Back* (JPG/PNG)</label>
+                                        <input type="file" name="identity_card_back" accept=".jpg,.jpeg,.png" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Commercial Register Extract* (PDF)</label>
+                                        <input type="file" name="commercial_register_extract" accept=".pdf" required="required"/>
+                                    </div>
+
+
+                                    <div class="clearfix">
+                                        <button type="submit" class="btn btn-primary pull-left">Submit</button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </t>
+    </template>
+
+    <!--<template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <style>
+                .oe_avatar img {
+                max-width: 100%;
+                max-height: 200px;
+                border: 1px solid #ddd;
+                padding: 5px;
+                margin-bottom: 10px;
+                }
+                .o_form_sheet_bg {
+                padding: 20px;
+                }
+            </style>
+        </xpath>
+    </template>-->
+
+
+
+
+
+
+
+</odoo>

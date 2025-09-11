@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ticket_welcome" name="Welcome">
+        <t t-call="website.layout">
+
+            <div class="container" style="margin-top:20px; margin-bottom:20px; min-height:240px;">
+                <h2>PMIS Form:
+                    <span t-esc="ticket_no"></span>
+                </h2>
+                <h4>Thank you so much for providing the above information</h4>
+<!--                Thank you so much for providing the above information-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="alert alert-success" role="status">
+                            <p>
+                                Ihr Formular wurde erfolgreich registriert. Wir werden uns in Kürze bei Ihnen melden.
+                                <table>
+                                    <tr><td>Application No</td><td>:</td><td t-esc="ticket_no"></td></tr>
+                                    <tr><td>UID Nummer</td><td>:</td><td t-esc="uid_number"></td></tr>
+                                    <tr><td>Firmenname</td><td>:</td><td t-esc="company_name"></td></tr>
+                                    <tr><td>Anrede</td><td>:</td><td t-esc="salutation"></td></tr>
+                                    <tr><td>Anrede</td><td>:</td><td t-esc="salutation"></td></tr>
+                                    <tr><td>Vorname</td><td>:</td><td t-esc="firstname"></td></tr>
+                                    <tr><td>Nachname</td><td>:</td><td t-esc="lastname"></td></tr>
+                                    <tr><td>Email</td><td>:</td><td t-esc="email"></td></tr>
+                                    <tr><td>Vorwahl</td><td>:</td><td t-esc="country_code"></td></tr>
+                                    <tr><td>Telefon</td><td>:</td><td t-esc="phone_number"></td></tr>
+                                    <tr><td>Straße</td><td>:</td><td t-esc="street"></td></tr>
+                                    <tr><td>Nr.</td><td>:</td><td t-esc="house_number"></td></tr>
+                                    <tr><td>PLZ</td><td>:</td><td t-esc="postal_code"></td></tr>
+                                    <tr><td>Ort</td><td>:</td><td t-esc="city"></td></tr>
+                                    <tr><td>Land</td><td>:</td><td t-esc="country"></td></tr>
+
+                                    <tr><td>Branche</td><td>:</td><td t-esc="industry"></td></tr>
+                                    <tr><td>Website</td><td>:</td><td t-esc="website_url"></td></tr>
+                                    <tr><td>Monatlicher Umsatz (geschätzt)</td><td>:</td><td t-esc="monthly_sales_estimated"></td></tr>
+                                    <tr><td>Jahresumsatz (geschätzt)</td><td>:</td><td t-esc="annual_revenue"></td></tr>
+                                    <tr><td>Durchschnittlicher Transaktionswert</td><td>:</td><td t-esc="average_transaction_value"></td></tr>
+                                    <tr><td>Transaktionen pro Monat (geschätzt)</td><td>:</td><td t-esc="monthly_transaction_value"></td></tr>
+                                    <tr><td>POS-/Kassensystem</td><td>:</td><td t-esc="pos_cash_register_system"></td></tr>
+                                    <tr><td>Online-Shop-System</td><td>:</td><td t-esc="online_shop_system"></td></tr>
+                                    <tr><td>Zahlungsmethoden</td><td>:</td><td t-esc="payment_method"></td></tr>
+
+                                    <t t-if="credit_card"><tr><td>Kreditkarte (Visa, Mastercard, Amex)</td></tr></t>
+                                    <t t-if="debit_card"><tr><td>Debitkarte (Maestro, V PAY)</td></tr></t>
+                                    <t t-if="twint"><tr><td>TWINT</td></tr></t>
+                                    <t t-if="apple_pay"><tr><td>Apple Pay</td></tr></t>
+                                    <t t-if="google_pay"><tr><td>Google Pay</td></tr></t>
+                                    <t t-if="samsung_pay"><tr><td>Samsung Pay</td></tr></t>
+                                    <t t-if="post_finance"><tr><td>PostFinance</td></tr></t>
+                                    <t t-if="purchase_on_account"><tr><td>Kauf auf Rechnung</td></tr></t>
+                                    <t t-if="prepayment"><tr><td>Vorauskasse</td></tr></t>
+                                    <t t-if="others"><tr><td>Sonstige</td></tr></t>
+                                    <t t-if="identity_card_front"><tr><td>Personalausweis – Vorderseite</td></tr></t>
+                                    <t t-if="identity_card_back"><tr><td>Personalausweis – Rückseite</td></tr></t>
+                                    <t t-if="commercial_register_extract"><tr><td>Handelsregisterauszug (PDF)</td></tr></t>
+
+                                    <tr><td>ঠিকানা</td><td>:</td><td t-esc="address"></td></tr>
+                                    <t t-if="other_problems"><tr><td>অন্য কোনো সমস্যা (যদি থাকে)</td></tr></t>
+
+                                </table>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

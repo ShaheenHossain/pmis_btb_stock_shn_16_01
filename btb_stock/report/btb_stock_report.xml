@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="btb_stock_report_form" model="ir.ui.view">
+        <field name="name">btb.stock.report</field>
+        <field name="model">btb.stock.report</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_ids" widget="many2many_tags" placeholder="Select product/Products.Keep blank for all products"/>
+                        <group>
+                            <field name="from_date" required="True"/>
+                            <field name="till_date" required="True"/>
+                        </group>
+                        <group>
+                            <field name="report_for"/>
+                        </group>
+<!--                        TODO here to add button to print the report-->
+<!--                        <button type="button" name="Print"/>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="btb_print_stock_report" model="ir.actions.report">
+        <field name="name">Stock Report</field>
+        <field name="model">btb.stock.report</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">btb_stock.stock_report</field>
+        <!--        <field name="report_file">hr.print_person_badge</field>-->
+        <!--        <field name="print_report_name">'Print Badge - %s' % (object.name).replace('/', '')</field>-->
+        <field name="binding_model_id" ref="model_btb_stock_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="stock_report">
+
+        <t t-call="web.html_container">
+            <t t-call="btb_layout.external_layout_btb">
+                <style>
+                    .label{
+                    padding-top:5px;
+                    padding-left:5px;
+                    padding-bottom:5px;
+                    font-size:.8rem;
+                    border-bottom:1px;
+                    border-left:1px;
+                    border-color:#E7E2E1;
+                    border-bottom-style:solid;
+                    border-right-style:solid;
+                    border-left-style:solid;
+                    }
+                    .data{
+                    padding-top:3px;
+                    padding-left:5px;
+                    padding-bottom:3px;
+                    font-size:0.8rem;
+                    border-bottom:1px;
+                    border-left:1px;
+                    border-color:#E7E2E1;
+                    border-bottom-style:solid;
+                    border-right-style:solid;
+                    border-left-style:solid;
+                    }
+                    .bg-grey{
+                    background-color: #E7E2E1;
+                    }
+                    .txt-center{
+                    text-align: center;
+                    }
+                </style>
+                <div class="page">
+                    <t t-set="company" t-value="env.company"/>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="row">
+                            <div class="col-10"></div>
+                            <div class="col-2" style="padding-bottom:5px;">
+                                Date:<t t-esc="datetime.date.today().strftime('%d-%B -%Y')"/>
+                            </div>
+
+                        </div>
+                        <t t-set="products" t-value="doc.get_products()"/>
+                        <t t-foreach="products" t-as="product">
+
+
+                            <div class="clearfix" style="page-break-inside: avoid;">
+
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-12 " style="background-color: #E7E2E1;" >
+                                            Product: <t t-esc="product.name"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                        <div class="col-1">
+                                        </div>
+                                        <div class="col-1 label">
+                                            Date
+                                        </div>
+                                        <div class="col-1 label">
+                                            Recieved
+                                        </div>
+                                        <div class="col-1 label">
+                                            Previous
+                                        </div>
+                                        <div class="col-1 label">
+                                            Distribute
+                                        </div>
+                                        <div class="col-1 label">
+                                            Remain
+                                        </div>
+                                        <div class="col-3 label">
+                                            Comment
+                                        </div>
+
+                                        <div class="col-1 label">
+                                            Number
+                                        </div>
+                                        <div class="col-2 label">
+                                            Req. Bv
+                                        </div>
+
+                                    </div>
+                                <t t-set="moves" t-value="doc.stock_move_history(product)"/>
+                                <t t-foreach="moves" t-as="move">
+                                    <t t-if="move_first">
+                                        <t t-set="opening_stock"
+                                           t-value="doc.get_opening_stock(move.product_id,move.date- datetime.timedelta(days=1))"/>
+
+                                    </t>
+                                    <t t-else="">
+                                        <t t-set="opening_stock" t-value="remind"/>
+                                    </t>
+                                    <t t-set="remind" t-value="0"/>
+                                    <t t-set="type" t-value="move.move_id.location_id.name"/>
+                                    <div class="row">
+                                        <div class="col-1">
+                                        </div>
+                                        <div class="col-1 data">
+                                            <t t-esc="move.date.strftime('%d/%m/%Y')" />
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+                                            <t t-if="type!='Stock'">
+                                                <t t-set="remind" t-value="opening_stock+move.qty_done"/>
+                                                <t t-esc="move.qty_done"/>
+                                            </t>
+                                            <t t-else="">
+                                                <t t-set="remind" t-value="opening_stock-move.qty_done"/>
+
+                                            </t>
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+                                            <t t-esc="opening_stock"/>
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+                                            <t t-if="type=='Stock'">
+                                                <t t-esc="move.qty_done"/>
+                                            </t>
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+                                            <t t-esc="remind"/>
+                                        </div>
+                                        <div class="col-3 data">
+                                            <t t-esc="doc.get_comment(move)"/>
+                                        </div>
+                                        <div class="col-1 label">
+                                           <t t-esc="move.origin"/>
+                                        </div>
+                                        <div class="col-2 label">
+                                            <t t-esc="move.env['sale.order'].search([('name','=',move.origin)]).partner_id.name"/>
+                                        </div>
+                                    </div>
+
+                                </t>
+
+                                <t t-if="len(moves)==0">
+                                    <t t-set="opening_stock"
+                                           t-value="doc.get_opening_stock(product,doc.till_date)"/>
+                                    <div class="row">
+                                        <div class="col-1">
+                                        </div>
+                                        <div class="col-2 data">
+                                            <t t-esc="doc.till_date.strftime('%d-%B -%Y')"/>
+                                        </div>
+                                        <div class="col-2 data" style="text-align:right;">
+
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+                                            <t t-esc="opening_stock"/>
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+
+                                        </div>
+                                        <div class="col-1 data" style="text-align:right;">
+                                            <t t-esc="opening_stock"/>
+                                        </div>
+                                        <div class="col-4 data">
+                                            No transaction in this Period
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="btb_stock_report_form_action" model="ir.actions.act_window">
+            <field name="name">stock.report.form.action</field>
+            <field name="res_model">btb.stock.report</field>
+            <field name="view_mode">form</field>
+<!--            <field name="context">{'from_my_profile': True}</field>-->
+
+        </record>
+
+
+</odoo>

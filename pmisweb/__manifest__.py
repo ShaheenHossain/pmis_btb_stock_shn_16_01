@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'Application Form',
+    'version': '17.0.1.0.0',
+    'summary': 'Application Form',
+    'sequence': -100,
+    'description': """Application Form""",
+    'category': 'Productivity',
+    'website': 'https://www.eagle-erp.com',
+    'license': 'LGPL-3',
+    'images': [],
+    'depends': ['sale', 'website', 'portal'],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/ir_rules.xml',
+        'data/menu.xml',
+        'report/report.xml',
+        'views/portal_templates.xml',
+        'views/bhf.xml',
+        'views/ticket.xml',
+        'views/ticket_tree.xml',
+    ],
+    'demo': [],
+    'qweb': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

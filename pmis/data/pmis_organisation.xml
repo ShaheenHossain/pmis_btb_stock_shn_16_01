@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <record id="organisation_tourism_board" model="res.partner">
+            <field name="name">TOURISM BOARD</field>
+        <field name="contact_type" ref='pmis.pmis_contact_type_posting'/>
+            <field name="state_id" ref='base.state_us_5'/>
+        </record>
+    <record id="organisation_dhaka_university" model="res.partner">
+            <field name="name">Dhaka University</field>
+        <field name="contact_type" ref='pmis.pmis_contact_type_education'/>
+            <field name="state_id" ref='base.state_bd_dhaka'/>
+        </record>
+
+
+
+    <record id="pmis.degree_ssc" model="pmis.degree">
+        <field name="degree">Secoundary School Certificate</field>
+        <field name="abv">SSC</field>
+    </record>
+    <record id="pmis.degree_hsc" model="pmis.degree">
+        <field name="degree">Higher Secoundary School Certificate</field>
+        <field name="abv">HSC</field>
+    </record>
+    <record id="pmis.degree_ba_honours" model="pmis.degree">
+        <field name="degree"> Bachelor of Arts (Honours)</field>
+        <field name="abv">BA (Hon)</field>
+    </record>
+    <record id="pmis.degree_bsc_honours" model="pmis.degree">
+        <field name="degree"> BSC Honours</field>
+        <field name="abv">BSC(Hon)</field>
+    </record>
+    <record id="pmis.degree_bsc_pass" model="pmis.degree">
+        <field name="degree"> Bachelor of Science (Pass)</field>
+        <field name="abv">BSC(Pass)</field>
+    </record>
+    <record id="pmis.degree_bba" model="pmis.degree">
+        <field name="degree"> Bachelor of Business Administration</field>
+        <field name="abv">BBA</field>
+    </record>
+    <record id="pmis.degree_mba" model="pmis.degree">
+        <field name="degree"> Master of Business Administration</field>
+        <field name="abv">MBA</field>
+    </record>
+    <record id="pmis.degree_mbbs" model="pmis.degree">
+        <field name="degree"> Bachelor of Medicine and Bachelor of Surgery</field>
+        <field name="abv">MBBS</field>
+    </record>
+
+
+
+</odoo>

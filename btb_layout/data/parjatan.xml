@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="base.main_company" model="res.company">
+            <field name="name" >Government of The People’s republic of Bangladesh</field>
+            <field name="street" >Ministry of Civil Aviation and Tourism </field>
+            <field name="street2" >Bangladesh Tourism Board</field>
+            <field name="city" >Agargaon</field>
+            <field name="state_id" ref="base.state_bd_dhaka"/>
+            <field name="logo" type="base64" file="btb_layout/static/src/img/bdgov.png"/>
+            <field name="logo2" type="base64" file="btb_layout/static/src/img/parjatan.png"/>
+        </record>
+    </data>
+</odoo>

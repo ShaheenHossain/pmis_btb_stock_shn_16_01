@@ -1,0 +1,210 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+      <record id="pmis_children_form" model="ir.ui.view">
+        <field name="name">pmis.children.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.children</field>
+        <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="dob"/>
+                        <field name="sex"/>
+                    </group>
+                </form>
+        </field>
+</record>
+      <record id="pmis_children_list" model="ir.ui.view">
+        <field name="name">pmis.children.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.children</field>
+        <field name="arch" type="xml">
+                <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="dob"/>
+                        <field name="sex"/>
+                </tree>
+        </field>
+</record>
+      <record id="pmis_training_form" model="ir.ui.view">
+        <field name="name">pmis.training.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.training</field>
+        <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+        </field>
+</record>
+      <record id="pmis_training_list" model="ir.ui.view">
+        <field name="name">pmis.training.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.training</field>
+        <field name="arch" type="xml">
+                <tree>
+                        <field name="name"/>
+                </tree>
+        </field>
+</record>
+      <record id="pmis_training_line_form" model="ir.ui.view">
+        <field name="name">pmis.training.line.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.training.line</field>
+        <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="training_id"/>
+                        <field name="partner_id"/>
+                        <field name="institution_id"/>
+                        <field name="country_id"/>
+                        <field name="category_id"/>
+                        <field name="position"/>
+                        <field name="from_date"/>
+                        <field name="till_date"/>
+                    </group>
+                </form>
+        </field>
+</record>
+      <record id="pmis_training_line_list" model="ir.ui.view">
+        <field name="name">pmis.training.line.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.training.line</field>
+        <field name="arch" type="xml">
+                <tree>
+                        <field name="training_id"/>
+                        <field name="partner_id"/>
+                        <field name="institution_id"/>
+                        <field name="country_id"/>
+                        <field name="category_id"/>
+                        <field name="position"/>
+                        <field name="from_date"/>
+                        <field name="till_date"/>
+                </tree>
+        </field>
+</record>
+ <record id="pmis_res_company_form_inherit" model="ir.ui.view">
+        <field name="name">pmis.res.company.form.inherit</field>
+      <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="priority" eval="1"/>
+        <field name="model">res.company</field>
+        <field name="arch" type="xml">
+            <field name="logo" position="before">
+                <field name="logo2" widget="image" class="oe_avatar"/>
+            </field>
+
+        </field>
+ </record>
+ <record id="pmis_promotion_Particulars_form" model="ir.ui.view">
+        <field name="name">pmis.promotion.particulars.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.promotion.particulars</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="rank_id"/>
+                            <field name="go_no"/>
+                            <field name="go_date"/>
+                            <field name="promotion_nature"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+ </record>
+
+ <record id="pmis_promotion_Particulars_list" model="ir.ui.view">
+        <field name="name">pmis.promotion.particulars.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.promotion.particulars</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="partner_id"/>
+                <field name="rank_id"/>
+                <field name="go_no"/>
+                <field name="go_date"/>
+                <field name="promotion_nature"/>
+            </tree>
+        </field>
+ </record>
+   <record id="pmis_foreign_travel_form" model="ir.ui.view">
+        <field name="name">pmis.travel.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.travel</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="country_id"/>
+                            <field name="purpose" />
+                            <field name="from_date"/>
+                            <field name="till_date"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<record id="action_pmis_training_line_action" model="ir.actions.act_window">
+        <field name="name">Training</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.training.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<record id="btb_person_action" model="ir.actions.act_window">
+        <field name="name">Person</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+<!--    Todo this may solve the problem to open a specific viw when clicked  on a record in tree view-->
+<!--        <field name="views">[(tree_view_id, ‘tree’), (form_view_id, ‘form’)]</field>-->
+<!--        <field name="form_view_id" ref="base.view_partner_form"/>-->
+
+     <field name="views">[('btb_res_partner_list', ‘tree’), ('btb_res_partner_form', ‘form’)]</field>
+        <field name="domain">[ ('contact_type', '=', 'Person')]</field>
+    <field name="context">{'default_contact_type': 2}</field>
+    </record>
+<record id="action_pmis_institute_action" model="ir.actions.act_window">
+        <field name="name">Educational Institute</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="pmis.pmis_res_partner_list"/>
+        <field name="domain">[ ('contact_type', '=', 'Educational Institute')]</field>
+        <field name="context">{'default_contact_type': 1}</field>
+<!--            <field name="context">{'journal_type':'bank'}</field>-->
+    </record>
+<record id="action_pmis_posting_action" model="ir.actions.act_window">
+        <field name="name">Posting/Office</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="pmis.pmis_res_partner_list"/>
+        <field name="domain">[ ('contact_type', '=', 'Office')]</field>
+        <field name="context">{'default_contact_type': 3}</field>
+<!--            <field name="context">{'journal_type':'bank'}</field>-->
+    </record>
+
+<record id="action_pmis_training_action" model="ir.actions.act_window">
+        <field name="name">Training</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.training</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<record id="action_pmis_promotion_particulars_action" model="ir.actions.act_window">
+        <field name="name">Promotion Particulars</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.promotion.particulars</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

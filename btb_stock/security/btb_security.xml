@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.module.category" id="module_category_btb_user">
+            <field name="name">BTB Stock</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="group_account_btb_stock_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="btb_stock.module_category_btb_user"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+        <record id="group_account_btb_stock_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="btb_stock.module_category_btb_user"/>
+            <field name="implied_ids" eval="[(4, ref('btb_stock.group_account_btb_stock_user'))]"/>
+        </record>
+        <record id="group_account_btb_stock_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="btb_stock.module_category_btb_user"/>
+            <field name="implied_ids" eval="[(4, ref('btb_stock.group_account_btb_stock_manager'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<record id="pmis_leave_form" model="ir.ui.view">
+        <field name="name">pmis.leave.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.leave</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!--<group>
+                        <group>
+                            <field name="name"/>
+                            <field name="name" context="{'lang': 'bn_IN'}"/>
+                            <field name="name_bn"/>
+                        </group>
+                        <group context="{'lang': 'bn_IN'}">
+                            <field name="name"/>
+
+                        </group>
+                    </group>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+  </data>
+</odoo>

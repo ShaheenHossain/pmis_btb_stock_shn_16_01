@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_bhf_attachment_rule" model="ir.rule">
+        <field name="name">CRM BHF Attachment Access</field>
+        <field name="model_id" ref="base.model_ir_attachment"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">
+            ['|',
+                ('res_model', '!=', 'crm.bhf'),
+                ('res_model', '=', 'crm.bhf')]
+        </field>
+    </record>
+</odoo>

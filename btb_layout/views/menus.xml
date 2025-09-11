@@ -1,0 +1,61 @@
+<odoo>
+  <menuitem id="pmis_menu_main"
+                  name="PMIS"
+                  web_icon="pmis,static/description/icon.png"
+        />
+    <menuitem id="pmis_menu_person_main"
+                  name="PMIS Contacts"
+                  parent="pmis_menu_main"
+                  sequence="0"
+                  groups="base.group_system"/>
+    <menuitem id="pmis_menu_person"
+                      name="Person"
+                      parent="pmis_menu_person_main"
+                      sequence="0"
+                      action="action_pmis_person_action"
+                      groups="base.group_system"/>
+    <!--<menuitem id="pmis_menu_promotion"
+                      name="Promotions_records"
+                      parent="pmis_menu_person_main"
+                      sequence="0"
+                      action="action_pmis_promotion_particulars_action"
+                      groups="base.group_system"/>-->
+    <menuitem id="pmis_menu_education"
+                      name="Educational Institute"
+                      parent="pmis_menu_person_main"
+                      sequence="0"
+                      action="action_pmis_institute_action"
+                      groups="base.group_system"/>
+    <menuitem id="pmis_menu_office"
+                      name="Offices"
+                      parent="pmis_menu_person_main"
+                      sequence="0"
+                      action="action_pmis_posting_action"
+                      groups="base.group_system"/>
+    <menuitem id="pmis_menu_training_main"
+                      name="Training"
+                      parent="pmis_menu_main"
+                      sequence="0"
+                      groups="base.group_system"/>
+    <menuitem id="pmis_menu_training_line"
+                      name="Training_line"
+                      parent="pmis_menu_training_main"
+                      sequence="0"
+              action="action_pmis_training_line_action"
+                      groups="base.group_system"/>
+  <menuitem id="pmis_menu_training"
+                      name="Training"
+                      parent="pmis_menu_training_main"
+                      sequence="0"
+              action="action_pmis_training_action"
+                      groups="base.group_system"/>
+
+
+
+
+<!--  hide menues for PMIS And BTB STOCK-->
+  <menuitem id="account.menu_action_move_out_invoice_type"
+    groups="base.group_no_one"
+  />
+
+</odoo>

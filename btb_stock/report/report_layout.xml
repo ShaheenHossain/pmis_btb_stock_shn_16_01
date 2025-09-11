@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="external_layout_btb">-->
+
+<!--        <div t-attf-class="o_company_#{company.id}_layout header" t-att-style="report_header_style">-->
+<!--            <div class="o_background_header">-->
+<!--                <div class="float-end">-->
+<!--                    <div class="mt0 text-end h3" t-field="company.report_header"/>-->
+<!--                </div>-->
+
+<!--                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="float-start" alt="Logo"/>-->
+<!--                <img t-if="company.logo2" t-att-src="image_data_uri(company.logo2)" class="float-end" alt="Logo"/>-->
+
+<!--                <div class=" company_address" style="text-align:center;">-->
+<!--                    <div style=" font-size: 1.6rem">-->
+<!--                        <h2 t-field="company.partner_id.name"/>-->
+<!--                    </div>-->
+<!--                    <h5 style=" font-size: 1.4rem;text-align:center;" >-->
+<!--                        <t t-if="company.partner_id.street">-->
+<!--                            <t t-esc="company.partner_id.street"/>-->
+<!--                            <br/>-->
+<!--                            <t t-if="company.partner_id.street2">-->
+<!--                            <t t-esc="company.partner_id.street2"/>-->
+<!--                        </t>-->
+<!--                        </t>-->
+<!--                    </h5>-->
+<!--                    <h6 style=" font-size: 1.4rem;text-align:center;" >-->
+<!--                        <t t-if="company.partner_id.street2">-->
+<!--                            <t t-esc="company.partner_id.street2"/>-->
+<!--                        </t>-->
+
+<!--                    </h6>-->
+<!--                </div>-->
+<!--                <div class="clearfix mb8"/>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-1">-->
+
+<!--                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height:10rem;" alt="Logo"/>-->
+<!--                </div>-->
+<!--                <div class="col-10" style="text-align:center;">-->
+<!--                    <h1 t-field="company.partner_id.name"/>-->
+<!--                    <h3 t-field="company.partner_id.street"/>-->
+<!--                    <h3 t-field="company.partner_id.street2"/>-->
+<!--                </div>-->
+<!--                <div class="col-1">-->
+
+<!--                    <img t-if="company.logo2" t-att-src="image_data_uri(company.logo2)" class="float-end" alt="Logo"/>-->
+<!--                </div>-->
+<!--                <div class=" company_address" style="text-align:center;">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-2">-->
+
+<!--                            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="float-start" alt="Logo"/>-->
+<!--                        </div>-->
+<!--                        <div class="col-7">-->
+<!--                            <div style=" font-size: 2.4rem; padding-top:10px;padding-bottom:10px;" >-->
+<!--                                <div t-field="company.partner_id.name"/>-->
+<!--                                <div style=" font-size: 2.1rem;text-align:center; padding-top:10px;padding-bottom:10px;" >-->
+<!--                                    <t t-if="company.partner_id.street">-->
+<!--                                        <t t-esc="company.partner_id.street"/>-->
+<!--                                    </t>-->
+<!--                                </div>-->
+<!--                                <div style=" font-size: 2rem;text-align:center;" >-->
+
+<!--                                    <t t-if="company.partner_id.street2">-->
+<!--                                        <t t-esc="company.partner_id.street2"/>-->
+<!--                                    </t>-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            <img t-if="company.logo2" t-att-src="image_data_uri(company.logo2)" class="float-end" alt="Logo"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--                <div class="clearfix mb8"/>-->
+<!--            </div>-->
+
+<!--        </div>-->
+
+<!--        <div t-attf-class="o_company_#{company.id}_layout article o_report_layout_khan"-->
+<!--             t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"-->
+<!--             t-att-data-oe-lang="o and o.env.context.get('lang')">-->
+<!--            <t t-call="web.address_layout"/>-->
+<!--            <t t-raw="0"/>-->
+<!--        </div>-->
+
+<!--        <div t-attf-class="o_company_#{company.id}_layout footer o_khan_footer">-->
+<!--            <div class="text-center">-->
+<!--                <ul class="list-inline">-->
+<!--                    <li t-if="company.phone" class="list-inline-item">-->
+<!--                        <i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/>-->
+<!--                        <span class="o_force_ltr" t-field="company.phone"/>-->
+<!--                    </li>-->
+<!--                    <li t-if="company.email" class="list-inline-item">-->
+<!--                        <i class="fa fa-at" role="img" aria-label="Email" title="Email"/>-->
+<!--                        <span t-field="company.email"/>-->
+<!--                    </li>-->
+<!--                    <li t-if="company.website" class="list-inline-item">-->
+<!--                        <i class="fa fa-globe" role="img" aria-label="Website" title="Website"/>-->
+<!--                        <span t-field="company.website"/>-->
+<!--                    </li>-->
+<!--                    <li t-if="company.vat" class="list-inline-item">-->
+<!--                        <i class="fa fa-building-o" role="img" aria-label="Fiscal number"/>-->
+<!--                        <t t-esc="company.country_id.vat_label or 'Tax ID'"/>:-->
+<!--                        <span t-field="company.vat"/>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <div t-if="report_type == 'pdf'" class="text-muted">-->
+<!--                    Page:-->
+<!--                    <span class="page"/>-->
+<!--                    of-->
+<!--                    <span class="topage"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </template>-->
+</odoo>

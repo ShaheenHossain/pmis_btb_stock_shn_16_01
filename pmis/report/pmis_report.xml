@@ -1,0 +1,2433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="pmis_report">
+        <t t-call="web.basic_layout">
+            <style>
+                .pmis_group_head {
+                width:100%;
+                padding-top:5px;
+                background-color: #A3A3A3
+                }
+                .pmis_group_data {
+                width:100%;
+                padding-top:5px;
+                padding-bottom:5px;
+                text-align:left;
+                background-color: #E7E2E1
+                }
+            </style>
+            <div class="page">
+                <t t-foreach="docs" t-as="person">
+                    <t t-set="company" t-value="env.company"/>
+
+                    <div class="clearfix">
+                        <div class="row">
+
+                            <div id="header" class="col-10 " style=" text-align:center; ">
+                                <h2>
+                                    <t t-esc="company.name"/>
+                                </h2>
+                                <h6>
+                                    PUBLIC ADMINISTRATION COMPUTER CENTRE
+                                </h6>
+                                <h6>(PACC)</h6>
+                                <h6>SHORT PDS OF OFFICER</h6>
+                            </div>
+                            <div id="photo" class="col-2  text-center">
+                                <div widget="image" t-field="person.avatar_128" t-options="{'widget': 'image'}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container" style="padding:5px;">
+                        <div class="row" style="width:100%;">
+                            <div class="col" style="width:50%;  padding-left:10px;">
+                                <div class="row" style="text-align:center;">
+                                    <div class="col pmis_group_data" style="width:25%">
+                                        Name :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:75%">
+                                        <t t-esc="person.name"/>
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:25%">
+                                        Name(BN) :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:75%">
+                                        <t t-esc="person.name_bn"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" id="general_information_div">
+                            <div class="col " style="width:100%">
+                                <div class="row pmis_group_head" id="general_information_banner">
+                                    <h6 style="text-align: center;">General Information</h6>
+                                </div>
+                                <div class="row" id="general_information_header" style="width:100%;">
+                                    <div class="col" id="general_information_right"
+                                         style="width:50%;  padding-left:10px;">
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Father's Name :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.father_name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Date of Birth:
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.dob"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Rank :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <!--                                                <t t-esc="person.cur_rank.name"/>-->
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Designation :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <!--                                                <t t-esc="person.cur_designation.name"/>-->
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Order Date :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-if="person.go_date">
+                                                    <t t-esc="person.go_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Cadre :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.bcs_cadre.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Batch :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.bcs_id.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Gender :
+                                            </div>
+                                            <div class="col" style="width:70%">
+                                                <t t-esc="person.gender.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data " style="width:30%">
+                                                Freedom Fighter :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.freedom_fighter"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Mobile :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.mobile"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col" id="general_information_right"
+                                         style="width:50%;  padding-left:10px;">
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                Mother's Name :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-esc="person.mother_name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col pmis_group_data" style="width:30%">
+                                                LPR/PRL Date :
+                                            </div>
+                                            <div class="col pmis_group_data" style="width:70%">
+                                                <t t-if="person.prl_date">
+                                                    <t t-esc="person.prl_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                Home District :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <t t-esc="person.home_district.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                Organisation :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <!--                                                <t t-esc="person.cur_organisation.name"/>-->
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                Join Date :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <!--                                                <t t-esc="person.cur_joining_date"/>-->
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                Cadre Date :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <t t-if="person.cadre_date">
+                                                    <t t-esc="person.cadre_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                Confirmation GO Date :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <t t-if="person.go_date">
+                                                    <t t-esc="person.go_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                Religion :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <t t-esc="person.religion.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                NID :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <t t-if="person.nid_no">
+                                                    <t t-esc="person.nid_no"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align:center;">
+                                            <div class="col" style="width:25%">
+                                                email :
+                                            </div>
+                                            <div class="col" style="width:75%">
+                                                <t t-esc="person.email"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pmis_group_head" style="width:100%; ">
+                            <h6 style="text-align: center;">Spouse Information</h6>
+                        </div>
+                        <div class="row" id="spouse_information" style="width:100%;">
+                            <div class="col " id="spouse_information_left" style="width:34%;  padding-left:10px;">
+                                <div class="row" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:25%">
+                                        Spouse's Name :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:75%">
+                                        <t t-if="person.spouse">
+
+                                            <t t-esc="person.spouse.name"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="spouse_information_center" style="width:33%;  padding-left:10px;">
+                                <div class="row" style="text-align:center;">
+                                    <div class="col pmis_group_data" style="width:25%">
+                                        Occupation :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:75%">
+                                        <t t-esc="person.spouse.occupation"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="spouse_information_right" style="width:33%;  padding-left:10px;">
+                                <div class="row" style="text-align:center;">
+                                    <div class="col pmis_group_data" style="width:25%">
+                                        Designation :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:75%">
+                                        <!--<t t-if="person.spouse.cur_designation">
+                                            <t t-esc="person.spouse.cur_designation"/>
+                                        </t>-->
+                                        <t t-else="">
+                                            Not Applicable
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="address" style="width:100%;">
+                            <div class="col" id="address_left" style="width:50%;  padding-left:10px;">
+                                <div class="row pmis_group_head" id="present_address">
+                                    <h6 style="text-align: center;">Present Address</h6>
+
+                                </div>
+                                <div class="row" id="present_village" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:30%;  padding-left:10px;">
+                                        Village/House No :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:70%;  padding-left:10px;">
+                                        <t t-esc="person.street"/>
+                                    </div>
+                                </div>
+                                <div class="row" id="present_post_office" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:27%;  padding-left:10px;">
+                                        Post Office :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.street2"/>
+                                    </div>
+                                </div>
+                                <div class="row" id="present_thana" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:27%;  padding-left:10px;">
+                                        Police Station :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.city"/>
+                                    </div>
+                                </div>
+                                <div class="row pmis_group_data" id="present_district" style="text-align:center;">
+                                    <div class="col" style="width:27%;  padding-left:10px;">
+                                        District :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.state_id.name"/>
+                                    </div>
+                                </div>
+                                <div class="row pmis_group_data" id="present_country" style="text-align:center;">
+                                    <div class="col" style="width:27%;  padding-left:10px;">
+                                        Country :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.country_id.name"/>
+                                    </div>
+                                </div>
+                                <div class="row" id="present_phone" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:27%;  padding-left:10px;">
+                                        Phone :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.phone"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col" id="address_right" style="width:50%;  padding-left:10px;">
+                                <div class="row pmis_group_head" id="permanent_address">
+                                    <h6 style="text-align: center;">Permanent Address</h6>
+
+                                </div>
+                                <div class="row" id="permanent_village" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:30%;  padding-left:10px;">
+                                        Village/House No :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:70%;  padding-left:10px;">
+                                        <t t-esc="person.per_street"/>
+                                    </div>
+                                </div>
+                                <div class="row" id="permanent_post_office" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:27%;  padding-left:10px;">
+                                        Post Office :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.per_post"/>
+                                    </div>
+                                </div>
+                                <div class="row" id="permanent_thana" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:27%;  padding-left:10px;">
+                                        Police Station :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.per_thana"/>
+                                    </div>
+                                </div>
+                                <div class="row pmis_group_data" id="permanent_district" style="text-align:center;">
+                                    <div class="col" style="width:27%;  padding-left:10px;">
+                                        District :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.per_district.name"/>
+                                    </div>
+                                </div>
+                                <div class="row pmis_group_data" id="permanent_country" style="text-align:center;">
+                                    <div class="col" style="width:27%;  padding-left:10px;">
+                                        Country :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.per_country.name"/>
+                                    </div>
+                                </div>
+                                <div class="row" id="permanent_phone" style="text-align:center; ">
+                                    <div class="col pmis_group_data" style="width:27%;  padding-left:10px;">
+                                        Phone :
+                                    </div>
+                                    <div class="col pmis_group_data" style="width:73%;  padding-left:10px;">
+                                        <t t-esc="person.per_phone"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row pmis_group_head" id="children_information" style="width:100%; ">
+                            <h6 style="text-align: center;">Children Information</h6>
+                        </div>
+                        <div class="row" id="children_information_heading" style="width:100%;">
+                            <div class="col pmis_group_data" id="child_name" style="width:34%; padding-left:10px; ">
+                                Name
+                            </div>
+                            <div class="col pmis_group_data" id="child_dob" style="width:33%; padding-left:10px; ">
+                                Date of Birth
+                            </div>
+                            <div class="col pmis_group_data" id="child_gender" style="width:33%; padding-left:10px; ">
+                                Sex
+                            </div>
+                            <t t-foreach="person.children_ids" t-as="child">
+                                <div class="col pmis_group_data" id="child_name" style="width:34%; padding-left:10px; ">
+                                    <t t-esc="child.name"/>
+                                </div>
+                                <div class="col pmis_group_data" id="child_dob" style="width:33%; padding-left:10px; ">
+                                    <t t-if="child.dob">
+                                        <t t-esc="child.dob.strftime('%d-%b-%Y')"/>
+                                    </t>
+                                </div>
+                                <div class="col pmis_group_data" id="child_gender"
+                                     style="width:33%; padding-left:10px; ">
+                                    <t t-esc="child.sex"/>
+                                </div>
+
+                            </t>
+                        </div>
+                        <div class="row pmis_group_head" id="language_information" style="width:100%;">
+                            <h6 style="text-align: center;">Language Proficiecy</h6>
+                        </div>
+                        <div class="row" id="language_information_heading" style="width:100%;">
+                            <div class="col pmis_group_data" id="language_name_head"
+                                 style="width:40%; padding-left:10px; ">
+                                Language
+                            </div>
+                            <div class="col pmis_group_data" id="language_read_head"
+                                 style="width:20%; padding-left:10px; ">
+                                Read
+                            </div>
+                            <div class="col pmis_group_data" id="language_write_head"
+                                 style="width:20%; padding-left:10px; ">
+                                Write
+                            </div>
+                            <div class="col pmis_group_data" id="language_speak_head"
+                                 style="width:20%; padding-left:10px; ">
+                                Speak
+                            </div>
+                        </div>
+                        <t t-foreach="person.language_proficiency" t-as="lng">
+                            <div class="row" id="language_information_data" style="width:100%;">
+                                <div class="col pmis_group_data" id="language_name"
+                                     style="width:40%; padding-left:10px; ">
+                                    <t t-esc="lng.name.name"/>
+                                </div>
+                                <div class="col pmis_group_data" id="language_read"
+                                     style="width:20%; padding-left:10px; ">
+                                    <t t-if="lng.can_read">
+                                        Yes
+                                    </t>
+                                </div>
+                                <div class="col pmis_group_data" id="language_write"
+                                     style="width:20%; padding-left:10px; ">
+                                    <t t-esc="lng.can_write"/>
+                                </div>
+                                <div class="col pmis_group_data" id="language_speak"
+                                     style="width:20%; padding-left:10px; ">
+                                    <t t-esc="lng.can_speak"/>
+                                </div>
+                            </div>
+                        </t>
+
+                        <div class="row" id="educational_qualification_banner"
+                             style="width:100%; background-color: #CDCDCD;">
+                            <h6 style="text-align: center;">Educational Qualification</h6>
+                        </div>
+                        <div class="row" id="educational_qualification_header" style="width:100%;">
+                            <div class="col" style="width:25%;" id="institute_header">Name of Institute</div>
+                            <div class="col" style="width:15%;" id="subject_header">Principal Subject</div>
+                            <div class="col" style="width:15%;" id="degree_header">Digree</div>
+                            <div class="col" style="width:15%;" id="passing_year_header">Passing Year</div>
+                            <div class="col" style="width:10%;" id="result_header">Result</div>
+                            <div class="col" style="width:10%;" id="gpa_header">GPA/CGPA</div>
+                            <div class="col" style="width:10%;" id="distinction_header">Distinction</div>
+                        </div>
+                        <t t-foreach="person.education_records" t-as="educ">
+                            <div class="row" id="educational_qualification" style="width:100%;">
+                                <div class="col" style="width:25%;" id="institute">
+                                    <t t-esc="educ.institute_id.name"/>
+                                </div>
+                                <div class="col" style="width:15%;" id="subject">
+                                    <t t-esc="educ.subject_id.name"/>
+                                </div>
+                                <div class="col" style="width:15%;" id="degree">
+                                    <t t-esc="educ.degree.name"/>
+                                </div>
+                                <div class="col" style="width:15%;" id="passing_year">
+                                    <t t-esc="educ.passing_year"/>
+                                </div>
+                                <div class="col" style="width:10%;" id="result">
+                                    <t t-esc="educ.result_id.name"/>
+                                </div>
+                                <div class="col" style="width:10%;" id="gpa">
+                                    <t t-esc="educ.gpa"/>
+                                </div>
+                                <div class="col" style="width:10%;" id="distinction">
+                                    <t t-esc="educ.distinction"/>
+                                </div>
+                            </div>
+                        </t>
+                        <div class="row" id="trining_info_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="training_info_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Training Information</h6>
+                                </div>
+                                <div class="row" id="training_info_header" style="width:100%;">
+                                    <div class="col" style="width:40%;" id="course_header">Course Title</div>
+                                    <div class="col" style="width:20%;" id="institute_header">Name of Institute</div>
+                                    <div class="col" style="width:10%;" id="position_header">Type</div>
+                                    <div class="col" style="width:10%;" id="from_date_header">From</div>
+                                    <div class="col" style="width:10%;" id="till_date_header">To</div>
+                                    <div class="col" style="width:10%;" id="duration_header">Duration</div>
+                                </div>
+                                <t t-foreach="person.training_records" t-as="trng">
+                                    <div class="row" id="local_training_mandatory" style="width:100%;">
+                                        <div class="col" style="width:40%;" id="course">
+                                            <t t-esc="trng.training_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:20%;" id="institute">
+                                            <t t-esc="trng.institution_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="position">
+                                            <span t-field="trng.category_id"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="from_date">
+                                            <t t-if="trng.from_date">
+                                                <t t-esc="trng.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+
+                                        </div>
+                                        <div class="col" style="width:10%;" id="till_date">
+                                            <t t-if="trng.till_date">
+                                                <t t-esc="trng.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="duration">
+                                            <t t-esc="trng.duration"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <!--<div class="row" id="local_trining_mandatory_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="local_training_mandatory_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Local Training (Mandatory)</h6>
+                                </div>
+                                <div class="row" id="local_training_mandatory_header" style="width:100%;">
+                                    <div class="col" style="width:40%;" id="course_header">Course Title</div>
+                                    <div class="col" style="width:20%;" id="institute_header">Name of Institute</div>
+                                    <div class="col" style="width:10%;" id="position_header">Position</div>
+                                    <div class="col" style="width:10%;" id="from_date_header">From</div>
+                                    <div class="col" style="width:10%;" id="till_date_header">To</div>
+                                    <div class="col" style="width:10%;" id="duration_header">Duration</div>
+                                </div>
+                                <t t-foreach="person.local_training_mandatory()" t-as="ltm">
+                                    <div class="row" id="local_training_mandatory" style="width:100%;">
+                                        <div class="col" style="width:40%;" id="course">
+                                            <t t-esc="ltm.training_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:20%;" id="institute">
+                                            <t t-esc="ltm.institution_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="position">
+                                            <t t-esc="ltm.position"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="from_date">
+                                            <t t-if="ltm.from_date">
+                                                <t t-esc="ltm.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+
+                                        </div>
+                                        <div class="col" style="width:10%;" id="till_date">
+                                            <t t-if="ltm.till_date">
+                                                <t t-esc="ltm.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="duration">
+                                            <t t-esc="ltm.duration"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" id="local_trining_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="local_training_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Local Training</h6>
+                                </div>
+                                <div class="row" id="local_training_header" style="width:100%;">
+                                    <div class="col" style="width:40%;" id="course_header">Course Title</div>
+                                    <div class="col" style="width:20%;" id="institute_header">Name of Institute</div>
+                                    <div class="col" style="width:10%;" id="position_header">Position</div>
+                                    <div class="col" style="width:10%;" id="from_date_header">From</div>
+                                    <div class="col" style="width:10%;" id="till_date_header">To</div>
+                                    <div class="col" style="width:10%;" id="duration_header">Duration</div>
+                                </div>
+                                <t t-foreach="person.local_trainings()" t-as="lt">
+                                    <div class="row" id="local_trainingsdata" style="width:100%;">
+                                        <div class="col" style="width:40%;" id="course">
+                                            <t t-esc="lt.training_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:20%;" id="institute">
+                                            <t t-esc="lt.institution_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="position">
+                                            <t t-esc="lt.position"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="from_date">
+                                            <t t-if="lt.from_date">
+
+                                                <t t-esc="lt.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="till_date">
+                                            <t t-if="lt.till_date">
+                                                <t t-esc="lt.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="duration">
+                                            <t t-esc="lt.duration"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" id="foreign_trining_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="foreign_training_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Foreign Training</h6>
+                                </div>
+                                <div class="row" id="foreign_training_header" style="width:100%;">
+
+                                    <div class="col" style="width:25%;" id="course">Course Title</div>
+                                    <div class="col" style="width:20%;" id="institute">Name of Institute</div>
+                                    <div class="col" style="width:10%;" id="position">Position</div>
+                                    <div class="col" style="width:10%;" id="from_date">From</div>
+                                    <div class="col" style="width:10%;" id="till_date">To</div>
+                                    <div class="col" style="width:10%;" id="duration">Duration</div>
+
+                                </div>
+                                &lt;!&ndash;                                TODO customise for foriegn training below&ndash;&gt;
+                                <t t-foreach="person.foreign_trainings()" t-as="ft">
+                                    <div class="row" id="local_training_mandatory" style="width:100%;">
+                                        <div class="col" style="width:25%;" id="course">
+                                            <t t-esc="ft.training_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:20%;" id="institute">
+                                            <t t-esc="ft.institution_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="position">
+                                            <t t-esc="ft.position"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="from_date">
+                                            <t t-if="ft.from_date">
+                                                <t t-esc="ft.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="till_date">
+                                            <t t-if="ft.till_date">
+                                                <t t-esc="ft.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="duration">
+                                            <t t-esc="ft.duration"/>
+                                        </div>
+
+                                    </div>
+                                </t>
+                            </div>
+                        </div>-->
+                        <div class="row" id="foreign_travel_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="foreign_training_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Foreign travel</h6>
+                                </div>
+                                <div class="row" id="foreign_travel_header" style="width:100%;">
+                                    <div class="col" style="width:10%;" id="travel_country_header">country</div>
+                                    <div class="col" style="width:45%;" id="travel_purpose_header">Purpose</div>
+                                    <div class="col" style="width:15%;" id="from_date_header">From</div>
+                                    <div class="col" style="width:15%;" id="till_date_header">To</div>
+                                    <div class="col" style="width:15%;" id="duration_header">Duration</div>
+                                </div>
+                                <t t-foreach="person.travel_ids" t-as="trvl">
+                                    <div class="row" id="travel_records" style="width:100%;">
+                                        <div class="col" style="width:10%;" id="travel_country">
+                                            <t t-esc="trvl.country_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:45%;" id="travel_purpose">
+                                            <t t-esc="trvl.purpose"/>
+                                        </div>
+                                        <div class="col" style="width:15%;" id="travel_from_date">
+                                            <t t-if="trvl.from_date">
+                                                <t t-esc="trvl.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:15%;" id="travel_till_date">
+                                            <t t-if="trvl.till_date">
+
+                                                <t t-esc="trvl.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+
+                                        </div>
+                                        <div class="col" style="width:15%;" id="travel_duration">
+                                            <t t-esc="trvl.duration"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" id="foreign_posting_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="foreign_posting_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Posting Abroad</h6>
+                                </div>
+                                <div class="row" id="foreign_posting_header" style="width:100%;">
+                                    <div class="col" style="width:25%;" id="course_header">Post</div>
+                                    <div class="col" style="width:20%;" id="institute_header">Organisation</div>
+                                    <div class="col" style="width:10%;" id="position_header">Country</div>
+                                    <div class="col" style="width:10%;" id="from_date_header">From</div>
+                                    <div class="col" style="width:10%;" id="till_date_header">To</div>
+                                    <div class="col" style="width:10%;" id="duration_header">Duration</div>
+                                </div>
+                                <t t-foreach="person.posting_abroad()" t-as="fp">
+                                    <div class="row" id="foreign_posting_data" style="width:100%;">
+                                        <div class="col" style="width:25%;" id="post">
+                                            <t t-esc="fp.designation.name"/>
+                                        </div>
+                                        <div class="col" style="width:20%;" id="institute">
+                                            <t t-esc="fp.organisation.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="position">
+                                            <t t-esc="fp.country_id.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="from_date">
+                                            <t t-if="fp.joining_date">
+                                                <t t-esc="fp.joining_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="till_date">
+                                            <t t-esc="fp.till_date">
+                                                <t t-esc="fp.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="duration">
+                                            <t t-esc="fp.duration"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" id="additional_qualification_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="addl_qualification_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Additional Professional Qualification</h6>
+                                </div>
+                                <div class="row" id="addl_qualification_header" style="width:100%;">
+                                    <div class="col" style="width:100%;text-align:center;"
+                                         id="addl_qualification_header">Qualification
+                                    </div>
+                                </div>
+                                <t t-foreach="person.addl_qualification" t-as="aq">
+                                    <div class="row" id="addl_qualification_data" style="width:100%;">
+                                        <div class="col" style="width:100%; text-align:center" id="qualification">
+                                            <t t-esc="aq.name"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" id="publication_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="publication_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">publications</h6>
+                                </div>
+                                <div class="row" id="publication_header" style="width:100%;">
+                                    <div class="col" style="width:15%;text-align:center;" id="publication_type_header">
+                                        Type
+                                    </div>
+                                    <div class="col" style="width:70%;text-align:center;"
+                                         id="publication_description_header">Description
+                                    </div>
+                                    <div class="col" style="width:15%;text-align:center;" id="publication_date_header">
+                                        Date
+                                    </div>
+                                </div>
+                                <t t-foreach="person.publication_ids" t-as="pub">
+                                    <div class="row" id="addl_qualification_data" style="width:100%;">
+                                        <div class="col" style="width:15%; text-align:center"
+                                             id="publication_type_data">
+                                            <t t-esc="pub.publication_type"/>
+                                        </div>
+                                        <div class="col" style="width:70%; text-align:center"
+                                             id="publication_description_data">
+                                            <t t-esc="pub.description"/>
+                                        </div>
+                                        <div class="col" style="width:15%; text-align:center"
+                                             id="publication_date_data">
+                                            <t t-if="pub.publish_date">
+                                                <t t-esc="pub.publish_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" id="local_posting_div">
+                            <div class="col" style="width:100%">
+                                <div class="row" id="local_posting_banner"
+                                     style="width:100%; background-color: #CDCDCD;">
+                                    <h6 style="text-align: center;">Posting Records</h6>
+                                </div>
+                                <div class="row" id="Local_posting_header" style="width:100%;">
+                                    <div class="col" style="width:25%;" id="course_header">Designation</div>
+                                    <div class="col" style="width:20%;" id="institute_header">Organisation</div>
+                                    <div class="col" style="width:10%;" id="position_header">Location</div>
+                                    <div class="col" style="width:10%;" id="from_date_header">From</div>
+                                    <div class="col" style="width:10%;" id="till_date_header">To</div>
+                                    <div class="col" style="width:10%;" id="duration_header">Pay Scae</div>
+                                </div>
+                                <t t-foreach="person.local_posting()" t-as="lp">
+                                    <div class="row" id="local_posting_data" style="width:100%;">
+                                        <div class="col" style="width:25%;" id="post">
+                                            <t t-esc="lp.designation.name"/>
+                                        </div>
+                                        <div class="col" style="width:20%;" id="institute">
+                                            <t t-esc="lp.organisation.name"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="position">
+                                            <t t-esc="lp.location"/>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="from_date">
+                                            <t t-esc="lp.joining_date">
+                                                <t t-esc="lp.joining_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="till_date">
+                                            <t t-if="lp.till_date">
+                                                <t t-esc="lp.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col" style="width:10%;" id="duration">
+                                            <t t-esc="lp.pay_scale"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </div>
+
+        </t>
+    </template>
+
+    <template id="pmis_name_in_report">
+
+        <div class="row">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-2 label">
+                        Job/PDS Id
+                    </div>
+                    <div class="col-4 data">
+                        <t t-esc="person.pds_id"/>
+                    </div>
+                    <div class="col-4 ">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 label">
+                        Name
+                    </div>
+                    <div class="col-4 data">
+                        <t t-esc="person.name"/>
+                    </div>
+                    <div class="col-6 data">
+                        <t t-esc="person.name_bn"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 label">
+                        Father's Name
+                    </div>
+                    <div class="col-4 data">
+                        <t t-esc="person.father_name"/>
+                    </div>
+                    <div class="col-6 data">
+                        <t t-esc="person.father_name_bn"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 label">
+                        Mother's Name
+                    </div>
+                    <div class="col-4 data">
+                        <t t-esc="person.mother_name"/>
+                    </div>
+                    <div class="col-6 data">
+                        <t t-esc="person.mother_name_bn"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 label">
+                        Date of Birth
+                    </div>
+                    <div class="col-4 data">
+                        <t t-if="person.dob">
+                            <t t-esc="person.dob.strftime('%d-%b-%Y')"/>
+                        </t>
+                    </div>
+                    <div class="col-6 data" style="font-size:.9rem;">
+                        <t t-if="person.dob">
+                            <t t-esc="person.dob_in_words.capitalize()"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div id="photo" class="col-2 float text-center">
+                <div widget="image" t-field="person.avatar_128"
+                     t-options="{'widget': 'image'}"/>
+            </div>
+        </div>
+    </template>
+
+    <template id="pmis_personal_data_in_report">
+        <div class="row">
+            <div class="col-2 label">
+                Religion:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.religion.name"/>
+            </div>
+            <div class="col-2 label">
+                Sex
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.gender.name"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 label">
+                Nationality:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.nationality_id.name"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 label">
+                NID:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.nid_no"/>
+            </div>
+            <div class="col-2 label">
+                TIN
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.tin_no"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 label">
+                Contact:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.mobile"/>
+            </div>
+            <div class="col-2 label">
+                email
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.email"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 label">
+                Passport No:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.passport_no"/>
+            </div>
+            <div class="col-2 label">
+                Expiration
+            </div>
+            <div class="col-4 data">
+                <t t-if="person.pssprt_exp_date">
+                    <t t-esc="person.pssprt_exp_date.strftime('%d-%b-%Y')"/>
+                </t>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 label">
+                Driving Licence No:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.driving_lcn_no"/>
+            </div>
+            <div class="col-2 label">
+                Expiration
+            </div>
+            <div class="col-4 data">
+                <t t-if="person.driving_lcn_exp_dt">
+
+                    <span t-esc="person.driving_lcn_exp_dt.strftime('%d-%b-%Y')"/>
+                </t>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 label">
+                Blood Group:
+            </div>
+            <div class="col-4 data">
+                <t t-esc="person.blood_group"/>
+            </div>
+            <div class="col-2 label">
+                Marital Status
+            </div>
+            <div class="col-4 data">
+                <span t-field="person.marital_status"/>
+            </div>
+        </div>
+
+    </template>
+
+    <template id="pmis_address_in_report">
+        <div class="row">
+            <div class="col-2 label">Home District:</div>
+            <div class="col-4 data">
+                <t t-esc="person.home_district.name"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2  label">
+                Permanent Addresss:
+            </div>
+            <div class="col-4 data">
+                <div class="row">
+                    <t t-esc="person.per_street"/>
+                </div>
+                <div class="row">
+                    <t t-esc="person.per_post"/>
+                </div>
+                <div class="row">
+                    <t t-esc="person.per_thana"/>,
+                    <t t-esc="person.per_district.name"/>
+                </div>
+            </div>
+            <div class="col-2 label">
+                Present Address:
+            </div>
+            <div class="col-4 data">
+                <div class="row">
+                    <t t-esc="person.street"/>
+                </div>
+                <div class="row">
+                    <t t-esc="person.street2"/>
+                </div>
+                <div class="row">
+                    <t t-esc="person.post_office"/>
+                </div>
+                <div class="row">
+                    <t t-esc="person.city"/>,
+                    <t t-esc="person.state_id.name"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="pmis_family_in_report">
+
+        <t t-if="person.marital_status=='maried'">
+            <t t-if="person.spouse.id">
+                <div class="row bg-grey">
+                    <h5 style="text-align: center;">Family Information</h5>
+                </div>
+
+                <div class="row">
+                    <div class="col-2 label">Spouse Name:</div>
+                    <div class="col-4 data">
+                        <t t-esc="person.spouse.name"/>
+                    </div>
+                    <div class="col-2 label">Location:</div>
+                    <div class="col-4 data">
+                        <span t-field="person.spouse.state_id.name"/>
+                    </div>
+                </div>
+            </t>
+        </t>
+        <t t-if="len(person.children_ids)>0">
+            <div class="row bg-grey label">
+                <h5 style="text-align: center;">Children Details</h5>
+            </div>
+            <div class="row">
+                <div class="col-2 label">SL</div>
+                <div class="col-4 label">Name</div>
+                <div class="col-4 label">Date of Birth</div>
+                <div class="col-2 label">Sex</div>
+            </div>
+            <t t-set="sl" t-value="0"/>
+            <t t-foreach="person.children_ids" t-as="child">
+                <div class="row">
+                    <t t-set="sl" t-value="sl+1"/>
+                    <div class="col-2 data">
+                        <t t-esc="sl"/>
+                    </div>
+                    <div class="col-4 data">
+                        <t t-esc="child.name"/>
+                    </div>
+                    <div class="col-4 data">
+                        <t t-if="child.dob">
+                            <t t-esc="child.dob.strftime('%d-%b-%Y')"/>
+                        </t>
+                    </div>
+                    <div class="col-2 data">
+                        <t t-esc="child.sex.name"/>
+                    </div>
+                </div>
+            </t>
+        </t>
+
+    </template>
+
+    <template id="pmis_job_record_in_report">
+        <div id="job_records" class="clearfix" style="page-break-inside: avoid;">
+            <div class="row bg-grey label">
+                <h5 style="text-align: center;">Joining Record</h5>
+            </div>
+            <div class="row">
+                <div class="col-2 label">Job Category :</div>
+                <div class="col-4 data">
+                    <span t-field="person.job_category"/>
+                </div>
+                <div class="col-2 label">Location :</div>
+                <div class="col-4 data">
+                    <span t-field="person.location"/>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2 label">Employer :</div>
+                <div class="col-4 data">
+                    <span t-field="person.employer"/>
+                </div>
+                <div class="col-2 label">Merit Order :</div>
+                <div class="col-4 data">
+                    <span t-field="person.merit_order"/>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2 label">Joining Designation :</div>
+                <div class="col-4 data">
+                    <span t-field="person.join_designation"/>
+                </div>
+                <t t-if="person.job_category.id!=%(pmis.pmis_job_category_out)d">
+
+                    <div class="col-2 label">Joining Grade :</div>
+                    <div class="col-4 data">
+                        <span t-field="person.joining_grade"/>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="col-2 label">Category :</div>
+                    <div class="col-4 data">
+                        <span t-field="person.outsourcing_category"/>
+                    </div>
+                </t>
+
+            </div>
+            <div class="row">
+                <div class="col-2 label">Circular Date :</div>
+                <div class="col-4 data">
+                    <span t-field="person.circular_date"/>
+                </div>
+                <div class="col-2 label">Confirmation Date :</div>
+                <div class="col-4 data">
+                    <span t-field="person.conf_date"/>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2 label">Appointment Date :</div>
+                <div class="col-4 data">
+                    <span t-field="person.apt_date"/>
+                </div>
+                <div class="col-2 label">Joining Date :</div>
+                <div class="col-4 data">
+                    <span t-field="person.join_date"/>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2 label">PRL/LPR Date :</div>
+                <div class="col-4 data">
+                    <span t-field="person.prl_date"/>
+                </div>
+                <div class="col-2 label">PF No :</div>
+                <div class="col-4 data">
+                    <span t-field="person.prov_no"/>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-2 label">Police Verification Report :</div>
+                <div class="col-4 data">
+                    <t t-if="person.pv_report">OK</t>
+                </div>
+                <div class="col-2 label">Medical Report :</div>
+                <div class="col-4 data">
+                    <t t-if="person.medical_report">OK</t>
+                </div>
+
+            </div>
+            <t t-if="person.job_quota">
+
+                <div class="row">
+                    <div class="col-2 label">Quota:</div>
+                    <div class="col-4 data">
+                        <span t-field="person.join_quota"/>
+                    </div>
+                    <!--<div class="col-2 label">Ethnic Minority:</div>
+                    <div class="col-4 data">
+                        <t t-if="person.ethnic_minority">
+                            Yes
+                        </t>
+                        <t t-else="">No</t>
+                    </div>-->
+
+                </div>
+            </t>
+
+            <!--<div class="row">
+                <div class="col-2 label">Freedom Fighter:</div>
+                <div class="col-4 data">
+                    <t t-esc="person.freedom_fighter"/>
+                </div>
+                <div class="col-2 label">Disability:</div>
+                <div class="col-4 data">
+                    <t t-esc="person.disability"/>
+                </div>
+
+            </div>-->
+        </div>
+    </template>
+
+    <template id="pmis_education_record_in_report">
+        <div id="educational_qualification" class="clearfix" style="page-break-inside: avoid;">
+            <div class="row bg-grey">
+                <h5 style="text-align: center;">Educational Qualifications</h5>
+            </div>
+            <div class="row">
+                <div class="col-2 label">Exam</div>
+                <div class="col-1 label">Year</div>
+                <div class="col-3 label">Institute/Board</div>
+                <div class="col-1 label">Roll</div>
+                <div class="col-1 label">Group/Subject</div>
+                <div class="col-1 label">Division/CGPA</div>
+                <!--                                    <div class="col-1 label">GPA/CGPA</div>-->
+                <div class="col-1 label">Distinction</div>
+                <div class="col-2 label">Certificate</div>
+            </div>
+            <t t-foreach="person.education_records" t-as="ed">
+                <div class="row">
+                    <div class="col-2 data">
+                        <t t-esc="ed.degree.name"/>
+                    </div>
+                    <div class="col-1 data">
+                        <t t-esc="ed.passing_year"/>
+                    </div>
+                    <div class="col-3 data">
+                        <t t-esc="ed.institute_id.name"/>
+                    </div>
+                    <div class="col-1 data">
+                        <t t-esc="ed.roll_no"/>
+                    </div>
+                    <div class="col-1 data">
+                        <t t-esc="ed.subject_id.name"/>
+                    </div>
+
+                    <div class="col-1 data">
+                        <t t-esc="ed.result_id.name"/>
+                    </div>
+
+                    <div class="col-1 data">
+                        <t t-esc="ed.distinction"/>
+                    </div>
+                    <div class="col-2 data">
+
+                        <t t-if="ed.certificate_copy">
+                            Certificate Uploaded
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="pmis_posting_transfer_in_report">
+        <div id="posting_and_transfer" class="clearfix" style="page-break-inside: avoid;">
+            <div class="row bg-grey">
+                <h5 style="text-align: center;">Job Record</h5>
+            </div>
+            <div class="row">
+                <div class="col-3 label">Organisation</div>
+                <div class="col-3 label">Section</div>
+                <div class="col-2 label">Post</div>
+                <div class="col-2 label">from</div>
+                <div class="col-2 label">To</div>
+                <!--<div class="col-1 label">Order No</div>
+                <div class="col-1 label">Order date</div>
+                <div class="col-1 label">Active Grade</div>
+                <div class="col-1 label">Actual Grade</div>
+                <div class="col-1 label">Remarks</div>-->
+            </div>
+            <t t-foreach="person.posting_records" t-as="postings">
+                <div class="row">
+                    <div class="col-3 data">
+                        <t t-esc="postings.organisation.name"/>
+                    </div>
+                    <div class="col-3 data">
+                        <t t-esc="postings.section"/>
+                    </div>
+                    <div class="col-2 data">
+                        <t t-esc="postings.designation.name"/>
+                    </div>
+                    <div class="col-2 data">
+                        <t t-if="postings.joining_date">
+                            <t t-esc="postings.joining_date.strftime('%d-%b-%Y')"/>
+                        </t>
+                    </div>
+                    <div class="col-2 data">
+                        <t t-if="postings.till_date">
+                            <t t-esc="postings.till_date.strftime('%d-%b-%Y')"/>
+                        </t>
+                    </div>
+
+                </div>
+            </t>
+        </div>
+    </template>
+    <template id="pmis_leave_details_in_report">
+        <div id="leave_details" class="clearfix" style="page-break-inside: avoid;">
+            <div class="row bg-grey">
+                <h5 style="text-align: center;">Leave Details</h5>
+            </div>
+            <div class="row">
+                <div class="col-2 label">Leave Type</div>
+                <div class="col-2 label">Leave Salary Type</div>
+                <div class="col-1 label">From</div>
+                <div class="col-1 label">To</div>
+                <div class="col-1 label">Duration</div>
+                <div class="col-2 label">Reason</div>
+                <div class="col-2 label">Local Foreign</div>
+                <!--                <div class="col-1 label">Document</div>-->
+            </div>
+            <t t-foreach="person.leave_records" t-as="leave">
+                <div class="row">
+                    <div class="col-2 data">
+                        <span t-field="leave.leave_type"/>
+                    </div>
+                    <div class="col-2 data">
+                        <span t-field="leave.salary_type"/>
+                    </div>
+                    <div class="col-1 data">
+                        <t t-esc="leave.from_date.strftime('%d-%b-%Y')"/>
+                    </div>
+                    <div class="col-1 data">
+                        <t t-if="leave.till_date">
+                            <t t-esc="leave.till_date.strftime('%d-%b-%Y')"/>
+                        </t>
+                    </div>
+                    <div class="col-1 data">
+                        <t t-if="leave.duration">
+                            <t t-esc="leave.duration"/>
+                        </t>
+                    </div>
+                    <div class="col-2 data">
+                        <t t-if="leave.reason">
+                            <t t-esc="leave.reason"/>
+                        </t>
+                    </div>
+
+                    <div class="col-2 data">
+                        <t t-esc="leave.local_foreign"/>
+                    </div>
+
+                    <!--<div class="col-1 data">
+                            <t t-if="leave.document">
+                                    <span>Document Attached</span>
+                            </t>
+                    </div>-->
+
+
+                </div>
+            </t>
+        </div>
+    </template>
+    <template id="pmis_promotion_details_in_report">
+        <div id="promotion" class="clearfix" style="page-break-inside: avoid;">
+                                    <div class="row bg-grey">
+                                        <h5 style="text-align: center;">Promotion Details</h5>
+                                    </div>
+                                    <div class="row">
+                                        <!--                                    <div class="col-1 label">Order No and date</div>-->
+                                        <div class="col-2 label">Date</div>
+                                        <div class="col-2 label">Grade</div>
+                                        <div class="col-2 label">Rank</div>
+                                        <!--                                    <div class="col-2 label">Nature</div>-->
+                                        <div class="col-3 label">Pay Scale</div>
+                                        <!--                                    <div class="col-3 label">Documents</div>-->
+                                    </div>
+                                    <t t-foreach="person.promotion_records" t-as="prom">
+                                        <div class="row">
+                                            <div class="col-2 data">
+                                                <t t-if="prom.promotion_date">
+                                                    <t t-esc="prom.promotion_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                            <div class="col-2 data">
+                                                <t t-esc="prom.grade_id.grade"/>
+                                            </div>
+                                            <div class="col-2 data">
+                                                <span t-field="prom.rank_id"/>
+                                            </div>
+                                            <div class="col-2 data">
+                                                <t t-esc="prom.pay_scale"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+    </template>
+    <template id="pmis_pay_fixation_details_in_report">
+        <div id="pay_fixation" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Pay Fixation Details</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 label">Date</div>
+                                    <div class="col-2 label">Pay Scale</div>
+                                    <div class="col-2 label">Basic</div>
+                                    <div class="col-2 label">Total</div>
+                                    <div class="col-2 label">Penalty Salary Cut</div>
+                                    <div class="col-3 label">Description</div>
+                                </div>
+                                <t t-foreach="person.pay_fix_ids" t-as="pf">
+                                    <div class="row">
+                                        <div class="col-1 data">
+                                            <t t-if="pf.pay_fix_date">
+                                                <t t-esc="pf.pay_fix_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col-2 data">
+                                            <t t-esc="pf.pay_scale"/>
+                                        </div>
+                                        <div class="col-2 data">
+                                            <t t-esc="pf.basic"/>
+                                        </div>
+                                        <div class="col-2 data">
+                                            <t t-esc="pf.total"/>
+                                        </div>
+                                        <div class="col-2 data">
+                                            <t t-esc="pf.sal_cut"/>
+                                        </div>
+                                        <div class="col-3 data">
+                                            <t t-esc="pf.description"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+    </template>
+
+    <template id="pmis_discipline_details_in_report">
+        <t t-if="len(person.discipline)>0">
+                                <div id="disciplean" class="clearfix" style="page-break-inside: avoid;">
+                                    <div class="row bg-grey">
+                                        <h5 style="text-align: center;">Disciplinery Actions</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2 label">Nature of Offence</div>
+                                        <!--                                    <div class="col-1 label">Date of Offence</div>-->
+                                        <div class="col-2 label">Punishment Date</div>
+                                        <!--                                    <div class="col-1 label">Order no</div>-->
+                                        <!--                                    <div class="col-1 label">Order Date</div>-->
+                                        <div class="col-2 label">Current Status</div>
+                                        <div class="col-6 label">Remarks</div>
+                                    </div>
+                                    <t t-foreach="person.discipline" t-as="dcp">
+                                        <div class="row">
+                                            <div class="col-2 data">
+                                                <t t-esc="dcp.offence_type"/>
+                                            </div>
+                                            <div class="col-2 data">
+                                                <t t-if="dcp.punishment_date">
+                                                    <t t-esc="dcp.punishment_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                            <!--<div class="col-2 data">
+                                                <t t-esc="dcp.name"/>
+                                            </div>-->
+                                            <!--<div class="col-1 data">
+                                                <t t-esc="dcp.order_no"/>
+                                            </div>-->
+                                            <!--<div class="col-1 data">
+                                                <t t-esc="dcp.order_date"/>
+                                            </div>-->
+                                            <div class="col-2 data">
+                                                <t t-esc="dcp.status"/>
+                                            </div>
+                                            <div class="col-6 data">
+                                                <t t-esc="dcp.remarks"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+    </template>
+
+    <template id="pmis_case_file_details_in_report">
+        <t t-if="len(person.case_file_ids)>0">
+                                <div id="case_filed" class="clearfix" style="page-break-inside: avoid;">
+                                    <div class="row bg-grey">
+                                        <h5 style="text-align: center;">If Case Filed</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col label" style="width:10%;">Nature of Offence</div>
+                                        <div class="col label" style="width:10%;">Start Date</div>
+                                        <div class="col label" style="width:10%;">Settlement Date</div>
+                                        <div class="col label" style="width:40%;">Settlement Description</div>
+                                        <div class="col label" style="width:10%;">Current Status</div>
+                                        <div class="col label" style="width:20%;">Additional Info</div>
+                                    </div>
+                                    <t t-foreach="person.case_file_ids" t-as="cf">
+                                        <div class="row">
+                                            <div class="col data" style="width:10%;">
+                                                <t t-esc="cf.case_type"/>
+                                            </div>
+                                            <div class="col data" style="width:10%;">
+                                                <t t-if="cf.start_date">
+                                                    <t t-esc="cf.start_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                            <div class="col data" style="width:10%;">
+                                                <t t-if="cf.settle_date">
+
+                                                    <t t-esc="cf.settle_date.strftime('%d-%b-%Y')"/>
+                                                </t>
+                                            </div>
+                                            <div class="col data" style="width:40%;">
+                                                <t t-esc="cf.settle_description"/>
+                                            </div>
+                                            <div class="col data" style="width:10%;">
+                                                <t t-esc="cf.status"/>
+                                            </div>
+                                            <div class="col data" style="width:20%;">
+                                                <t t-esc="cf.remarks"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+    </template>
+
+    <template id="pmis_training_details_in_report">
+        <div id="training_info" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Training Information</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col label" style="width:40%;" id="course_header">Course Title</div>
+                                    <div class="col label" style="width:20%;" id="institute_header">Name of Institute
+                                    </div>
+                                    <div class="col label" style="width:10%;" id="position_header">Type</div>
+                                    <div class="col label" style="width:10%;" id="from_date_header">From</div>
+                                    <div class="col label" style="width:10%;" id="till_date_header">To</div>
+                                    <div class="col label" style="width:10%;" id="duration_header">Duration</div>
+                                </div>
+                                <t t-foreach="person.training_records" t-as="trng">
+                                    <div class="row" id="training_records" style="width:100%;">
+                                        <div class="col data" style="width:40%;" id="course">
+                                            <t t-esc="trng.name"/>
+                                        </div>
+                                        <div class="col data" style="width:20%;" id="institute">
+                                            <t t-esc="trng.institution_id.name"/>
+                                        </div>
+                                        <div class="col data" style="width:10%;" id="Type">
+                                            <span t-field="trng.category_id"/>
+                                        </div>
+                                        <div class="col data" style="width:10%;" id="from_date">
+                                            <t t-if="trng.from_date">
+                                                <t t-esc="trng.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" style="width:10%;" id="till_date">
+                                            <t t-if="trng.till_date">
+
+                                                <t t-esc="trng.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" style="width:10%;" id="duration">
+                                            <t t-esc="trng.duration"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+    </template>
+
+    <template id="pmis_language_details_in_report">
+        <div id="language_info" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Language Proficiency</h5>
+                                </div>
+                                <div class="row" id="language_information_heading" style="width:100%;">
+                                    <div class="col label" id="language_name_head"
+                                         style="width:20%; padding-left:10px; ">
+                                        Language
+                                    </div>
+                                    <div class="col label" id="language_read_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Read
+                                    </div>
+                                    <div class="col label" id="language_write_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Write
+                                    </div>
+                                    <div class="col label" id="language_speak_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Speak
+                                    </div>
+                                    <div class="col label" id="language_speak_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Listen And Understand
+                                    </div>
+                                    <div class="col label" id="language_speak_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        Special Skill Exam
+                                    </div>
+                                    <div class="col label" id="language_speak_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        Exam Date
+                                    </div>
+                                </div>
+                                <t t-foreach="person.language_proficiency" t-as="lng">
+                                    <div class="row" id="language_information_data" style="width:100%;">
+                                        <div class="col data" id="language_name"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="lng.name.name"/>
+                                        </div>
+                                        <div class="col data" id="language_read"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="lng.can_read">Yes</t>
+                                        </div>
+                                        <div class="col data" id="language_write"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="lng.can_write">Yes</t>
+                                        </div>
+                                        <div class="col data" id="language_speak"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="lng.can_speak">Yes</t>
+                                        </div>
+                                        <div class="col data" id="language_listen"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="lng.can_listen">Yes</t>
+                                        </div>
+                                        <div class="col data" id="language_exam"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-esc="lng.exam"/>
+                                        </div>
+                                        <div class="col data" id="language_exam"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-if="lng.exam_date">
+                                                <t t-esc="lng.exam_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_senior_scale_details_in_report">
+        <div id="senior_scale_exam" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Senior Scale/Promotion Exam</h5>
+                                </div>
+                                <div class="row" id="senior_scale_promotion_heading" style="width:100%;">
+                                    <div class="col label" id="passing_year_head"
+                                         style="width:20%; padding-left:10px; ">
+                                        Passing Year
+                                    </div>
+                                    <div class="col label" id="senior_scale_result_heading"
+                                         style="width:20%; padding-left:10px; ">
+                                        Result
+                                    </div>
+                                    <div class="col label" id="senior_scale_date_of_exam_heading"
+                                         style="width:20%; padding-left:10px; ">
+                                        Date of Exam
+                                    </div>
+                                    <!--<div class="col label" id="senior_scale_document_head"
+                                         style="width:40%; padding-left:10px; ">
+                                        Document
+                                    </div>-->
+                                </div>
+                                <t t-foreach="person.senior_grade_exam" t-as="sge">
+                                    <div class="row" id="senior_scale_data" style="width:100%;">
+                                        <div class="col data" id="senior_scale_year"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="sge.passing_year"/>
+                                        </div>
+                                        <div class="col data" id="senior_scale_result"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="sge.result"/>
+                                        </div>
+                                        <div class="col data" id="senior_scale_date"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-if="sge.exam_date">
+                                                <t t-esc="sge.exam_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+
+                                        <!--<div class="col data" id="senior_scale_document"
+                                             style="width:40%; padding-left:10px; ">
+                                            <t t-if="sge.document">
+                                                <span>document Attached</span>
+                                            </t>
+                                        </div>-->
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_award_details_in_report">
+        <div id="awards" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Awards and Achievements</h5>
+                                </div>
+                                <div class="row" id="awards_heading" style="width:100%;">
+                                    <div class="col label" id="award_title_head" style="width:20%; padding-left:10px; ">
+                                        Title
+                                    </div>
+                                    <div class="col label" id="award_date_heading"
+                                         style="width:20%; padding-left:10px; ">
+                                        Date
+                                    </div>
+                                    <div class="col label" id="award_institution_heading"
+                                         style="width:20%; padding-left:10px; ">
+                                        Institution
+                                    </div>
+                                    <div class="col label" id="award_ground_head"
+                                         style="width:30%; padding-left:10px; ">
+                                        Ground
+                                    </div>
+                                    <div class="col label" id="award_approval_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Govt. Approval
+                                    </div>
+                                </div>
+                                <t t-foreach="person.award_ids" t-as="awd">
+                                    <div class="row" id="award_data" style="width:100%;">
+                                        <div class="col data" id="award_title_data"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="awd.name"/>
+                                        </div>
+                                        <div class="col data" id="award_date_data"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-if="awd.award_date">
+
+                                                <t t-esc="awd.award_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" id="award_institution_data"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="awd.institute_id.name"/>
+                                        </div>
+
+                                        <div class="col data" id="award_ground_data"
+                                             style="width:30%; padding-left:10px; ">
+                                            <t t-esc="awd.ground"/>
+                                        </div>
+                                        <div class="col data" id="award_govt_approval_data"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="awd.govt_aproved">
+                                                    Approved
+                                            </t>
+                                            <t t-else="">
+                                                N/A
+                                            </t>
+                                        </div>
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_foreign_travel_details_in_report">
+        <div id="foreign_travel" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Foreign Travel</h5>
+                                </div>
+                                <div class="row" id="foreign_travel_heading" style="width:100%;">
+                                    <div class="col label" id="foreign__travel_country_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        Country
+                                    </div>
+                                    <div class="col label" id="foreign_travel_purpose_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        Purpose
+                                    </div>
+                                    <div class="col label" id="foreign_travel_from_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        From
+                                    </div>
+                                    <div class="col label" id="foreign_travel_to_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        To
+                                    </div>
+                                    <div class="col label" id="foreign_travel_duration_head"
+                                         style="width:15%; padding-left:1px; ">
+                                        Duration
+                                    </div>
+                                    <div class="col label" id="foreign_travel_remarks_head"
+                                         style="width:25%; padding-left:10px; ">
+                                        Remarks
+                                    </div>
+                                </div>
+                                <t t-foreach="person.travel_ids" t-as="ft">
+                                    <div class="row" id="foreign_travel_data" style="width:100%;">
+                                        <div class="col data" id="foreign_travel_country_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-esc="ft.country_id.name"/>
+                                        </div>
+                                        <div class="col data" id="foreign_travel_purpose_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-esc="ft.purpose"/>
+                                        </div>
+                                        <div class="col data" id="foreign_travel_from_date_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-if="ft.from_date">
+                                                <t t-esc="ft.from_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" id="foreign_travel_till_date_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-if="ft.till_date">
+
+                                                <t t-esc="ft.till_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" id="foreign_travel_duration_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-esc="ft.duration"/>
+                                        </div>
+                                        <div class="col data" id="foreign_travel_remark_data"
+                                             style="width:25%; padding-left:10px; ">
+                                            <t t-esc="ft.remarks"/>
+                                        </div>
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_publication_details_in_report">
+        <div id="publication" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Publication</h5>
+                                </div>
+                                <div class="row" id="publication_heading" style="width:100%;">
+                                    <div class="col label" id="publication_name_head"
+                                         style="width:20%; padding-left:10px; ">
+                                        Name
+                                    </div>
+                                    <div class="col label" id="publication_subject_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        Subject
+                                    </div>
+                                    <div class="col label" id="publication_type_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Type
+                                    </div>
+                                    <div class="col label" id="publication_date_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Date
+                                    </div>
+                                    <div class="col label" id="publication_journal_head"
+                                         style="width:15%; padding-left:10px; ">
+                                        Name of Journal
+                                    </div>
+                                    <div class="col label" id="publication_journal_date_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        Date of Journal
+                                    </div>
+                                    <div class="col label" id="publication_journal_no_head"
+                                         style="width:10%; padding-left:10px; ">
+                                        No. of Journal
+                                    </div>
+
+                                </div>
+                                <t t-foreach="person.publication_ids" t-as="pub">
+                                    <div class="row" id="publication_data" style="width:100%;">
+                                        <div class="col data" id="publication_name_data"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="pub.name"/>
+                                        </div>
+                                        <div class="col data" id="publication_subject_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-esc="pub.subject"/>
+                                        </div>
+                                        <div class="col data" id="publication_type_data"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-esc="pub.publication_type"/>
+                                        </div>
+                                        <div class="col data" id="publication_date_data"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="pub.publish_date">
+                                                <t t-esc="pub.publish_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" id="publication_journal_data"
+                                             style="width:15%; padding-left:10px; ">
+                                            <t t-esc="pub.journal_id.name"/>
+                                        </div>
+                                        <div class="col data" id="publication_date_data"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-if="pub.publish_date">
+                                                <t t-esc="pub.publish_date.strftime('%d-%b-%Y')"/>
+                                            </t>
+                                        </div>
+                                        <div class="col data" id="publication_journal_no_data"
+                                             style="width:10%; padding-left:10px; ">
+                                            <t t-esc="pub.journal_no"/>
+                                        </div>
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_sports_details_in_report">
+        <div id="sports" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Sports</h5>
+                                </div>
+                                <div class="row" id="sports_heading" style="width:100%;">
+                                    <div class="col label" id="sports_name_head"
+                                         style="width:20%; padding-left:10px; ">
+                                        Sports
+                                    </div>
+                                    <div class="col label" id="sports_description_head"
+                                         style="width:80%; padding-left:10px; ">
+                                        Description
+                                    </div>
+                                </div>
+                                <t t-foreach="person.sports_ids" t-as="sprt">
+                                    <div class="row" id="sports_data" style="width:100%;">
+                                        <div class="col data" id="sports_name_data"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="sprt.name"/>
+                                        </div>
+                                        <div class="col data" id="sports_description_data"
+                                             style="width:80%; padding-left:10px; ">
+                                            <t t-esc="sprt.description"/>
+                                        </div>
+
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_research_details_in_report">
+        <div id="research" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Research</h5>
+                                </div>
+                                <div class="row" id="research_heading" style="width:100%;">
+                                    <div class="col label" id="research_name_head"
+                                         style="width:20%; padding-left:10px; ">
+                                        Research
+                                    </div>
+                                    <div class="col label" id="research_description_head"
+                                         style="width:80%; padding-left:10px; ">
+                                        Description
+                                    </div>
+                                </div>
+                                <t t-foreach="person.research_ids" t-as="rsc">
+                                    <div class="row" id="research_data" style="width:100%;">
+                                        <div class="col data" id="research_name_data"
+                                             style="width:20%; padding-left:10px; ">
+                                            <t t-esc="rsc.name"/>
+                                        </div>
+                                        <div class="col data" id="research_description_data"
+                                             style="width:80%; padding-left:10px; ">
+                                            <t t-esc="rsc.description"/>
+                                        </div>
+
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <template id="pmis_addl_qualification_details_in_report">
+        <div id="addl_qualification" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Other Professional Qualification</h5>
+                                </div>
+                                <t t-foreach="person.addl_qualification" t-as="adlq">
+                                    <div class="row" id="addl_qualification_data" style="width:100%;">
+                                        <div class="col data" id="addl_qualification_name_data"
+                                             style="width:30%; padding-left:10px; ">
+                                            <t t-esc="adlq.name"/>
+                                        </div>
+                                        <div class="col data" id="addl_qualification_description_data"
+                                             style="width:70%; padding-left:10px; ">
+                                            <t t-esc="adlq.description"/>
+                                        </div>
+
+                                    </div>
+                                </t>
+
+                            </div>
+    </template>
+
+    <!--<template id="report_pmis_short">
+
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="company">
+                <t t-call="btb_layout.external_layout_btb">
+                    <style>
+                        .label{
+                        padding-top:5px;
+                        padding-left:5px;
+                        padding-bottom:5px;
+                        font-size:.8rem;
+                        border-bottom:1px;
+                        border-color:#E7E2E1;
+                        border-bottom-style:solid;
+                        }
+                        .data{
+                        padding-top:3px;
+                        padding-left:5px;
+                        padding-bottom:3px;
+                        font-size:0.8rem;
+                        border-bottom:1px;
+                        border-color:#E7E2E1;
+                        border-bottom-style:solid;
+                        }
+                        .bg-grey{
+                        background-color: #E7E2E1;
+                        }
+                        .txt-center{
+                        text-align: center;
+                        }
+                    </style>
+                    <div class="page">
+                        <t t-foreach="docs" t-as="person">
+                            <t t-set="company" t-value="env.company"/>
+
+                            <div class="clearfix">
+                                <t t-call="pmis.pmis_name_in_report"/>
+                            </div>
+                            <div class="clearfix">
+                                <t t-call="pmis.pmis_personal_data_in_report"/>
+                            </div>
+
+                            <div id="address" class="clearfix" style="page-break-inside: avoid;">
+                                <t t-call="pmis.pmis_address_in_report"/>
+                            </div>
+
+                            <div id="family_info" class="clearfix" style="page-break-inside: avoid;">
+                                <t t-if="person.marital_status=='married'">
+                                    <t t-call="pmis.pmis_family_in_report"/>
+                                </t>
+                            </div>
+
+                            <t t-call="pmis.pmis_education_record_in_report"/>
+
+                            <t t-call="pmis.pmis_job_record_in_report"/>
+
+
+                            <t t-call="pmis.pmis_posting_transfer_in_report"/>
+
+                            <t t-call="pmis.pmis_leave_details_in_report"/>
+                            <t t-call="pmis.pmis_promotion_details_in_report"/>
+                            <t t-call="pmis.pmis_pay_fixation_details_in_report"/>
+                            <t t-call="pmis.pmis_discipline_details_in_report"/>
+                            <t t-call="pmis.pmis_case_file_details_in_report"/>
+                            <t t-call="pmis.pmis_training_details_in_report"/>
+                            <t t-call="pmis.pmis_language_details_in_report"/>
+                            <t t-call="pmis.pmis_senior_scale_details_in_report"/>
+                            <t t-call="pmis.pmis_award_details_in_report"/>
+                            <t t-call="pmis.pmis_foreign_travel_details_in_report"/>
+                            <t t-call="pmis.pmis_publication_details_in_report"/>
+                            <t t-call="pmis.pmis_sports_details_in_report"/>
+                            <t t-call="pmis.pmis_research_details_in_report"/>
+                            <t t-call="pmis.pmis_addl_qualification_details_in_report"/>
+
+
+
+
+
+
+
+                            <div id="other_records" class="clearfix" style="page-break-inside: avoid;">
+                                <div class="row bg-grey">
+                                    <h5 style="text-align: center;">Other Records</h5>
+                                </div>
+                                <div class="row bg-grey">
+                                    <h6 style="text-align: left;">Bank Accounts</h6>
+                                </div>
+                                <div class="row" style="width:100%;">
+                                    <div class="col label"
+                                         style="width:30%; padding-left:10px; ">
+                                        Account No
+                                    </div>
+                                    <div class="col label"
+                                         style="width:30%; padding-left:10px; ">
+                                        Bank Name
+                                    </div>
+                                    <div class="col label"
+                                         style="width:30%; padding-left:10px; ">
+                                        Branch
+                                    </div>
+
+                                </div>
+                                <t t-foreach="person.bank_account_ids" t-as="bnk">
+                                    <div class="row" style="width:100%;">
+                                        <div class="col data"
+                                             style="width:30%; padding-left:10px; ">
+                                            <t t-esc="bnk.ac_no"/>
+                                        </div>
+                                        <div class="col data"
+                                             style="width:30%; padding-left:10px; ">
+                                            <span t-field="bnk.bank_id"/>
+                                        </div>
+                                        <div class="col data"
+                                             style="width:30%; padding-left:10px; ">
+                                            <span t-field="bnk.branch"/>
+                                        </div>
+
+                                    </div>
+                                </t>
+
+                            </div>
+
+
+                        </t>
+                    </div>
+                </t>
+            </t>
+
+        </t>
+        <p style="page-break-before: always;"></p>
+    </template>-->
+
+    <!--<record id="pmis_print_short_report" model="ir.actions.report">
+        <field name="name">Print Short Report</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">pmis.report_pmis_short</field>
+        &lt;!&ndash;        <field name="report_file">hr.print_person_badge</field>&ndash;&gt;
+        &lt;!&ndash;        <field name="print_report_name">'Print Badge - %s' % (object.name).replace('/', '')</field>&ndash;&gt;
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>-->
+
+
+    <template id="pmis_portal_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="company">
+                <style>
+                    .label{
+                    padding-top:5px;
+                    padding-left:5px;
+                    padding-bottom:5px;
+                    font-size:.8rem;
+                    border-bottom:1px;
+                    border-color:#E7E2E1;
+                    border-bottom-style:solid;
+                    }
+                    .data{
+                    padding-top:3px;
+                    padding-left:5px;
+                    padding-bottom:3px;
+                    font-size:0.8rem;
+                    border-bottom:1px;
+                    border-color:#E7E2E1;
+                    border-bottom-style:solid;
+                    }
+                    .bg-grey{
+                    background-color: #E7E2E1;
+                    }
+                    .txt-center{
+                    text-align: center;
+                    }
+                </style>
+                <div class="page">
+                    <t t-foreach="docs" t-as="person">
+                        <t t-set="company" t-value="env.company"/>
+                        <div class="row">
+                            <!--                            Todo this is the form structure for portal user to correction data-->
+                            <form>
+                                Name :
+                                <input type="text" id="name" name="name" t-att-value="person.name"></input>
+                            </form>
+                            <div class="col-2 label">
+                                Religion:
+                            </div>
+                            <div class="col-4 data">
+                                <t t-esc="person.religion.name"/>
+                            </div>
+                            <div class="col-2 label">
+                                Sex
+                            </div>
+                            <div class="col-4 data">
+                                <t t-esc="person.gender.name"/>
+                            </div>
+                        </div>
+                        <t t-call="pmis.pmis_name_in_report"/>
+
+                        <t t-call="pmis.pmis_personal_data_in_report"/>
+                        <t t-call="pmis.pmis_address_in_report"/>
+                        <t t-call="pmis.pmis_family_in_report"/>
+
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="portal_pmis_edit">
+        <t t-call="portal.portal_layout">
+            <div class="o_portal_security_body">
+                <t t-set="additional_title">My PMIS Data</t>
+                <t t-set="no_breadcrumbs" t-value="1"/>
+                <section name="portal_change_password">
+
+                    <form action="/my/pims/edit" method="post" class="oe_reset_password_form">
+                        <div class="row">
+                            <div class="col-1">Name</div>
+                            <div class="col-4">
+                                <t t-esc="docs.name"/>
+                            </div>
+                            <div class="col-2">Edit?
+                                <input type="checkbox" id="edit_name" name="name" value="Bike"/>
+                            </div>
+
+                            <div class="col-4">
+                                <input type="text" id="fname" name="fname"
+                                       attrs="{'invisible':[('edit_name', '!=', False)]}">
+                                    <t t-esc="docs.name"/>
+                                </input>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary">Change Password</button>
+                    </form>
+                </section>
+
+            </div>
+        </t>
+    </template>
+
+    <template id="report_pmis_custom">
+        <style>
+            .label{
+            padding-top:5px;
+            padding-left:5px;
+            padding-bottom:5px;
+            font-size:.8rem;
+            border-bottom:1px;
+            border-color:#E7E2E1;
+            border-bottom-style:solid;
+            }
+            .data{
+            padding-top:3px;
+            padding-left:5px;
+            padding-bottom:3px;
+            font-size:0.8rem;
+            border-bottom:1px;
+            border-color:#E7E2E1;
+            border-bottom-style:solid;
+            }
+            .bg-grey{
+            background-color: #E7E2E1;
+            }
+            .txt-center{
+            text-align: center;
+            }
+        </style>
+
+        <t t-call="web.html_container">
+            <t t-set="company" t-value="env.company"/>
+            <t t-foreach="docs" t-as="doc">
+                <t t-foreach="doc.officer_ids" t-as="person">
+                    <t t-call="btb_layout.external_layout_btb">
+
+                        <div class="page">
+                            <div class="clearfix">
+                                <t t-call="pmis.pmis_name_in_report"/>
+                            </div>
+                            <div class="clearfix">
+                                <t t-call="pmis.pmis_personal_data_in_report"/>
+                            </div>
+
+                            <div id="address" class="clearfix" style="page-break-inside: avoid;">
+                                <t t-call="pmis.pmis_address_in_report"/>
+                            </div>
+                            <t t-if="doc.family_info">
+                            <t t-if="person.marital_status!='single'">
+                                <div id="family_info" class="clearfix" style="page-break-inside: avoid;">
+                                    <t t-call="pmis.pmis_family_in_report"/>
+                                </div>
+                            </t>
+                            </t>
+                            <t t-if="len(person.education_records)>0 and doc.education_info">
+                                <t t-call="pmis.pmis_education_record_in_report"/>
+                            </t>
+                            <t t-if="person.job_category.id and doc.joining_info">
+                                <t t-call="pmis.pmis_job_record_in_report"/>
+                            </t>
+
+
+                            <t t-if="doc.job_info and len(person.posting_records.ids)>0">
+                                <t t-call="pmis.pmis_posting_transfer_in_report"/>
+                            </t>
+                            <t t-if="doc.leave_info and len(person.leave_records.ids)>0">
+                                <t t-call="pmis.pmis_leave_details_in_report"/>
+                            </t>
+                            <t t-if="doc.promotion_info and len(person.promotion_records.ids)>0 ">
+                                <t t-call="pmis.pmis_promotion_details_in_report"/>
+                            </t>
+                            <t t-if="doc.pay_fixation_info and len(person.pay_fix_ids.ids)>0 ">
+                                <t t-call="pmis.pmis_pay_fixation_details_in_report"/>
+                            </t>
+
+                        <t t-if="doc.disciplin_info and len(person.discipline.ids)>0 ">
+                                <t t-call="pmis.pmis_discipline_details_in_report"/>
+                            </t>
+
+                        <t t-if="doc.case_info and len(person.case_file_ids.ids)>0 ">
+                                <t t-call="pmis.pmis_case_file_details_in_report"/>
+                            </t>
+
+                        <t t-if="doc.training_info and len(person.training_records.ids)>0 ">
+                                <t t-call="pmis.pmis_training_details_in_report"/>
+                            </t>
+
+                        <t t-if="doc.language_info and len(person.training_records.ids)>0 ">
+                                <t t-call="pmis.pmis_language_details_in_report"/>
+                            </t>
+
+                            <t t-if="doc.senior_scale_info and len(person.senior_grade_exam.ids)>0 ">
+                                <t t-call="pmis.pmis_senior_scale_details_in_report"/>
+                            </t>
+
+                            <t t-if="doc.award_info and len(person.award_ids.ids)>0 ">
+
+                                <t t-call="pmis.pmis_award_details_in_report"/>
+                            </t>
+                        <t t-if="doc.travel_info and len(person.travel_ids.ids)>0 ">
+
+                                <t t-call="pmis.pmis_foreign_travel_details_in_report"/>
+                            </t>
+                        <t t-if="doc.publication_info and len(person.publication_ids.ids)>0 ">
+
+                                <t t-call="pmis.pmis_publication_details_in_report"/>
+                            </t>
+                        <t t-if="doc.sports_info and len(person.sports_ids.ids)>0 ">
+
+                                <t t-call="pmis.pmis_sports_details_in_report"/>
+                            </t>
+                        <t t-if="doc.research_info and len(person.research_ids.ids)>0 ">
+
+                               <t t-call="pmis.pmis_research_details_in_report"/>
+                            </t>
+                        <t t-if="doc.research_info and len(person.research_ids.ids)>0 ">
+
+                               <t t-call="pmis.pmis_addl_qualification_details_in_report"/>
+                            </t>
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="pmis_print_custom_report" model="ir.actions.report">
+        <field name="name">Print Custom Report</field>
+        <field name="model">pmis.report.wizard</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">pmis.report_pmis_custom</field>
+        <!--        <field name="report_file">hr.print_person_badge</field>-->
+        <!--        <field name="print_report_name">'Print Badge - %s' % (object.name).replace('/', '')</field>-->
+        <field name="binding_model_id" ref="model_pmis_report_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

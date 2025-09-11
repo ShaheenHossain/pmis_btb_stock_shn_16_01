@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <menuitem id="btb_menu_main"
+                  name="BTB Stock"
+                  groups="btb_stock.group_account_btb_stock_user,base.group_no_one"
+                  web_icon="btb_stock,static/description/icon.png"
+        />
+        <menuitem id="btb_menu_requisition"
+                  name="Requisitions"
+                  parent="btb_menu_main"
+                   groups="btb_stock.group_account_btb_stock_user,base.group_no_one"
+
+        />
+        <menuitem id="btb_menu_requisition1"
+                  name="Requisitions"
+                  parent="btb_menu_requisition"
+                   groups="btb_stock.group_account_btb_stock_user,base.group_no_one"
+                  action="btb_stock_sale_order_action"
+        />
+        <menuitem id="btb_menu_Contact"
+                  name="Contacts"
+                  parent="btb_menu_requisition"
+                  action="btb_layout.action_partner_form"
+        />
+        <menuitem id="btb_menu_stock"
+                  name="Stock"
+                  parent="btb_menu_main"
+                  action="stock.stock_picking_type_action"
+        />
+        <menuitem id="btb_menu_transfer"
+                  name="Transfers"
+                  parent="btb_menu_stock"
+                  groups="btb_stock.group_account_btb_stock_manager,base.group_no_one"
+                  action="stock.action_picking_tree_all"
+        />
+        <menuitem id="btb_menu_stock_move_line"
+                  name="Stock Moves"
+                  parent="btb_menu_stock"
+                  groups="btb_stock.group_account_btb_stock_manager,base.group_no_one"
+                  action="btb_stock_move_line_action"
+        />
+        <menuitem id="btb_menu_product"
+                  name="Products"
+                  parent="btb_menu_stock"
+                  action="stock.product_template_action_product"
+        />
+        <menuitem id="btb_menu_inventory"
+                  name="Inventory"
+                  parent="btb_menu_stock"
+                  action="stock.action_product_stock_view"
+        />
+        <menuitem id="btb_menu_stock_report"
+                  name="Reports"
+                  parent="btb_menu_main"
+                  action="btb_stock_report_form_action"
+        />
+
+
+        <!--<record id="pmis_children_form" model="ir.ui.view">
+          <field name="name">pmis.children.form</field>
+          <field name="priority" eval="1"/>
+          <field name="model">pmis.children</field>
+          <field name="arch" type="xml">
+                  <form>
+                      <group>
+                          <field name="name"/>
+                          <field name="dob"/>
+                          <field name="sex"/>
+                      </group>
+                  </form>
+          </field>
+  </record>-->
+
+    </data>
+</odoo>

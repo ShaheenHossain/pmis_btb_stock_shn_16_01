@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bhf" name="Pataint Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container" style="margin-top:20px; margin-bottom:20px">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-2">
+                                <h3>PMIS Information</h3>
+<!--                                <form role="form" action="/create/bhf/" method="post">-->
+                                    <form role="form" action="/create/bhf/" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+
+                                    <div class="form-group">
+                                        <label for="uid_number" class="form-label">UID Nummer</label>
+                                        <input type="text" id="uid_number" name="uid_number" placeholder="CHE-123.456.789" class="form-control" required="required"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="company_name" class="form-label">Firmenname</label>
+                                        <input type="text" id="company_name" name="company_name" placeholder="Firmenname" class="form-control" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="salutation" class="form-label">Anrede</label>
+                                        <select id="salutation" name="salutation" class="form-select" required="required">
+                                            <option value="">Anrede wählen</option>
+                                            <option value="Herr">Herr</option>
+                                            <option value="Frau">Frau</option>
+                                            <option value="Divers">Divers</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="firstname" class="form-label">Vorname</label>
+                                        <input type="text" id="firstname" name="firstname" placeholder="Vorname" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname" class="form-label">Nachname</label>
+                                        <input type="text" id="lastname" name="lastname" placeholder="Nachname" class="form-control" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class="control-label">Email</label>
+                                        <input type="text" name="email"  t-att-value="email" id="email" class="form-control" placeholder="Email Address"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="country_code" class="form-label">Vorwahl</label>
+                                        <select id="country_code" name="country_code" class="form-select">
+                                            <option value="+41">+41 (CH)</option>
+                                            <option value="+49">+49 (DE)</option>
+                                            <option value="+43">+43 (AT)</option>
+                                            <option value="+33">+33 (FR)</option>
+                                            <option value="+39">+39 (IT)</option>
+                                            <option value="+423">+423 (LI)</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="phone_number" class="form-label">Telefon</label>
+                                        <input type="tel" id="phone_number" name="phone_number" placeholder="Telefon" class="form-control"/>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="street" class="form-label">Straße</label>
+                                        <input type="text" id="street" name="street" placeholder="Straße" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="house_number" class="form-label">Nr.</label>
+                                        <input type="text" id="house_number" name="house_number" placeholder="Nr." class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postal_code" class="form-label">PLZ</label>
+                                        <input type="text" id="postal_code" name="postal_code" placeholder="PLZ" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city" class="form-label">Ort</label>
+                                        <input type="text" id="city" name="city" placeholder="Ort" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="country" class="form-label">Land</label>
+                                        <select id="country" name="country" class="form-select">
+                                            <option value="CH">Schweiz</option>
+                                            <option value="DE">Deutschland</option>
+                                            <option value="AT">Österreich</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="industry" class="form-label">Branche</label>
+                                        <select id="industry" name="industry" class="form-select" required="required">
+                                            <option value="">Bitte wählen</option>
+                                            <option value="Kosmetik / Beauty">Kosmetik / Beauty</option>
+                                            <option value="Einzelhandel">Einzelhandel</option>
+                                            <option value="E-Commerce">E-Commerce</option>
+                                            <option value="POS">POS (stationärer Handel)</option>
+                                            <option value="Gastronomie">Gastronomie</option>
+                                            <option value="Dienstleistungen">Dienstleistungen</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="website_url">Website / Online-Shop:</label>
+                                        <input type="url" id="website_url" name="website_url" placeholder="https://www.beispielshop.ch" class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="monthly_sales_estimated">Monatlicher Umsatz (geschätzt):</label>
+                                        <input id="monthly_sales_estimated" name="monthly_sales_estimated" placeholder= 'z.B. 30000' class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="annual_revenue">Jahresumsatz (geschätzt):</label>
+                                        <input id="annual_revenue" name="annual_revenue" placeholder= 'z.B. 350000' class="form-control"/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="average_transaction_value">Durchschnittlicher Transaktionswert:</label>
+                                        <input id="average_transaction_value" name="average_transaction_value" placeholder= 'z.B. 120' class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="monthly_transaction_value">Transaktionen pro Monat (geschätzt):</label>
+                                        <input id="monthly_transaction_value" name="monthly_transaction_value" placeholder= 'z.B. 200' class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="pos_cash_register_system">POS-/Kassensystem:</label>
+                                        <input id="pos_cash_register_system" name="pos_cash_register_system" placeholder= 'z.B. SwissPOS, Lightspeed' class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="online_shop_system">Online - Shop - System:</label>
+                                        <input id="online_shop_system" name="online_shop_system" placeholder= 'z.B. Shopify, Woocommerce' class="form-control"/>
+                                    </div>
+
+<!--                                    <div class="col-12">
+                                        <label class="form-label">Zahlungsarten (Mehrfachauswahl möglich):</label>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Kreditkarte"/> Kreditkarte (Visa, Mastercard, Amex)</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Debitkarte"/> Debitkarte (Maestro, V PAY)</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Twint"/> TWINT</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Apple Pay"/> Apple Pay</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Google Pay"/> Google Pay</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Samsung Pay"/> Samsung Pay</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="PostFinance"/> PostFinance</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Rechnung"/> Kauf auf Rechnung</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Vorauskasse"/> Vorauskasse</label>
+                                            <label style="flex: 0 0 45%;"><input type="checkbox" name="payment_methods" value="Sonstige"/> Sonstige</label>
+                                        </div>
+                                    </div>-->
+
+                                    <div class="col-12">
+                                        <label class="form-label">Zahlungsarten (Mehrfachauswahl möglich):</label>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="credit_card" class="custom-control-input" name="credit_card" t-att-value="credit_card"/>
+                                            <label for="credit_card" class="custom-control-label" name="credit_card">Kreditkarte (Visa, Mastercard, Amex)</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="debit_card" class="custom-control-input" name="debit_card" t-att-value="debit_card"/>
+                                            <label for="debit_card" class="custom-control-label" name="debit_card">Debitkarte (Maestro, V PAY)</label>
+                                        </div>
+
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="twint" class="custom-control-input" name="twint" t-att-value="twint"/>
+                                            <label for="twint" class="custom-control-label" name="twint">TWINT</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="apple_pay" class="custom-control-input" name="apple_pay" t-att-value="apple_pay"/>
+                                            <label for="apple_pay" class="custom-control-label" name="apple_pay">Apple Pay</label>
+                                        </div>
+
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="google_pay" class="custom-control-input" name="google_pay" t-att-value="google_pay"/>
+                                            <label for="google_pay" class="custom-control-label" name="google_pay">Google Pay</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="samsung_pay" class="custom-control-input" name="samsung_pay" t-att-value="samsung_pay"/>
+                                            <label for="samsung_pay" class="custom-control-label" name="samsung_pay">Samsung Pay</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="post_finance" class="custom-control-input" name="post_finance" t-att-value="post_finance"/>
+                                            <label for="post_finance" class="custom-control-label" name="post_finance">PostFinance</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="purchase_on_account" class="custom-control-input" name="purchase_on_account" t-att-value="purchase_on_account"/>
+                                            <label for="purchase_on_account" class="custom-control-label" name="purchase_on_account">Kauf auf Rechnung</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="prepayment" class="custom-control-input" name="prepayment" t-att-value="prepayment"/>
+                                            <label for="prepayment" class="custom-control-label" name="prepayment">Vorauskasse</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="others" class="custom-control-input" name="others" t-att-value="others"/>
+                                            <label for="others" class="custom-control-label" name="others">Sonstige</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Identity Card Front* (JPG/PNG)</label>
+                                        <input type="file" name="identity_card_front" accept=".jpg,.jpeg,.png" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Identity Card Back* (JPG/PNG)</label>
+                                        <input type="file" name="identity_card_back" accept=".jpg,.jpeg,.png" required="required"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Commercial Register Extract* (PDF)</label>
+                                        <input type="file" name="commercial_register_extract" accept=".pdf" required="required"/>
+                                    </div>
+
+
+                                    <div class="clearfix">
+                                        <button type="submit" class="btn btn-primary pull-left">Submit</button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </t>
+    </template>
+
+    <!--<template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <style>
+                .oe_avatar img {
+                max-width: 100%;
+                max-height: 200px;
+                border: 1px solid #ddd;
+                padding: 5px;
+                margin-bottom: 10px;
+                }
+                .o_form_sheet_bg {
+                padding: 20px;
+                }
+            </style>
+        </xpath>
+    </template>-->
+
+
+</odoo>

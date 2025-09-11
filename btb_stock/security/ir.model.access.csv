@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+btb_stock.access_btb_stock_report,access_btb_stock_report,btb_stock.model_btb_stock_report,base.group_user,1,1,1,1
+btb_stock.access_btb_requisition,access_btb_stock_requisition,sale.model_sale_order,btb_stock.group_account_btb_stock_user,1,0,1,0
+

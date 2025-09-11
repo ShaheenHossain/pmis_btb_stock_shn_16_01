@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_pmisweb_patient_form">
+
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page" style="font-size:14px;">
+                            <div class="oe_structure"/>
+                            <div style="text-align: center; margin-top:-20px;" >
+                                <h4><span>Application Form Online</span></h4>
+                            </div>
+                            <div class="row" style="margin-top:20px;">
+                                <div class="col-8" style="">
+
+                                    <table style="height:60pt;">
+                                        <tr><td><strong><span>Name:</span></strong></td><td>
+                                                <span t-field="o.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr><td><span>Father's Name:</span></td>
+                                            <td><span t-if="o.father_name" t-field="o.father_name"/></td>
+                                        </tr>
+                                        <tr><td><span>Mother's Name:</span></td>
+                                            <td><span t-if="o.mother_name" t-field="o.mother_name"/></td>
+                                        </tr>
+
+                                        <tr><td><span>Marital Status:</span></td>
+                                            <td><span t-if="o.marital_status" t-field="o.marital_status"/></td>
+                                        </tr>
+
+                                        <tr><td><span>Mobile:</span></td>
+                                            <td><span t-if="o.mobile" t-field="o.mobile"/></td>
+                                        </tr>
+
+                                        <tr><td><span>Whatsapp Imo:</span></td>
+                                            <td><span t-if="o.whatsapp_imo" t-field="o.whatsapp_imo"/></td>
+                                        </tr>
+
+                                        <tr><td><span>Email:</span></td>
+                                            <td><span t-if="o.email" t-field="o.email"/></td>
+                                        </tr>
+
+                                        <tr><td><span>Address:</span></td>
+                                            <td><span t-if="o.address" t-field="o.address"/></td>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

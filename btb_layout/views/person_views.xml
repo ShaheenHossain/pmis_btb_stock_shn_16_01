@@ -1,0 +1,459 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record id="btb_res_partner_list" model="ir.ui.view">
+            <field name="name">pmis.res.partner.list</field>
+            <field name="priority" eval="1"/>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="btb_res_partner_form" model="ir.ui.view">
+            <field name="name">pmis.res.partner.form</field>
+            <field name="priority" eval="1"/>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+<!--                        <button name="action_approved" states="approved" type="object" string="Set to approved" data-hotkey="w"/>-->
+<!--                        <button name="action_draft" states="submitted" type="object" string="Set to Draft" data-hotkey="w"/>-->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
+                    </header>
+                    <field name="contact_type"/>
+                    <sheet>
+                        <field name="image_1920" widget="image" class="oe_avatar"
+                               options="{&quot;preview_image&quot;: &quot;avatar_128&quot;}"/>
+                        <div class="row" style="text-align:center;">PMIS</div>
+                        <group string="Personal Information">
+                            <group>
+                                <field name="pds_id"/>
+                            </group>
+                            <group>
+                                <field name="govt_id"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="name_bn"/>
+                            </group>
+                            <group>
+                                <field name="father_name"/>
+                            </group>
+                            <group>
+                                <field name="father_name_bn"/>
+                            </group>
+                            <group>
+                                <field name="mother_name"/>
+                            </group>
+                            <group>
+                                <field name="mother_name_bn"/>
+                            </group>
+                            <group>
+                                <field name="dob" placeholder="Date Of Birth"/>
+                            </group>
+                            <group>
+                            </group>
+                            <group>
+                                <field name="nid_no" string="National ID No." placeholder="NID"/>
+                            </group>
+                            <group>
+                                <field name="nid_copy" string="Upload NID." placeholder="NID Copy"/>
+                            </group>
+                            <group>
+                                <field name="passport_no" placeholder="Passport Number"/>
+                                <field name="pssprt_exp_date" placeholder="Passport Number"/>
+                            </group>
+                            <group>
+                                <field name="passport_copy" placeholder="Upload Passport"/>
+                            </group>
+                            <group>
+                                <field name="tin_no" string="TIN No." placeholder="TIN No"/>
+                            </group>
+                            <group>
+                                <field name="tin_copy" string="TIN Copy."/>
+                            </group>
+                            <group>
+                                <field name="email" string="Email Address"/>
+                            </group>
+                            <group></group>
+                            <group>
+                                <field name="driving_lcn_no"/>
+                                <field name="driving_lcn_exp_dt"/>
+                                </group>
+                            <group>
+                                <field name="driving_copy"/>
+                            </group>
+                            <group>
+                                <field name="ethnic_minority"/>
+                            </group>
+                            <group>
+                                <field name="freedom_fighter"/>
+                            </group>
+                            <group>
+                                <field name="blood_group"/>
+                                <field name="disability"/>
+                            </group>
+                            <group>
+                                <field name="gender" string="Sex"/>
+                                <field name="religion"/>
+                            </group>
+
+                        </group>
+                        <group>
+                        <group>
+                                <field name="marital_status"/>
+                            </group>
+                            </group>
+                        <group string="Family Information"
+                               attrs="{ 'invisible': ['|',('marital_status', '=', 'single'),('marital_status', '=', False)]}">
+                            <group>
+                                <field name="spouse" string="Spouse Name" domain="[('contact_type','=',2),('gender','!=',gender)]"/>
+                            </group>
+                        </group>
+
+                        <group string="Children Details"
+                               attrs="{ 'invisible': ['|',('marital_status', '=', 'single'),('marital_status', '=', False)]}">
+                            <field name="children_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="dob"/>
+                                    <field name="sex"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Personal Address">
+                            <group string="Present Address">
+                                <field name="street"/>
+                                <field name="street2"/>
+                                <field name="city"/>
+                                <field name="state_id"/>
+                                <field name="country_id"/>
+                                <field name="mobile" string="Contact No." placeholder="Contact Number"/>
+                            </group>
+                            <group string="Permanent Address">
+                                <field name="per_street"/>
+                                <field name="per_post"/>
+                                <field name="per_thana"/>
+                                <field name="per_district"/>
+                                <field name="per_country"/>
+                                <field name="per_phone"/>
+                            </group>
+                        </group>
+
+                        <!--                    Todo following fields doesnt needed to input , since it is generated from posting records-->
+                        <group >
+                            <group>
+                                <label for="pv_report" string="Police Verification Report"/>
+                                <field name="pv_report" nolabel="1" domain="[('person_id','=',id)]"/>
+                            </group>
+                            <group>
+                                <label for="medical_report" string="Medical Examination Report"/>
+                                <field name="medical_report" nolabel="1"/>
+                            </group>
+
+                        </group>
+                        <group string="Joining records">
+
+                            <group>
+                                <field name="employer" domain="[('contact_type','=',3)]"/>
+
+                            </group>
+                            <group>
+                            </group>
+                            <group>
+                                <field name="joining_circular_no"/>
+                                <field name="circular_date"/>
+                            </group>
+                            <group>
+                                <field name="circular_copy"/>
+                            </group>
+                             <group>
+                                <field name="joining_grade"/>
+                                <field name="join_designation"/>
+                                 <field name="join_date"/>
+                             </group>
+                            <group>
+                                <field name="apt_no"/>
+                                <field name="apt_date"/>
+                                <field name="apt_copy"/>
+                            </group>
+                            <group>
+                                <field name="conf_no"/>
+                                <field name="conf_date"/>
+                                <field name="conf_copy"/>
+                            </group>
+                            <group>
+                                <field name="join_quota"/>
+                                <field name="merit_order"/>
+                            </group>
+
+                        </group>
+                        <group string="Job Record">
+                            <group>
+                                <field name="prov_no"/>
+                                <field name="prl_date"/>
+                                <field name="cadre_date"/>
+                                <field name="bcs_id"/>
+                                <field name="bcs_cadre"/>
+                                <field name="go_date"/>
+                            </group>
+                            <group>
+
+                                <field name="location"/>
+                            </group>
+                        </group>
+                        <group string="Bank Accounts">
+                            <field name="bank_account_ids">
+                                <tree>
+                                    <field name="ac_no"/>
+                                    <field name="bank_id"/>
+                                    <field name="branch"/>
+                                </tree>
+                            </field>
+                            <group>
+                                <field name="prov_no"/>
+                                <field name="prl_date"/>
+                                <field name="cadre_date"/>
+                                <field name="bcs_id"/>
+                                <field name="bcs_cadre"/>
+                                <field name="go_date"/>
+                            </group>
+                            <group>
+
+                                <field name="location"/>
+                            </group>
+                        </group>
+
+                        <group string="Educational Qualification">
+                            <field name="education_records" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="degree" string="Examination"/>
+                                    <field name="passing_year"/>
+                                    <field name="institute_id" string="Institute" domain="[('contact_type','=',1)]" context="{'default_contact_type': 1,}"/>
+                                    <field name="roll_no" string="Roll No"/>
+                                    <field name="subject_id"/>
+                                    <field name="result_system"/>
+                                    <field name="result_id" domain="[('grading_system','=',result_system)]"/>
+                                    <field name="gpa"/>
+                                    <field name="distinction"/>
+                                    <field name="certificate_copy" placeholder="Certificate"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Posting and Transfer">
+                            <field name="posting_records" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="organisation" domain="[('contact_type', '=', 3)]"
+                                           context="{'default_contact_type': 3,}"/>
+                                    <field name="section"/>
+                                    <field name="rank"/>
+                                    <field name="designation"/>
+                                    <field name="joining_date"/>
+                                    <field name="till_date"/>
+                                    <field name="go_no"/>
+                                    <field name="go_date"/>
+                                    <field name="active_grade"/>
+                                    <field name="actual_grade"/>
+                                    <field name="remarks"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Promotions">
+                            <field name="promotion_records" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="go_no"/>
+                                    <field name="go_date"/>
+                                    <field name="promotion_date"/>
+                                    <field name="grade_id"/>
+                                    <field name="rank_id"/>
+                                    <field name="promotion_nature"/>
+                                    <field name="pay_scale"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Pay Fixation">
+                            <field name="pay_fix_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="pay_fix_date"/>
+                                    <field name="pay_scale"/>
+                                    <field name="basic"/>
+                                    <field name="total"/>
+                                    <field name="sal_cut"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Disciplinery Actions">
+                            <field name="discipline" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="offence_type"/>
+                                    <field name="offence_date"/>
+                                    <field name="name"/>
+                                    <field name="order_no"/>
+                                    <field name="order_date"/>
+                                    <field name="status"/>
+                                    <field name="remarks"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="If Case Filed">
+                            <field name="case_file_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="case_type"/>
+                                    <field name="start_date"/>
+                                    <field name="settle_date"/>
+                                    <field name="settle_description"/>
+                                    <field name="status"/>
+                                    <field name="remarks"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Leave Details">
+                            <field name="leave_records" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="leave_type"/>
+                                    <field name="salery_type"/>
+                                    <field name="from_date"/>
+                                    <field name="till_date"/>
+                                    <field name="duration"/>
+                                    <field name="reason"/>
+                                    <field name="local_foreign"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Training Details">
+                            <field name="training_records" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="institution_id" domain="[('contact_type', '=', 3)]" context="{'default_contact_type': 3,}"/>
+                                    <field name="from_date"/>
+                                    <field name="till_date"/>
+                                    <field name="duration"/>
+                                    <field name="category_id"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Language Proficiency">
+                            <field name="language_proficiency" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name" domain="['|',('active','=',True),('active','=',False)]"/>
+                                    <field name="can_read"/>
+                                    <field name="can_write"/>
+                                    <field name="can_speak"/>
+                                    <field name="can_listen"/>
+                                    <field name="exam"/>
+                                    <field name="exam_date"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Senior Scale/Promotion Exam Proficiency">
+                            <field name="senior_grade_exam" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="passing_year"/>
+                                    <field name="result"/>
+                                    <field name="exam_date"/>
+                                    <field name="notice_no"/>
+                                    <field name="notice_date"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Awards and Achievements">
+                            <field name="award_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="award_date"/>
+                                    <field name="institute_id" domain="[('contact_type', '=', 3)]" context="{'default_contact_type': 3,}"/>
+                                    <field name="ground"/>
+                                    <field name="govt_aproved"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Foreign Travels">
+                            <field name="travel_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="country_id"/>
+                                    <field name="purpose"/>
+                                    <field name="from_date"/>
+                                    <field name="till_date"/>
+                                    <field name="remarks"/>
+                                    <field name="document"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Publications">
+                            <field name="publication_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="subject"/>
+                                    <field name="publication_type"/>
+                                    <field name="publish_date"/>
+                                    <field name="journal_id"/>
+                                    <field name="journal_no"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Other Professional Qualification">
+                            <field name="addl_qualification" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Sports">
+                            <field name="sports_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Research">
+                            <field name="research_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_contacts" model="ir.actions.act_window">
+            <field name="name">Persons</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'default_is_company': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Contact in your address book
+                </p>
+                <p>
+                    Eagle IT Servises helps you track all activities related to your contacts.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

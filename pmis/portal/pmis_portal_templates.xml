@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_form">
+        <t t-call="portal.portal_layout">
+            <div class="row">
+                <form method="POST">
+                    <div class="row">
+                        <div class="col">Name</div>
+                        <div class="col">
+                            <input type="text" id="name" name="name"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.name">
+                            </input>
+                        </div>
+                        <div class="col">নাম :</div>
+                        <div class="col">
+                            <input type="text" id="name_bn" name="name_bn"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.name_bn"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Father's Name</div>
+                        <div class="col">
+                            <input type="text" id="fname" name="fname"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.father_name">
+                            </input>
+                        </div>
+                        <div class="col">পিতার নাম :</div>
+                        <div class="col">
+                            <input type="text" id="fname_bn" name="fname_bn"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}"
+                                   t-att-value="person.father_name_bn"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Mother's Name</div>
+                        <div class="col">
+                            <input type="text" id="mname" name="mname"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.mother_name">
+                            </input>
+                        </div>
+                        <div class="col">মাতার নাম :</div>
+                        <div class="col">
+                            <input type="text" id="mname_bn" name="mname_bn"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}"
+                                   t-att-value="person.mother_name_bn"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Date of Birth</div>
+                        <div class="col">
+                            <input type="text" id="dob" name="dob"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.dob">
+                            </input>
+                        </div>
+                        <div class="col">Home District :</div>
+                        <div class="col">
+                            select home district Here
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">NID</div>
+                        <div class="col">
+                            <input type="text" id="nid_no" name="nid_no"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.nid_no">
+                            </input>
+                        </div>
+                        <div class="col">Upload NID:</div>
+                        <div class="col">
+                            <input type="file"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">email :</div>
+                        <div class="col">
+                            <input type="text" id="email" name="email"
+                                   attrs="{'invisible':[('edit_name', '!=', False)]}" t-att-value="person.email">
+                            </input>
+                        </div>
+                        <div class="col">Upload NID:</div>
+                        <div class="col">
+                            <input type="file"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+    <template id="portal_common_form">
+        <t t-call="portal.portal_layout">
+        <div class="row">
+            <div class="col">PDS ID</div>
+            <div class="col">Name</div>
+            <div class="col">Rank</div>
+            <div class="col">Contact</div>
+            <div class="col">email</div>
+        </div>
+        <t t-foreach="persons" t-as="person">
+            <div class="row">
+            <div class="col"><t t-esc="person.pds_id"/></div>
+            <div class="col"><t t-esc="person.name"/></div>
+            <div class="col"><!--<t t-esc="person.rank"/>--></div>
+            <div class="col"><!--<t t-esc="person.mobile"/>--></div>
+            <div class="col"><t t-esc="person.email"/></div>
+        </div>
+        </t>
+        </t>
+    </template>
+
+    <template id="portal_my_pmis" name="My PMIS">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">PMIS</t>
+            </t>
+            <t  t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>pds_id #</th>
+                        <th class="text-end">Quotation Date</th>
+                        <th class="text-end">Valid Until</th>
+                        <th class="text-center"/>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="quotations" t-as="quotation">
+                    <tr>
+                        <td><a t-att-href="quotation.get_portal_url()"><t t-out="quotation.name"/></a></td>
+                        <td class="text-end"><span t-field="quotation.date_order"/></td>
+                        <td class="text-end"><span t-field="quotation.validity_date"/></td>
+                        <td class="text-center">
+                            <span t-if="quotation.state == 'cancel'" class="badge rounded-pill text-bg-secondary">
+                                <i class="fa fa-fw fa-remove"/> Cancelled</span>
+                            <span t-if="quotation.is_expired" class="badge rounded-pill text-bg-secondary">
+                                <i class="fa fa-fw fa-clock-o"/> Expired</span>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="quotation.amount_total"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no quotations for your account.</p>
+        </t>
+    </template>
+
+
+    <!--    this template is here to substitute portal.portal_docs_entry
+            portal.portal_docs_entry creates hidden field by default -->
+
+    <!--<template id="portal_docs_entry" name="My Portal Docs Entry">
+        <a t-att-href="url" t-att-title="title"
+           class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+            <t t-esc="title"/>
+            <t t-if='count'>
+                <span class="badge text-bg-secondary rounded-pill" t-esc="count"/>
+            </t>
+            <t t-elif="placeholder_count">
+                <span class="badge text-bg-secondary rounded-pill" t-att-data-placeholder_count="placeholder_count">
+                    <i class="fa fa-spin fa-circle-o-notch"></i>
+                </span>
+            </t>
+        </a>
+    </template>-->
+
+    <template id="portal_my_home" inherit_id="portal.portal_my_home" priority="1">
+
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">PMIS Data</t>
+                <t t-set="url">/pmis</t>
+            </t>
+        </xpath>
+    </template>
+
+
+    <template id="portal_breadcrumbs" inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+
+        </xpath>
+
+    </template>
+   <!-- <template id="portal_docs_entry" name="My Portal Docs Entry" inherit_id="portal.portal_docs_entry">
+        <xpath expr="//a[hasclass('list-group-item')]" position="replace">
+            <t t-set="icons" t-value="{'/my/quotes': 'fa fa-check-square-o ', '/my/orders': 'fa fa-shopping-cart', '/my/purchase': 'fa fa-credit-card', '/my/invoices': 'fa fa-file-text-o', '/my/projects': 'fa fa-cubes', '/my/tasks': 'fa fa-list', '/my/timesheets': 'fa fa-clock-o', '/my/leads': 'fa fa-handshake-o', '/my/opportunities': 'fa fa-handshake-o'}"/>
+            <div class="col-12 col-lg-6 col-xl-4">
+                <a t-att-href="url" t-att-title="title">
+                    <div class="d-flex p-3 bg-white my-2 dr-portal-doc-entry">
+                        <div class="flex-shrink-0 me-3">
+                            <i t-attf-class="#{icons.get(url, 'fa fa-check')} text-bg-primary icon tp-icon-center-3"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <t t-if="count">
+                                <h3 class="mb-0" t-out="count"/>
+                            </t>
+                            <t t-elif="placeholder_count">
+                                <h3 class="mb-0" t-att-data-placeholder_count="placeholder_count">
+                                    <i class="fa fa-spin fa-spinner"></i>
+                                </h3>
+                            </t>
+                            <h6 class="mb-0 text-muted" t-out="title"></h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </xpath>
+    </template>-->
+
+    <template id="portal_my_details_fields" inherit_id="portal.portal_my_details_fields">
+        <div t-attf-class="mb-3 #{error.get('name') and 'o_has_error' or ''} col-xl-6" position="after">
+            <div t-attf-class="mb-3 #{error.get('name_bn') and 'o_has_error' or ''} col-xl-6">
+                <label class="col-form-label" for="name_bn">নাম</label>
+                <input type="text" name="name_bn" t-attf-class="form-control #{error.get('name_bn') and 'is-invalid' or ''}" t-att-value="name_bn or partner.name_bn" />
+            </div>
+        </div>
+    </template>
+
+    <!--<template id="portal_layout" name="Portal Layout" inherit_id="portal.portal_layout">
+
+
+            <div class="o_portal_my_details" position="after">
+                <div class="o_portal_my_security mt-3">
+                    <h4>PIMS Data </h4>
+                    <hr class="mt-1 mb-1"/>
+                    <a href="/my/pims"><i class="fa fa-eye" />   View PIMS Data</a>
+                    <a href="/my/security"><i class="fa fa-pencil mx-1"/>Edit PIMS Data</a>
+                </div>
+            </div>
+    </template>-->
+
+
+</odoo>

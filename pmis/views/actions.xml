@@ -1,0 +1,111 @@
+<odoo>
+    <data>
+
+      <record id="action_pmis_gender" model="ir.actions.act_window">
+        <field name="name">Gender</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.gender</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="action_join_circular" model="ir.actions.act_window">
+        <field name="name">Joining Circular</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.joining.circular</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="action_quota" model="ir.actions.act_window">
+        <field name="name">Quota</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.quota</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="action_subject_form" model="ir.actions.act_window">
+        <field name="name">Group/Subject</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.education.subject</field>
+        <field name="view_mode">tree,form</field>
+
+      </record>
+        <record id="action_bcs_form" model="ir.actions.act_window">
+        <field name="name">BCS</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.bcs</field>
+        <field name="view_mode">tree,form</field>
+
+      </record>
+        <record id="action_bcs_cadre" model="ir.actions.act_window">
+        <field name="name">BCS Cadre</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.bcs.cadre</field>
+        <field name="view_mode">tree,form</field>
+
+      </record>
+        <record id="action_degree_form" model="ir.actions.act_window">
+        <field name="name">Degree</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pmis.degree</field>
+        <field name="view_mode">tree,form</field>
+
+      </record>
+
+        <record id="action_pmis_person_action" model="ir.actions.act_window">
+            <field name="name">Person</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="pmis.pmis_res_partner_list"/>
+            <field name="domain">[ ('contact_type', '=', 'Person'),('job_category', '!=', False)]</field>
+            <field name="context">{'default_contact_type': 2}</field>
+        </record>
+        <record id="action_pmis_institute_action" model="ir.actions.act_window">
+            <field name="name">Educational Institute</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="pmis.pmis_res_partner_list"/>
+            <field name="domain">[ ('contact_type', '=', 'Educational Institute')]</field>
+            <field name="context">{'form_view_ref': 'base.view_partner_form','default_contact_type': 1}</field>
+        </record>
+        <record id="action_pmis_posting_action" model="ir.actions.act_window">
+            <field name="name">Posting/Office</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="pmis.pmis_res_partner_list"/>
+            <field name="domain">[ ('contact_type', '=', 'Office')]</field>
+            <field name="context">{'form_view_ref': 'base.view_partner_form','default_contact_type': 3}</field>
+        </record>
+
+        <record id="action_pmis_training_action" model="ir.actions.act_window">
+            <field name="name">Training</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pmis.training</field>
+            <field name="view_mode">tree,form</field>
+            <!--        <field name="view_id" ref="pmis.pmis_res_partner_list"/>-->
+        </record>
+        <record id="action_pmis_promotion_particulars_action" model="ir.actions.act_window">
+            <field name="name">Promotion Particulars</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pmis.promotion.particulars</field>
+            <field name="view_mode">tree,form</field>
+            <!--        <field name="view_id" ref="pmis.pmis_res_partner_list"/>-->
+        </record>
+        <record id="action_pmis_training_line_action" model="ir.actions.act_window">
+            <field name="name">Training</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pmis.training.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_pmis_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Report action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pmis.report.wizard</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+
+</odoo>

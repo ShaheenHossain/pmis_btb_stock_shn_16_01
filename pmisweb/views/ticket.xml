@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="ticket_welcome" name="Welcome">
+        <t t-call="website.layout">
+
+            <div class="container" style="margin-top:20px; margin-bottom:20px; min-height:240px;">
+                <h2>PMIS Form:
+                    <span t-esc="ticket_no"></span>
+                </h2>
+                <h4>Thank you so much for providing the above information</h4>
+<!--                Thank you so much for providing the above information-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="alert alert-success" role="status">
+                            <p>
+                                Ihr Formular wurde erfolgreich registriert. Wir werden uns in Kürze bei Ihnen melden.
+                                <table>
+                                    <tr><td>Application No</td><td>:</td><td t-esc="ticket_no"></td></tr>
+                                    <tr><td>PDS ID</td><td>:</td><td t-esc="pds_id_number"></td></tr>
+                                    <tr><td>GOVT ID</td><td>:</td><td t-esc="govt_id_number"></td></tr>
+                                    <tr><td>Name English</td><td>:</td><td t-esc="name"></td></tr>
+                                    <tr><td>Name Bangla</td><td>:</td><td t-esc="name_bn"></td></tr>
+
+                                    <tr><td>Father Name English</td><td>:</td><td t-esc="father_name"></td></tr>
+                                    <tr><td>Father Name Bangla</td><td>:</td><td t-esc="father_name_bn"></td></tr>
+
+                                    <tr><td>Mother Name English</td><td>:</td><td t-esc="mother_name"></td></tr>
+                                    <tr><td>Mother Name Bangla</td><td>:</td><td t-esc="mother_name_bn"></td></tr>
+
+                                    <tr><td>Email</td><td>:</td><td t-esc="email"></td></tr>
+                                    <tr><td>Telefon</td><td>:</td><td t-esc="phone_number"></td></tr>
+                                    <tr><td>Straße</td><td>:</td><td t-esc="street"></td></tr>
+                                    <tr><td>Nr.</td><td>:</td><td t-esc="house_number"></td></tr>
+                                    <tr><td>PLZ</td><td>:</td><td t-esc="postal_code"></td></tr>
+                                    <tr><td>Ort</td><td>:</td><td t-esc="city"></td></tr>
+                                    <tr><td>Land</td><td>:</td><td t-esc="country"></td></tr>
+
+
+                                    <tr><td>ঠিকানা</td><td>:</td><td t-esc="address"></td></tr>
+                                    <t t-if="other_problems"><tr><td>অন্য কোনো সমস্যা (যদি থাকে)</td></tr></t>
+
+                                </table>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

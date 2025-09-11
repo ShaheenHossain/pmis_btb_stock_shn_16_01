@@ -1,0 +1,206 @@
+id,active,barcode,sale_ok,standard_price,priority,default_code,name,categ_id,product_tag_ids,detailed_type,responsible_id,list_price,type
+__btb_stock__.product_template_a4_paper,TRUE,,TRUE,0,Normal,,A4 paper,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_aerosol,TRUE,,TRUE,0,Normal,,Aerosol,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_air_freshener,TRUE,,TRUE,0,Normal,,Air Freshener,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_alpine,TRUE,,TRUE,0,Normal,,Alpine,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_btb_coat_pin,TRUE,,TRUE,0,Normal,,BTB coat pin,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_bag,TRUE,,TRUE,0,Normal,,Bag,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_bangladesh_tourist_map,TRUE,,TRUE,0,Normal,,Bangladesh Tourist Map,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_battery_small,TRUE,,TRUE,0,Normal,,Battery small,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_beautiful_bangladesh_quote_pin,TRUE,,TRUE,0,Normal,,Beautiful Bangladesh quote pin,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_bedsheets,TRUE,,TRUE,0,Normal,,Bedsheets,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_binder_clips_5_boxes,TRUE,,TRUE,0,Normal,,Binder Clips 5 boxes,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_black_gel_pen,TRUE,,TRUE,0,Normal,,Black gel pen,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_black_matador_pen,TRUE,,TRUE,0,Normal,,Black matador pen,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_board_marker,TRUE,,TRUE,0,Normal,,Board marker,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_box_tissue,TRUE,,TRUE,0,Normal,,Box tissue,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cd,TRUE,,TRUE,0,Normal,,CD,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cpu_desktop_cpu,TRUE,,TRUE,0,Normal,,CPU Desktop CPU,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_calculator,TRUE,,TRUE,0,Normal,,Calculator,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cannon_photocopy_npg51_toner,TRUE,,TRUE,0,Normal,,Cannon photocopy NPG51 Toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cap,TRUE,,TRUE,0,Normal,,Cap,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_car_spray_car_wash,TRUE,,TRUE,0,Normal,,Car Spray Car Wash,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_car_sweeper,TRUE,,TRUE,0,Normal,,Car sweeper,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_card_holder,TRUE,,TRUE,0,Normal,,Card Holder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cleaning_tray,TRUE,,TRUE,0,Normal,,Cleaning tray,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_clip_file_clip_file_postal_file,TRUE,,TRUE,0,Normal,,Clip File Clip File Postal File,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cristal_paper_weight_big,TRUE,,TRUE,0,Normal,,Cristal Paper Weight Big,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_dashboard_cleaner,TRUE,,TRUE,0,Normal,,Dashboard cleaner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_dhaka_city_guide_map,TRUE,,TRUE,0,Normal,,Dhaka city guide map,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_dhaka_city_guide_map_(type-2),TRUE,,TRUE,0,Normal,,Dhaka city guide map (Type-2),All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_dish_scrubber,TRUE,,TRUE,0,Normal,,Dish Scrubber,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_duster,TRUE,,TRUE,0,Normal,,Duster,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_epson_color_printer,TRUE,,TRUE,0,Normal,,Epson color printer,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_eraser_rubber,TRUE,,TRUE,0,Normal,,Eraser rubber,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_event_calander,TRUE,,TRUE,0,Normal,,Event calander,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_file_cover,TRUE,,TRUE,0,Normal,,File Cover,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_file_ribbon,TRUE,,TRUE,0,Normal,,File ribbon,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_first_aid_kit,TRUE,,TRUE,0,Normal,,First aid kit,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_fixed,TRUE,,TRUE,0,Normal,,Fixed,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_flyer_on_chittagong_hill_tract,TRUE,,TRUE,0,Normal,,Flyer on Chittagong Hill tract,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_cox's_bazar_and_saint_martin,TRUE,,TRUE,0,Normal,,Flyer on Cox's Bazar and Saint martin,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_dhaka,TRUE,,TRUE,0,Normal,,Flyer on Dhaka,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_festival,TRUE,,TRUE,0,Normal,,Flyer on Festival,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_haor,TRUE,,TRUE,0,Normal,,Flyer on Haor,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_history_and_archaeology,TRUE,,TRUE,0,Normal,,Flyer on History and Archaeology,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_kuakata,TRUE,,TRUE,0,Normal,,Flyer on Kuakata,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_river,TRUE,,TRUE,0,Normal,,Flyer on River,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_sundarbans,TRUE,,TRUE,0,Normal,,Flyer on Sundarbans,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_sylhet_and_srimangal,TRUE,,TRUE,0,Normal,,Flyer on Sylhet and Srimangal,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_flyer_on_village_life,TRUE,,TRUE,0,Normal,,Flyer on village life,All,,Storable Product,OdooBot,1,Storable Product
+__btb_stock__.product_template_gam_fabicle,TRUE,,TRUE,0,Normal,,Gam Fabicle,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_gel_pen-blue,TRUE,,TRUE,0,Normal,,Gel pen-blue,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_gel_pen-red,TRUE,,TRUE,0,Normal,,Gel pen-red,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_gift_box_leather_gift_box,TRUE,,TRUE,0,Normal,,Gift Box Leather Gift Box,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_glass_cleaner_liquid,TRUE,,TRUE,0,Normal,,Glass cleaner liquid,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_glass_cleaner_stick,TRUE,,TRUE,0,Normal,,Glass cleaner stick,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_glass_lid,TRUE,,TRUE,0,Normal,,Glass lid,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_gloves,TRUE,,TRUE,0,Normal,,Gloves,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_gumboot_safety_suge,TRUE,,TRUE,0,Normal,,Gumboot Safety Suge,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_half_plate,TRUE,,TRUE,0,Normal,,Half plate,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_hand_mic,TRUE,,TRUE,0,Normal,,Hand mic,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_harpic,TRUE,,TRUE,0,Normal,,Harpic,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_headphones,TRUE,,TRUE,0,Normal,,Headphones,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_hexasol,TRUE,,TRUE,0,Normal,,Hexasol,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_high_lighter,TRUE,,TRUE,0,Normal,,High lighter,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_james_clip,TRUE,,TRUE,0,Normal,,James Clip,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_knife,TRUE,,TRUE,0,Normal,,Knife,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_laptop_hp_15s_du1096,TRUE,,TRUE,0,Normal,,Laptop HP 15s du1096,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_large_stapler,TRUE,,TRUE,0,Normal,,Large stapler,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_large_stapler_pin_box,TRUE,,TRUE,0,Normal,,Large stapler pin box,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_leather_file_folder,TRUE,,TRUE,0,Normal,,Leather file folder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_leather_folder_leather_folder,TRUE,,TRUE,0,Normal,,Leather folder Leather folder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_legal_papers,TRUE,,TRUE,0,Normal,,Legal papers,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_letter_head_pad_,TRUE,,TRUE,0,Normal,,Letter Head Pad ,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_life_jacket,TRUE,,TRUE,0,Normal,,Life jacket,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_lysol,TRUE,,TRUE,0,Normal,,Lysol,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_marker_black,TRUE,,TRUE,0,Normal,,Marker black,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mask,TRUE,,TRUE,0,Normal,,Mask,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_medium_stapler_pin_box,TRUE,,TRUE,0,Normal,,Medium Stapler Pin Box,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_meeting_folder,TRUE,,TRUE,0,Normal,,Meeting folder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_meeting_stand,TRUE,,TRUE,0,Normal,,Meeting stand,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mob_stick,TRUE,,TRUE,0,Normal,,Mob stick,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mob_yarn,TRUE,,TRUE,0,Normal,,Mob yarn,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_monitor,TRUE,,TRUE,0,Normal,,Monitor,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mouse,TRUE,,TRUE,0,Normal,,Mouse,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mouse_pad,TRUE,,TRUE,0,Normal,,Mouse pad,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mug_with_btb_logo,TRUE,,TRUE,0,Normal,,Mug with BTB logo,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mug_with_mujib_varsh_logo,TRUE,,TRUE,0,Normal,,Mug with Mujib Varsh logo,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mujib_barsha_genji_,TRUE,,TRUE,0,Normal,,Mujib Barsha Genji ,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mujib_borsho_envelope,TRUE,,TRUE,0,Normal,,Mujib Borsho envelope,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mujib_year_gift_box,TRUE,,TRUE,0,Normal,,Mujib Year Gift Box,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mujib_year_quotes,TRUE,,TRUE,0,Normal,,Mujib year quotes,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_mujib_years_envelope,TRUE,,TRUE,0,Normal,,Mujib years envelope,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_multiplug,TRUE,,TRUE,0,Normal,,Multiplug,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_nap_tholin,TRUE,,TRUE,0,Normal,,Nap tholin,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_note_pad,TRUE,,TRUE,0,Normal,,Note Pad,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_note_sheet,TRUE,,TRUE,0,Normal,,Note sheet,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_odonil,TRUE,,TRUE,0,Normal,,Odonil,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_outdoor_dustbin,TRUE,,TRUE,0,Normal,,Outdoor dustbin,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_paper_bag,TRUE,,TRUE,0,Normal,,Paper Bag,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_paposh,TRUE,,TRUE,0,Normal,,Paposh,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pen_holder,TRUE,,TRUE,0,Normal,,Pen holder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pencil_cutter,TRUE,,TRUE,0,Normal,,Pencil Cutter,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_photo_frame,TRUE,,TRUE,0,Normal,,Photo frame,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_photocopy_toner_toshiba,TRUE,,TRUE,0,Normal,,Photocopy Toner Toshiba,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pilot_pen_vip_black,TRUE,,TRUE,0,Normal,,Pilot Pen VIP Black,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pilot_pen_vip_blue,TRUE,,TRUE,0,Normal,,Pilot Pen VIP Blue,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pilot_v7_red_pen,TRUE,,TRUE,0,Normal,,Pilot V7 Red Pen,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pin_remover,TRUE,,TRUE,0,Normal,,Pin Remover,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pirich,TRUE,,TRUE,0,Normal,,Pirich,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_plastic_basket,TRUE,,TRUE,0,Normal,,Plastic basket,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_plastic_container,TRUE,,TRUE,0,Normal,,Plastic container,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_plastic_folder,TRUE,,TRUE,0,Normal,,Plastic folder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_plastic_pots_bowls,TRUE,,TRUE,0,Normal,,Plastic pots bowls,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_polythene,TRUE,,TRUE,0,Normal,,Polythene,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_punch_machine,TRUE,,TRUE,0,Normal,,Punch Machine,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_rain_coat,TRUE,,TRUE,0,Normal,,Rain coat,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_red_matador_pen,TRUE,,TRUE,0,Normal,,Red Matador pen,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_refrigerator,TRUE,,TRUE,0,Normal,,Refrigerator,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_register_book,TRUE,,TRUE,0,Normal,,Register Book,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_sanitizer_stand,TRUE,,TRUE,0,Normal,,Sanitizer stand,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_savlon,TRUE,,TRUE,0,Normal,,Savlon,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_scanner_machine,TRUE,,TRUE,0,Normal,,Scanner machine,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_scotch_tape_small,TRUE,,TRUE,0,Normal,,Scotch tape small,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_sepnil,TRUE,,TRUE,0,Normal,,Sepnil,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_shaheed_minar,TRUE,,TRUE,0,Normal,,Shaheed Minar,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_shovel,TRUE,,TRUE,0,Normal,,Shovel,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_small_money_bag,TRUE,,TRUE,0,Normal,,Small money bag,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_small_paper_box_of_mujib_barsha,TRUE,,TRUE,0,Normal,,Small paper box of Mujib Barsha,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_small_stapler_pin_box,TRUE,,TRUE,0,Normal,,Small stapler pin box,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_spray_pipe,TRUE,,TRUE,0,Normal,,Spray pipe,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_stamp_pad_artline,TRUE,,TRUE,0,Normal,,Stamp Pad Artline,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_stapler_medium,TRUE,,TRUE,0,Normal,,Stapler Medium,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_stapler_small,TRUE,,TRUE,0,Normal,,Stapler small,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_steel_scale,TRUE,,TRUE,0,Normal,,Steel scale,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_super_glue_stick,TRUE,,TRUE,0,Normal,,Super Glue Stick,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_table,TRUE,,TRUE,0,Normal,,Table,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_tent,TRUE,,TRUE,0,Normal,,Tent,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_the_pen_of_mujib_borsho,TRUE,,TRUE,0,Normal,,The pen of Mujib Borsho,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_the_poster_is_blocked,TRUE,,TRUE,0,Normal,,The poster is blocked,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_thermal_machine,TRUE,,TRUE,0,Normal,,Thermal machine,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_thread_ball_thread_ball,TRUE,,TRUE,0,Normal,,Thread ball thread ball,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_tiger_head,TRUE,,TRUE,0,Normal,,Tiger head,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toilet_brush,TRUE,,TRUE,0,Normal,,Toilet brush,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toilet_bucket,TRUE,,TRUE,0,Normal,,Toilet bucket,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toilet_tissue,TRUE,,TRUE,0,Normal,,Toilet tissue,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner,TRUE,,TRUE,0,Normal,,Toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_26a_cartridge_toner,TRUE,,TRUE,0,Normal,,Toner 26A Cartridge Toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_276a_toner_cartiz,TRUE,,TRUE,0,Normal,,Toner 276A Toner Cartiz,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_308_cartridge_toner,TRUE,,TRUE,0,Normal,,Toner 308 Cartridge Toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_canon_325_cartridge_toner,TRUE,,TRUE,0,Normal,,Toner Canon 325 Cartridge toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_canon_326_cartridge_toner,TRUE,,TRUE,0,Normal,,Toner Canon 326 Cartridge toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_epson_805_toner_cartridge,TRUE,,TRUE,0,Normal,,Toner Epson 805 toner cartridge,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_epson_color_printer_toner_415,TRUE,,TRUE,0,Normal,,Toner Epson color printer toner 415,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_laserjet_35a,TRUE,,TRUE,0,Normal,,Toner Laserjet 35A,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_laserjet_85a_toner,TRUE,,TRUE,0,Normal,,Toner Laserjet 85A Toner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_printer_hp_laser_jet_m404dn,TRUE,,TRUE,0,Normal,,Toner Printer HP Laser jet m404dn,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toner_samsung_toner_cartiz,TRUE,,TRUE,0,Normal,,Toner Samsung Toner Cartiz,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_towel_medium,TRUE,,TRUE,0,Normal,,Towel Medium,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_ups,TRUE,,TRUE,0,Normal,,UPS,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_umbrella,TRUE,,TRUE,0,Normal,,Umbrella,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_urni,TRUE,,TRUE,0,Normal,,Urni,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vip_box_pen_with_logo,TRUE,,TRUE,0,Normal,,VIP Box Pen with logo,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vacuum_cleaner,TRUE,,TRUE,0,Normal,,Vacuum cleaner,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vim_liquid,TRUE,,TRUE,0,Normal,,Vim Liquid,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vim_powder,TRUE,,TRUE,0,Normal,,Vim powder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vim_soap,TRUE,,TRUE,0,Normal,,Vim soap,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vixol_power,TRUE,,TRUE,0,Normal,,Vixol Power,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_vromor,TRUE,,TRUE,0,Normal,,Vromor,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_wheel_powder,TRUE,,TRUE,0,Normal,,Wheel powder,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_white_gel_pen_with_golden_logo,TRUE,,TRUE,0,Normal,,White gel pen with golden logo,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_bicycle,TRUE,,TRUE,0,Normal,,bicycle,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_brochure_rack,TRUE,,TRUE,0,Normal,,brochure rack,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cup,TRUE,,TRUE,0,Normal,,cup,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_cupboard,TRUE,,TRUE,0,Normal,,cupboard,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_file_tag,TRUE,,TRUE,0,Normal,,file tag,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_flower_broom,TRUE,,TRUE,0,Normal,,flower broom,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_food_plate,TRUE,,TRUE,0,Normal,,food plate,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_glass,TRUE,,TRUE,0,Normal,,glass,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_glass_pad,TRUE,,TRUE,0,Normal,,glass pad,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_hand_wash,TRUE,,TRUE,0,Normal,,hand wash,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_jute_bag,TRUE,,TRUE,0,Normal,,jute bag,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_kachi,TRUE,,TRUE,0,Normal,,kachi,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_key_board,TRUE,,TRUE,0,Normal,,key board,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_key_ring,TRUE,,TRUE,0,Normal,,key ring,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_muffler,TRUE,,TRUE,0,Normal,,muffler,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_nafakhum,TRUE,,TRUE,0,Normal,,nafakhum,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_note_book_diary,TRUE,,TRUE,0,Normal,,note book diary,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_oximeter,TRUE,,TRUE,0,Normal,,oximeter,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pen_drive,TRUE,,TRUE,0,Normal,,pen drive,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pencil,TRUE,,TRUE,0,Normal,,pencil,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_printer,TRUE,,TRUE,0,Normal,,printer,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_pushpin,TRUE,,TRUE,0,Normal,,pushpin,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_spoon_tea-24_cut-24,TRUE,,TRUE,0,Normal,,spoon tea-24 cut-24,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_tea_strainer,TRUE,,TRUE,0,Normal,,tea strainer,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_the_boat,TRUE,,TRUE,0,Normal,,the boat,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_the_kiosk,TRUE,,TRUE,0,Normal,,the kiosk,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_the_towel,TRUE,,TRUE,0,Normal,,the towel,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_the_world,TRUE,,TRUE,0,Normal,,the world,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_to_cut,TRUE,,TRUE,0,Normal,,to cut,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_toilet_mug,TRUE,,TRUE,0,Normal,,toilet mug,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_towel_large,TRUE,,TRUE,0,Normal,,towel large,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_towel_tissu_towel_tissue,TRUE,,TRUE,0,Normal,,towel tissu towel tissue,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_trolley_car,TRUE,,TRUE,0,Normal,,trolley car,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_wall_clock,TRUE,,TRUE,0,Normal,,wall clock,All,,Storable Product,Administrator,1,Storable Product
+__btb_stock__.product_template_web_camera,TRUE,,TRUE,0,Normal,,web camera,All,,Storable Product,Administrator,1,Storable Product

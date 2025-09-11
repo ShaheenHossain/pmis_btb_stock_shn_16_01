@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="pmisweb_ticket_form" model="ir.ui.view">
+        <field name="name">crm.bhf.form</field>
+        <field name="model">crm.bhf</field>
+        <field name="arch" type="xml">
+            <form string="Application form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="pds_id_number" string="PDS ID" placeholder="PDS ID"/>
+                            <field name="govt_id_number" string="GOVT ID" placeholder="GOVT ID"/>
+                            <field name="name" string="Name English" placeholder="Name English"/>
+                            <field name="name_bn" string="Name Bangla" placeholder="Name Bangla"/>
+
+                            <field name="father_name" string="Father Name English" placeholder="Father Name English"/>
+                            <field name="father_name_bn" string="Father Name Bangla" placeholder="Father Name Bangla"/>
+                            <field name="mother_name" string="Mother Name Bangla" placeholder="Mother Name Bangla"/>
+                            <field name="mother_name_bn" string="Mother Name Bangla" placeholder="Mother Name Bangla"/>
+
+                            <field name="email" string="E-Mail" placeholder="E-Mail"/>
+                            <field name="phone_number" placeholder="Telefon"/>
+
+                            <!--                        <field name="address"/>-->
+                            <field name="street" placeholder="Straße"/>
+                            <field name="house_number" placeholder="Nr."/>
+                        </group>
+                        <group>
+                            <field name="postal_code" placeholder="PLZ"/>
+                            <field name="city" placeholder="Ort"/>
+                            <field name="country" placeholder="Land"/>
+
+
+                        </group>
+
+
+
+                        <group string="Uploaded Documents" colspan="2">
+                            <!-- Front of ID Card -->
+                            <field name="identity_card_front"
+                                   widget="image"
+                                   filename="identity_card_front_filename"
+                                   class="oe_avatar"
+                                   options="{'preview_image': 'identity_card_front', 'size': [300, 300], 'zoom': True}"/>
+                            <field name="identity_card_front_filename" invisible="1"/>
+
+                            <!-- Back of ID Card -->
+                            <field name="identity_card_back"
+                                   widget="image"
+                                   filename="identity_card_back_filename"
+                                   class="oe_avatar"
+                                   options="{'preview_image': 'identity_card_back', 'size': [300, 300], 'zoom': True}"/>
+                            <field name="identity_card_back_filename" invisible="1"/>
+
+                            <!-- PDF (Commercial Register Extract) -->
+                            <field name="commercial_register_extract"
+                                   widget="binary"
+                                   filename="commercial_register_extract_filename"
+                                   options="{'human_readable': True}"/>
+                            <field name="commercial_register_extract_filename" invisible="1"/>
+                        </group>
+
+
+
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="crm_bhf_user_rule" model="ir.rule">
+    <field name="name">CRM BHF: All Users</field>
+    <field name="model_id" ref="model_crm_bhf"/>
+    <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    <field name="domain_force">[(1, '=', 1)]</field>
+</record>
+
+
+
+
+    <record id="pmisweb_ticket_tree" model="ir.ui.view">
+        <field name="name">pmisweb.ticket.tree</field>
+        <field name="model">crm.bhf</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pds_id_number" string="PDS ID"/>
+                <field name="govt_id_number" string="GOVT ID"/>
+                <field name="name" string="Name English"/>
+                <field name="name_bn" string="Name Bangla"/>
+
+                <field name="email" string="E-Mail"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="baitulhijma_action_ticket" model="ir.actions.act_window">
+        <field name="name">Application Form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crm.bhf</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Application form!
+            </p>
+        </field>
+    </record>
+
+    <record id="action_pmisweb_report" model="ir.actions.report">
+        <field name="name">Baitul Hijama Report</field>
+        <field name="model">crm.bhf</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pmisweb.report_pmisweb_patient_form</field>
+        <field name="report_file">pmisweb.report_pmisweb_patient_form</field>
+        <field name="binding_model_id" ref="model_crm_bhf"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <menuitem id="pmisweb_root" name="PMIS Web From" sequence="10"/>
+    <menuitem id="pmisweb_helpdesk_root" name="Clients Details"  parent="pmisweb_root" sequence="10"/>
+    <menuitem id="pmisweb_helpdesk" name="Clients Details Information" parent="pmisweb_helpdesk_root" action="baitulhijma_action_ticket" sequence="10"/>
+
+
+</odoo>

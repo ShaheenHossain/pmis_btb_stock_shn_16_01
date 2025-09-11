@@ -1,0 +1,16 @@
+id,active,sale_ok,default_code,name,categ_id,product_tag_ids,detailed_type
+__btb_stock__.product_template_bangladesh_tourist_map,TRUE,TRUE,,Bangladesh Tourist Map,All,,Storable Product
+__btb_stock__.product_template_dhaka_city_guide_map,TRUE,TRUE,,Dhaka city guide map,All,,Storable Product
+__btb_stock__.product_template_dhaka_city_guide_map_(type-2),TRUE,TRUE,,Dhaka city guide map (Type-2),All,,Storable Product
+__btb_stock__.product_template_event_calander,TRUE,TRUE,,Event calander,All,,Storable Product
+__btb_stock__.product_template_flyer_on_chittagong_hill_tract,TRUE,TRUE,,Flyer on Chittagong Hill tract,All,,Storable Product
+__btb_stock__.product_template_flyer_on_cox's_bazar_and_saint_martin,TRUE,TRUE,,Flyer on Cox's Bazar and Saint martin,All,,Storable Product
+__btb_stock__.product_template_flyer_on_kuakata,TRUE,TRUE,,Flyer on Kuakata,All,,Storable Product
+__btb_stock__.product_template_flyer_on_sundarbans,TRUE,TRUE,,Flyer on Sundarbans,All,,Storable Product
+__btb_stock__.product_template_flyer_on_dhaka,TRUE,TRUE,,Flyer on Dhaka,All,,Storable Product
+__btb_stock__.product_template_flyer_on_sylhet_and_srimangal,TRUE,TRUE,,Flyer on Sylhet and Srimangal,All,,Storable Product
+__btb_stock__.product_template_flyer_on_river,TRUE,TRUE,,Flyer on River,All,,Storable Product
+__btb_stock__.product_template_flyer_on_village_life,TRUE,TRUE,,Flyer on village life,All,,Storable Product
+__btb_stock__.product_template_flyer_on_haor,TRUE,TRUE,,Flyer on Haor,All,,Storable Product
+__btb_stock__.product_template_flyer_on_festival,TRUE,TRUE,,Flyer on Festival,All,,Storable Product
+__btb_stock__.product_template_flyer_on_history_and_archaeology,TRUE,TRUE,,Flyer on History and Archaeology,All,,Storable Product
