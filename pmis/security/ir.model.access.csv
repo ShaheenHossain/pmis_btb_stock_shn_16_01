@@ -26,7 +26,8 @@ pmis.access_pmis_language_proficiency,access_pmis_language_proficiency,pmis.mode
 pmis.access_pmis_addl_qualification,access_pmis_addl_qualification,pmis.model_pmis_addl_qualification,base.group_user,1,1,1,1
 pmis.access_pmis_publications,access_pmis_publications,pmis.model_pmis_publications,base.group_user,1,1,1,0
 pmis.access_pmis_discipline_action,access_pmis_discipline_action,pmis.model_pmis_discipline_action,base.group_user,1,1,1,0
-pmis.access_pmis_contact_type,access_pmis_contact_type,pmis.model_pmis_contact_type,base.group_user,1,1,1,0
+pmis.access_pmis_contact_type_user,access_pmis_contact_type_user,pmis.model_pmis_contact_type,pmis.group_account_pmis_user,1,0,1,0
+pmis.access_pmis_contact_type,access_pmis_contact_type,pmis.model_pmis_contact_type,pmis.group_account_pmis_manager,1,0,1,0
 pmis.access_pmis_wing,access_pmis_wing,pmis.model_pmis_wing,base.group_user,1,1,1,0
 pmis.access_pmis_quota,access_pmis_quota,pmis.model_pmis_quota,base.group_user,1,1,1,0
 pmis.access_pmis_pay_fix,access_pmis_pay_fix,pmis.model_pmis_pay_fix,base.group_user,1,1,1,0
@@ -43,6 +44,7 @@ pmis.access_pmis_bank,access_pmis_bank,pmis.model_pmis_bank,base.group_user,1,1,
 pmis.access_pmis_bank_accounts,access_pmis_bank_accounts,pmis.model_pmis_bank_accounts,base.group_user,1,1,1,0
 pmis.access_pmis_job_category,access_pmis_job_category,pmis.model_pmis_job_category,base.group_user,1,1,0,0
 pmis.access_res_partner_portal,pmis_contacts,base.model_res_partner,base.group_portal,1,1,1,1
+pmis.access_res_partner_manager,pmis_contacts_manager,base.model_res_partner,pmis.group_account_pmis_manager,1,1,1,1
 pmis.access_report,pmis_reports,pmis.model_pmis_report_wizard,pmis.group_account_pmis_user,1,1,1,0
 pmis_access_base_document_layout,access.base.document.layout,web.model_base_document_layout,pmis.group_account_pmis_manager,1,1,1,0
 pmis_access_outsourcing_category,access_pmis_outsourcing_category,pmis.model_pmis_outsourcing_category,base.group_user,1,1,1,0

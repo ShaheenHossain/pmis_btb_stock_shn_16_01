@@ -201,7 +201,6 @@ class PmisBank(models.Model):
     _name = 'pmis.bank'
     _description = "bank accounts info"
     description =fields.Char( "Description")
-
 class PmisBankAccounts(models.Model):
     _name = 'pmis.bank.accounts'
     _description = "bank accounts info"
@@ -233,21 +232,13 @@ class resUsers(models.Model):
             res['partner_id'] = self._context.get('default_partner_id')
 
         return res
-
 class ResPartner(models.Model):
     _inherit = 'res.partner'
-
-    sl = fields.Integer(string="SL")   # ✅ Fixed label
-    state = fields.Selection(
-        [
-            ('draft', "Draft"),
-            ('submitted', "Submitted"),
-            ('approved', 'Approved')
-        ],
-        required=True,
-        default='draft'
-    )
-
+    #field used in form and report
+    sl=fields.Integer("sl")
+    state=fields.Selection([('draft',"Draft"),
+                             ('submitted',"Submitted"),
+                             ('approved','Approved')],required=True, default='draft')
     # this fields moved to btb layout
     # pds_id=fields.Char("PDS ID")
     name_bn = fields.Char("Name (BN)")
@@ -306,7 +297,7 @@ class ResPartner(models.Model):
     travel_ids = fields.One2many("pmis.travel", "person_id")
     publication_ids=fields.One2many('pmis.publications','person_id',"Publications")
     govt_id = fields.Char("GOVT ID")
-
+    current_grade=fields.Many2one(comodel_name='pmis.service.grade',string='Current Grade')
     contact_type=fields.Many2one("pmis.contact.type")
     # contact_type=fields.Selection(
     #     [
@@ -392,7 +383,9 @@ class ResPartner(models.Model):
 
     organization = fields.Char("Organization")
     location = fields.Char("Location")
-    current_designation = fields.Char("Current Designation")
+    current_designation = fields.Many2one(comodel_name="pmis.designation",string="Current Designation")
+
+
 
 
 

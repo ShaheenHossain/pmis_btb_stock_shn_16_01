@@ -80,7 +80,6 @@ class PmisTravel(models.Model):
 #     journals = fields.Char("Journals")
 #     description = fields.Char("Description")
 #     publish_date = fields.Date("Date")
-
 class PmisPromotionNature(models.Model):
     _name ="pmis.promotion.nature"
     _description = "Nature of Promotions"

@@ -885,10 +885,20 @@
                     <div class="col-2 label">
                         Job/PDS Id
                     </div>
-                    <div class="col-4 data">
+                    <div class="col-2 data">
                         <t t-esc="person.pds_id"/>
                     </div>
-                    <div class="col-4 ">
+                    <div class="col-2 label ">
+                        Designation
+                    </div>
+                    <div class="col-4 data ">
+                        <t t-esc="person.current_designation.name"/>
+                    </div>
+                    <div class="col-1 label ">
+                        Grade
+                    </div>
+                    <div class="col-1 data ">
+                        <t t-esc="person.current_grade.grade"/>
                     </div>
                 </div>
                 <div class="row">
@@ -1364,6 +1374,7 @@
             </t>
         </div>
     </template>
+
     <template id="pmis_leave_details_in_report">
         <div id="leave_details" class="clearfix" style="page-break-inside: avoid;">
             <div class="row bg-grey">
@@ -1421,6 +1432,7 @@
             </t>
         </div>
     </template>
+
     <template id="pmis_promotion_details_in_report">
         <div id="promotion" class="clearfix" style="page-break-inside: avoid;">
                                     <div class="row bg-grey">

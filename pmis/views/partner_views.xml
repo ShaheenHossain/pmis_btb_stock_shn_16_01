@@ -432,13 +432,13 @@
                                 <group string="Educational Qualification">
                                     <field name="education_records" nolabel="1" colspan="2">
                                         <tree editable="bottom">
-                                            <field name="degree" string="Examination"/>
+                                            <field name="degree" string="Examination" options="{'no_create': True}"/>
                                             <field name="passing_year"/>
                                             <field name="institute_id" string="Institution/Board"
                                                    domain="[('contact_type','=',1)]"
                                                    context="{'default_contact_type': 1,}"/>
                                             <field name="roll_no" string="Roll No"/>
-                                            <field name="subject_id" domain="[('degree_ids','=',degree)]"/>
+                                            <field name="subject_id" domain="[('degree_ids','=',degree)]" options="{'no_create': True}"/>
                                             <!--                                    <field name="result_system"/>-->
                                             <field name="result_id" string="Division/CGPA"/>
                                             <!--                                    <field name="gpa"/>-->
