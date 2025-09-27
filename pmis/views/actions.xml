@@ -51,7 +51,7 @@
 
       </record>
 
-        <record id="action_pmis_person_action" model="ir.actions.act_window">
+<!--        <record id="action_pmis_person_action" model="ir.actions.act_window">
             <field name="name">Person</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
@@ -59,7 +59,35 @@
             <field name="view_id" ref="pmis.pmis_res_partner_list"/>
             <field name="domain">[ ('contact_type', '=', 'Person'),('job_category', '!=', False)]</field>
             <field name="context">{'default_contact_type': 2}</field>
+        </record>-->
+
+<record id="action_pmis_my_profile" model="ir.actions.act_window">
+    <field name="name">My Profile</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="pmis.pmis_res_partner_form"/>
+    <field name="domain">[]</field>  <!-- Remove user reference -->
+    <field name="context">{
+        'default_contact_type': 2,
+        'search_default_my_profile': 1
+    }</field>
+    <field name="target">current</field>
+</record>
+
+
+        <record id="action_pmis_person_action" model="ir.actions.act_window">
+            <field name="name">Person</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="pmis.pmis_res_partner_list"/>
+            <!-- Use the ID of the "Person" contact type -->
+            <field name="domain">[('contact_type', '=', 2)]</field>
+            <field name="context">{'default_contact_type': 2}</field>
         </record>
+
+
         <record id="action_pmis_institute_action" model="ir.actions.act_window">
             <field name="name">Educational Institute</field>
             <field name="type">ir.actions.act_window</field>

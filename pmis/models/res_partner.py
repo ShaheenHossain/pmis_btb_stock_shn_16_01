@@ -513,3 +513,29 @@ class ResPartner(models.Model):
                 'default_login': self.email,
             }
         }
+
+    
+
+    def action_create_user(self):
+        self.ensure_one()
+        existingUser = self.env['res.users'].search([('partner_id', '=', self.id)])
+        if existingUser.id:
+            raise ValidationError("This contact already has a user account.")
+
+        # Create the user with PMIS User group by default
+        return {
+            'name': 'Create User',
+            'type': 'ir.actions.act_window',
+            'res_model': 'res.users',
+            'view_mode': 'form',
+            'view_id': self.env.ref('base.view_users_form').id,
+            'target': 'new',
+            'context': {
+                'default_partner_id': self.id,
+                'default_name': self.name,
+                'default_phone': self.phone,
+                'default_mobile': self.mobile,
+                'default_login': self.email,
+                'default_groups_id': [(4, self.env.ref('pmis.group_pmis_user').id)],
+            }
+        }

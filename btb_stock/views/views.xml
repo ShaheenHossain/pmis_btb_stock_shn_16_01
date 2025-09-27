@@ -58,6 +58,7 @@
             </page>
         </field>
     </record>
+
     <record id="product_template_only_form_view" model="ir.ui.view">
         <field name="name">btb.stock.product.template.form.view.inherit</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
@@ -69,21 +70,21 @@
             <page name='purchase' position="attributes">
                 <attribute name="invisible">1</attribute>
             </page>
-            <label for="list_price" position="attributes">
+<!--            <label for="list_price" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </label>-->
+<!--            <div name="pricing" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </div>-->
+    <!--        <label for="standard_price" position="attributes">
                 <attribute name="invisible">1</attribute>
             </label>
-            <div name="pricing" position="attributes">
+    -->        <!--<div name="standard_price_uom" position="attributes">
                 <attribute name="invisible">1</attribute>
-            </div>
-            <label for="standard_price" position="attributes">
+            </div>-->
+<!--            <field name="detailed_type" position="attributes">
                 <attribute name="invisible">1</attribute>
-            </label>
-            <div name="standard_price_uom" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </div>
-            <field name="detailed_type" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
+            </field>-->
             <field name="sale_delay" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
