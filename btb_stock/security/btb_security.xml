@@ -21,5 +21,35 @@
             <field name="implied_ids" eval="[(4, ref('btb_stock.group_account_btb_stock_manager'))]"/>
         </record>
 
+        <!-- 4th group: Finance / HQ second-level approver for high-value requisitions.
+             Independent of the Admin group so existing Admin users' access is unchanged. -->
+        <record id="group_account_btb_stock_second_approver" model="res.groups">
+            <field name="name">Finance Approver (2nd Level)</field>
+            <field name="category_id" ref="btb_stock.module_category_btb_user"/>
+            <field name="implied_ids" eval="[(4, ref('btb_stock.group_account_btb_stock_user'))]"/>
+        </record>
+
+        <!-- Record rules: a plain "User" can only see requisitions (sale.order) they
+             created themselves, or that were created on behalf of them (partner_id).
+             Manager/Admin members are also technically members of the User group
+             (implied_ids chain above), so a second, unrestricted rule is scoped to
+             the Manager group (also covers Admin, since Admin implies Manager) and
+             the Finance Approver (2nd Level) group directly, so those approvers can
+             see requisitions from any user to sign off on. Odoo combines multiple
+             group-scoped rules for the same model with OR, so members of any of
+             those groups end up with "own/for-them OR everything" = everything. -->
+        <record id="btb_stock_requisition_own_or_for_rule" model="ir.rule">
+            <field name="name">Requisition: User sees only own or requisitions made for them</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="domain_force">['|', ('create_uid', '=', user.id), ('partner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('btb_stock.group_account_btb_stock_user'))]"/>
+        </record>
+        <record id="btb_stock_requisition_manager_sees_all_rule" model="ir.rule">
+            <field name="name">Requisition: Manager/Admin/2nd Approver see all requisitions</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('btb_stock.group_account_btb_stock_manager')), (4, ref('btb_stock.group_account_btb_stock_second_approver'))]"/>
+        </record>
+
     </data>
 </odoo>

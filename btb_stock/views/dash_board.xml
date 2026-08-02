@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 SM Ashraf
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="btb_stock_requisition_kanban_view" model="ir.ui.view">
+        <field name="name">btb.stock.requisition.kanban</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column btb_requisition_kanban" default_group_by="state" quick_create="false">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="purpose"/>
+                <field name="amount_total"/>
+                <field name="currency_id"/>
+                <field name="date_order"/>
+                <field name="validity_date"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <progressbar field="state"
+                             colors='{"draft": "warning", "sent": "warning", "approved": "info", "sale": "success", "done": "success", "cancel": "muted"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click btb-requisition-card">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <div class="text-muted">
+                                        <field name="partner_id"/>
+                                    </div>
+                                </div>
+                                <field name="partner_id" widget="many2one_avatar"/>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div t-if="record.purpose.value" class="text-muted">
+                                    <t t-esc="record.purpose.value"/>
+                                </div>
+                                <!--<div class="mt-1">
+                                    <field name="amount_total" widget="monetary"/>
+                                </div>-->
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span t-if="record.validity_date.value">
+                                        Scheduled: <field name="validity_date"/>
+                                    </span>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="date_order" widget="date"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="btb_stock_requisition_pivot_view" model="ir.ui.view">
+        <field name="name">btb.stock.requisition.pivot</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <pivot string="Requisitions Analysis" sample="1">
+                <field name="partner_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="amount_total" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+</odoo>

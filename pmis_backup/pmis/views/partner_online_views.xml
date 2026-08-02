@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="contacts" name="Contacts">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <center>
+                        <h1> this is page
+                        </h1>
+                    </center>
+<!--                    <t t-esc="contacts"/>-->
+                    <t t-foreach="conta" t-as="cont">
+                        <div style="padding-bottom:1px;" class="col-md text-md-left">
+          <label class="text-secondary"><strong>Name:</strong></label>
+          <span t-field="conta.name" class="input" title="Name" />
+        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="search_contacts" name="Search...">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <center>
+                        <h1> Search Information for Person</h1>
+                    </center>
+                    <form role="form" action="searching_contacts" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="form-group">
+                            <div class="form-group">
+                            <label for="name" class="control-label" >Please Type name/Mobile/Nid</label>
+                            <input type="text" name="name" t-att-value="name" id="name" class="form-control" palceholder="e.g. SM Ashraf" required="required"/>
+
+                        </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label for="email" class="control-label" >email</label>
+                            <input type="email" name="email" t-att-value="email" id="email" class="form-control" palceholder="e.g. dmashraf@gmail.com" required="required"/>
+                        </div>-->
+                        <div class="clearfix oe_login_buttons">
+                            <button type="submit" class="btn btn-primary pull-left">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="thank_you" name="thank You">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <center>
+                        <h1> this isThank You</h1>
+                    </center>
+                    <form role="form" action="contacts" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="form-group">
+                            <label for="name" class="control-label" >your Name</label>
+                            <input type="text" name="name" t-att-value="name" id="name" class="form-control" palceholder="e.g. SM Ashraf" required="required"/>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label" >email</label>
+                            <input type="email" name="email" t-att-value="email" id="email" class="form-control" palceholder="e.g. dmashraf@gmail.com" required="required"/>
+                        </div>
+                        <div class="clearfix oe_login_buttons">
+                            <button type="submit" class="btn btn-primary pull-left">submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

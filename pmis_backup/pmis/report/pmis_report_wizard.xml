@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pmis_report_wizard_form" model="ir.ui.view">
+        <field name="name">pmis.report.wizard.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Print Report"  type="object" name="print_report"/>
+                </header>
+                <sheet>
+                    <group string="Select Type Of Report and Officials">
+                        <group>
+                            <field name="report_type" widget="radio" options="{'horizontal': true}"/>
+                            <field name="officer_ids" domain="[('pds_id','!=',False)]"/>
+                        </group>
+                        <group string="Select Elements That You want in the Report">
+                            <field name="family_info"/>
+                            <field name="education_info"/>
+                            <field name="joining_info"/>
+                            <field name="job_info"/>
+                            <field name="leave_info"/>
+                            <field name="promotion_info"/>
+                            <field name="pay_fixation_info"/>
+                            <field name="disciplin_info"/>
+                            <field name="case_info"/>
+                            <field name="language_info"/>
+                            <field name="training_info"/>
+                            <field name="senior_scale_info"/>
+                            <field name="travel_info"/>
+                            <field name="publication_info"/>
+                            <field name="sports_info"/>
+                            <field name="research_info"/>
+                            <field name="addl_qualification_info"/>
+                            <field name="award_info"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pmis_report_wizard_tree" model="ir.ui.view">
+        <field name="name">pmis.report.wizard.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.report.wizard</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button string="Print Report"
+                            type="object" name="print_report"
+                    />
+                </header>
+                <field name="officer_ids" widget="many2many_tags"/>
+                <field name="report_type"/>
+
+            </tree>
+        </field>
+    </record>
+
+</odoo>

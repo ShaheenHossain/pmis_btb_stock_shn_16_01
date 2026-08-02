@@ -1,0 +1,63 @@
+// BTB Stock — backend visual polish
+// Presentational only: no impact on fields, models, or data structure.
+
+$btb-navy: #0b3d59;
+$btb-navy-dark: #082c40;
+$btb-gold: #b58900;
+$btb-green: #1e7145;
+$btb-red: #a13d3d;
+$btb-grey: #7a8894;
+
+// --- Requisition Kanban board -------------------------------------------
+.btb_requisition_kanban {
+    .btb-requisition-card {
+        border-left: 3px solid $btb-navy;
+        border-radius: 4px;
+        transition: box-shadow .15s ease-in-out;
+
+        &:hover {
+            box-shadow: 0 2px 10px rgba(11, 61, 89, 0.15);
+        }
+    }
+
+    .o_kanban_group[data-name="draft"] .btb-requisition-card,
+    .o_kanban_group[data-name="sent"] .btb-requisition-card {
+        border-left-color: $btb-gold;
+    }
+    .o_kanban_group[data-name="approved"] .btb-requisition-card {
+        border-left-color: $btb-navy;
+    }
+    .o_kanban_group[data-name="sale"] .btb-requisition-card,
+    .o_kanban_group[data-name="done"] .btb-requisition-card {
+        border-left-color: $btb-green;
+    }
+    .o_kanban_group[data-name="cancel"] .btb-requisition-card {
+        border-left-color: $btb-red;
+        opacity: 0.7;
+    }
+}
+
+// --- Statusbar on the Requisition (sale.order) form ----------------------
+.o_sale_order {
+    .o_statusbar_status .o_arrow_button.o_arrow_button_current[data-value="approved"] {
+        background-color: $btb-navy;
+        border-color: $btb-navy;
+        color: #fff;
+    }
+    .o_statusbar_status .o_arrow_button.o_arrow_button_current[data-value="sale"],
+    .o_statusbar_status .o_arrow_button.o_arrow_button_current[data-value="done"] {
+        background-color: $btb-green;
+        border-color: $btb-green;
+        color: #fff;
+    }
+    .o_statusbar_status .o_arrow_button.o_arrow_button_current[data-value="cancel"] {
+        background-color: $btb-red;
+        border-color: $btb-red;
+        color: #fff;
+    }
+
+    // Stat buttons in the button box get a slightly bolder accent
+    .oe_button_box .oe_stat_button .o_stat_value {
+        color: $btb-navy;
+    }
+}

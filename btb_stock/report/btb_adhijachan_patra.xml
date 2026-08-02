@@ -26,159 +26,275 @@
         <t t-call="web.html_container">
             <t t-call="btb_layout.external_layout_btb">
                 <style>
-                    .heading{
-                    padding-top:20px;
-                    padding-left:5px;
-                    padding-bottom:15px;
-                    font-size:.1.5rem;
-                    border-bottom:1px;
-                    border-left:1px;
-                    border-color:#E7E2E1;
+                    .btb-doc {
+                        font-family: 'Helvetica Neue', Arial, sans-serif;
+                        color: #1f2d3d;
+                        font-size: 12px;
+                    }
+                    .btb-doc .btb-titlebar {
+                        border-bottom: 3px solid #0b3d59;
+                        padding-bottom: 8px;
+                        margin-bottom: 14px;
+                    }
+                    .btb-doc .btb-titlebar .btb-doctype {
+                        font-size: 10px;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                        color: #7a8894;
+                        margin-bottom: 2px;
+                    }
+                    .btb-doc .btb-titlebar h2 {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #0b3d59;
+                        margin: 0;
+                    }
+                    .btb-doc .btb-status-badge {
+                        display: inline-block;
+                        padding: 4px 14px;
+                        border-radius: 3px;
+                        font-size: 11px;
+                        font-weight: 700;
+                        letter-spacing: .5px;
+                        text-transform: uppercase;
+                        color: #ffffff;
+                        background-color: #7a8894;
+                    }
+                    .btb-doc .btb-status-draft, .btb-doc .btb-status-sent { background-color: #b58900; }
+                    .btb-doc .btb-status-approved { background-color: #0b3d59; }
+                    .btb-doc .btb-status-sale, .btb-doc .btb-status-done { background-color: #1e7145; }
+                    .btb-doc .btb-status-cancel { background-color: #a13d3d; }
+
+                    .btb-doc .btb-meta-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-bottom: 14px;
+                    }
+                    .btb-doc .btb-meta-table td {
+                        padding: 5px 8px;
+                        font-size: 11.5px;
+                        vertical-align: top;
+                    }
+                    .btb-doc .btb-meta-table .btb-meta-label {
+                        color: #7a8894;
+                        text-transform: uppercase;
+                        font-size: 9.5px;
+                        letter-spacing: .5px;
+                        padding-bottom: 0;
+                    }
+                    .btb-doc .btb-meta-table .btb-meta-value {
+                        font-weight: 600;
+                        padding-top: 1px;
                     }
 
-                    .label{
-                    padding-top:5px;
-                    padding-left:5px;
-                    padding-bottom:5px;
-                    font-size:.8rem;
-                    border-top:1px;
-                    border-bottom:1px;
-                    border-left:1px;
-                    border-color:#E7E2E1;
-                    border-top-style:solid;
-                    border-bottom-style:solid;
-                    border-right-style:solid;
-                    border-left-style:solid;
+                    .btb-doc .btb-purpose {
+                        background-color: #f4f6f8;
+                        border-left: 3px solid #0b3d59;
+                        padding: 8px 12px;
+                        margin-bottom: 14px;
+                        font-size: 11.5px;
                     }
-                    .data{
-                    padding-top:3px;
-                    padding-left:5px;
-                    padding-bottom:3px;
-                    font-size:0.8rem;
-                    border-bottom:1px;
-                    border-left:1px;
-                    border-color:#E7E2E1;
-                    border-bottom-style:solid;
-                    border-right-style:solid;
-                    border-left-style:solid;
+
+                    .btb-doc table.btb-lines {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-bottom: 18px;
                     }
-                    .bg-grey{
-                    background-color: #E7E2E1;
+                    .btb-doc table.btb-lines thead th {
+                        background-color: #0b3d59;
+                        color: #ffffff;
+                        font-size: 10.5px;
+                        text-transform: uppercase;
+                        letter-spacing: .4px;
+                        padding: 7px 8px;
+                        text-align: left;
+                        border: 1px solid #0b3d59;
                     }
-                    .txt-center{
-                    text-align: center;
+                    .btb-doc table.btb-lines tbody td {
+                        padding: 6px 8px;
+                        font-size: 11.5px;
+                        border: 1px solid #dfe3e8;
+                    }
+                    .btb-doc table.btb-lines tbody tr:nth-child(even) {
+                        background-color: #f8f9fa;
+                    }
+                    .btb-doc table.btb-lines .btb-col-sl { width: 6%; text-align: center; }
+                    .btb-doc table.btb-lines .btb-col-qty { width: 18%; text-align: right; }
+
+                    .btb-doc .btb-sign-grid {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 24px;
+                    }
+                    .btb-doc .btb-sign-grid td {
+                        width: 50%;
+                        vertical-align: top;
+                        padding: 0 10px;
+                    }
+                    .btb-doc .btb-sign-label {
+                        font-size: 9.5px;
+                        text-transform: uppercase;
+                        letter-spacing: .5px;
+                        color: #7a8894;
+                        margin-bottom: 2px;
+                    }
+                    .btb-doc .btb-sign-name {
+                        font-weight: 600;
+                        font-size: 12.5px;
+                        margin-bottom: 10px;
+                    }
+                    .btb-doc .btb-sign-box {
+                        border: 1px solid #c3cbd2;
+                        border-radius: 3px;
+                        height: 70px;
+                        padding: 8px;
+                        font-size: 10px;
+                        color: #7a8894;
+                        margin-bottom: 6px;
+                    }
+                    .btb-doc .btb-sign-date {
+                        font-size: 10.5px;
+                        color: #45525e;
+                    }
+
+                    .btb-doc .btb-footer-strip {
+                        margin-top: 18px;
+                        border-top: 1px solid #dfe3e8;
+                        padding-top: 8px;
+                    }
+                    .btb-doc .btb-footer-strip table {
+                        width: 100%;
+                    }
+                    .btb-doc .btb-footer-strip td {
+                        width: 50%;
+                        font-size: 10px;
+                        text-transform: uppercase;
+                        letter-spacing: .5px;
+                        color: #7a8894;
+                    }
+                    .btb-doc .btb-titlebar .btb-qr {
+                        text-align: right;
+                    }
+                    .btb-doc .btb-titlebar .btb-qr img {
+                        width: 68px;
+                        height: 68px;
+                    }
+                    .btb-doc .btb-titlebar .btb-qr-caption {
+                        font-size: 8px;
+                        color: #7a8894;
+                        text-transform: uppercase;
+                        letter-spacing: .5px;
+                    }
+                    .btb-doc .btb-bn {
+                        display: block;
+                        font-size: 9.5px;
+                        color: #7a8894;
+                        font-weight: 400;
                     }
                 </style>
 
-                <div class="page">
+                <div class="page btb-doc">
                     <t t-set="company" t-value="env.company"/>
                     <t t-foreach="docs" t-as="doc">
-                        <div class="row">
-                            <div class="col-8 heading">
-                                Request ID:
-                                <t t-esc="doc.name"/>
-                            </div>
-                            <div class="col-4 heading">
-                                Date:
-                                <t t-esc="doc.date_order.strftime('%d-%B -%Y')"/>
-                            </div>
+                        <div class="btb-titlebar">
+                            <table style="width:100%; border-collapse:collapse;">
+                                <tr>
+                                    <td style="width:50%;">
+                                        <div class="btb-doctype">Requisition / অধিযাচন পত্র</div>
+                                        <h2><t t-esc="doc.name"/></h2>
+                                    </td>
+                                    <td style="width:25%; text-align:right; vertical-align:top;">
+                                        <span t-attf-class="btb-status-badge btb-status-#{doc.state}">
+                                            <t t-esc="dict(doc._fields['state'].selection).get(doc.state, doc.state)"/>
+                                        </span>
+                                    </td>
+                                    <td style="width:25%;" class="btb-qr">
+                                        <img t-att-src="'/report/barcode/?type=QR&amp;value=%s&amp;width=140&amp;height=140' % (('%s%s?access_token=%s') % (doc.get_base_url(), doc.access_url, doc.access_token or ''))" alt="QR"/>
+                                        <div class="btb-qr-caption">Scan to verify</div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="row">
-                            <div class="col-12 heading">
-                                Subject: Requisition
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 heading">
-                                Purpose:To supply the following product for
-                                <t t-esc="doc.purpose"/>
-                                is requested
-                            </div>
-                        </div>
-                        <div class="row heading">
-                        </div>
-                        <div class="row">
-                            <div class="col-1 label">
-                                Sl
-                            </div>
-                            <div class="col-9 label">
-                                Product
-                            </div>
-                            <div class="col-2 label">
-                                Requested Qty
-                            </div>
-                        </div>
-                        <t t-set="sl" t-value="0"/>
-                        <t t-foreach="doc.order_line" t-as="line">
-                            <t t-set="sl" t-value="sl+1"/>
-                            <div class="row">
-                                <div class="col-1 data">
-                                    <t t-esc="sl"/>
-                                </div>
-                                <div class="col-9 data">
-                                    <t t-esc="line.product_id.name"/>
-                                </div>
-                                <div class="col-2 data">
-                                    <t t-esc="line.product_uom_qty"/>
-                                    <t t-esc="line.product_uom.name"/>
-                                </div>
-                            </div>
-                        </t>
-                        <div class="row heading">
-                            <br/>
-                            <br/>
-                        </div>
-                        <div class="row ">
-                            <div class="col-6 heading">
-                                Requested By:
-                                <br/><t t-esc="doc.partner_id.name"/>
-                                <br/>
-                            </div>
-                            <div class="col-6 heading">
-                                Approved by
-                                <br/><t t-esc="doc.approved_by.name"/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <br/>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 heading">
-                                Date:<t t-esc="doc.date_order.strftime('%d-%B -%Y')"/>
-                            </div>
-                            <div class="col-6 heading">
-                                Date:<t t-if="doc.approved_on">
-                                        <t t-esc="doc.approved_on.strftime('%d-%B -%Y')"/>
-                                    </t>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 heading">
-                                Seal:
-                                <br/>
-                            </div>
-                            <div class="col-6 heading">
-                                Seal:
-                                <br/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 " style="border:1px solid black;padding:20px;">
-                                Sign and date of store Manager
 
-                            </div>
-                        <div class="col-6 " style="border:1px solid black;padding:20px;">
+                        <table class="btb-meta-table">
+                            <tr>
+                                <td style="width:25%;">
+                                    <div class="btb-meta-label">Requisition Date <span class="btb-bn">তারিখ</span></div>
+                                    <div class="btb-meta-value"><t t-esc="doc.date_order.strftime('%d %B %Y')"/></div>
+                                </td>
+                                <td style="width:35%;">
+                                    <div class="btb-meta-label">Requisition From <span class="btb-bn">অনুরোধকারী</span></div>
+                                    <div class="btb-meta-value"><t t-esc="doc.partner_id.name"/></div>
+                                </td>
+                                <td style="width:40%;">
+                                    <div class="btb-meta-label">Subject <span class="btb-bn">বিষয়</span></div>
+                                    <div class="btb-meta-value">Requisition of Stock Items</div>
+                                </td>
+                            </tr>
+                        </table>
 
-
-                            </div>
+                        <div class="btb-purpose">
+                            <strong>Purpose / উদ্দেশ্য: </strong>To supply the following product(s) for
+                            <t t-esc="doc.purpose"/> is requested.
                         </div>
-                        <div class="row">
-                            <div class="col-6 label">
-                                Supplied
-                            </div>
-                            <div class="col-6 label">
-                                Posted to Software
-                            </div>
+
+                        <table class="btb-lines">
+                            <thead>
+                                <tr>
+                                    <th class="btb-col-sl">Sl.</th>
+                                    <th>Product <span class="btb-bn" style="color:#cfe0ea;">পণ্য</span></th>
+                                    <th class="btb-col-qty">Requested Qty <span class="btb-bn" style="color:#cfe0ea;">পরিমাণ</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="sl" t-value="0"/>
+                                <t t-foreach="doc.order_line" t-as="line">
+                                    <t t-set="sl" t-value="sl+1"/>
+                                    <tr>
+                                        <td class="btb-col-sl"><t t-esc="sl"/></td>
+                                        <td><t t-esc="line.product_id.name"/></td>
+                                        <td class="btb-col-qty">
+                                            <t t-esc="line.product_uom_qty"/> <t t-esc="line.product_uom.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <table class="btb-sign-grid">
+                            <tr>
+                                <td>
+                                    <div class="btb-sign-label">Requested By <span class="btb-bn">অনুরোধকারীর স্বাক্ষর</span></div>
+                                    <div class="btb-sign-name"><t t-esc="doc.partner_id.name"/></div>
+                                    <div class="btb-sign-box">Signature &amp; Seal</div>
+                                    <div class="btb-sign-date">Date: <t t-esc="doc.date_order.strftime('%d %B %Y')"/></div>
+                                </td>
+                                <td>
+                                    <div class="btb-sign-label">Approved By <span class="btb-bn">অনুমোদনকারীর স্বাক্ষর</span></div>
+                                    <div class="btb-sign-name">
+                                        <t t-if="doc.approved_by">
+                                            <t t-esc="doc.approved_by.name"/>
+                                        </t>
+                                        <t t-else="">&#8212;</t>
+                                    </div>
+                                    <div class="btb-sign-box">Signature &amp; Seal</div>
+                                    <div class="btb-sign-date">
+                                        Date:
+                                        <t t-if="doc.approved_on">
+                                            <t t-esc="doc.approved_on.strftime('%d %B %Y')"/>
+                                        </t>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="btb-footer-strip">
+                            <table>
+                                <tr>
+                                    <td>Store Manager: Supplied &#9633; <span class="btb-bn">সরবরাহ সম্পন্ন</span></td>
+                                    <td style="text-align:right;">Posted to Software &#9633; <span class="btb-bn">সফটওয়্যারে প্রবিষ্ট</span></td>
+                                </tr>
+                            </table>
                         </div>
                     </t>
                 </div>

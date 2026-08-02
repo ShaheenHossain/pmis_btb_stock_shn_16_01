@@ -16,7 +16,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'inventory',
-    'version': '16.0.1.0.0',
+    'version': '16.0.1.1.5',
 
     # any module necessary for this one to work correctly
     'depends': ['base','sale','sale_stock','website','btb_layout','portal'],
@@ -25,12 +25,14 @@
     'data': [
             "security/btb_security.xml",
             "security/ir.model.access.csv",
+            "views/dash_board.xml",
             "views/views.xml",
             "report/btb_adhijachan_patra.xml",
             "report/btb_stock_report.xml",
             "views/menus.xml",
             "data/parjatan.xml",
             "data/product.template.csv",
+            "data/btb_cron.xml",
             # "data/product.product.csv", here is import eror
             "report/report_layout.xml",
             "portal/portal_templates.xml",
@@ -45,6 +47,11 @@
         'demo/demo.xml',
     ],
 
+    'assets': {
+        'web.assets_backend': [
+            'btb_stock/static/src/scss/btb_stock_backend.scss',
+        ],
+    },
 
     "auto_install": False,
     'application': True,

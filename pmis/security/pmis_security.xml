@@ -37,11 +37,11 @@
         <record id="read_own_pmis_rule" model="ir.rule">
             <field name="name">PMIS: Read Own Contact</field>
             <field name="model_id" ref="model_res_partner"/>
-            <field name="domain_force">[
+            <!--<field name="domain_force">[
                 '|',
-                ('contact_type', '!=', 2),  <!-- Allow non-person contacts -->
-                ('id', '=', user.partner_id.id)  <!-- Allow own record -->
-                ]</field>
+                ('contact_type', '!=', 2)
+                ('id', '=', user.partner_id.id)
+                ]</field>-->
             <field name="groups" eval="[(4, ref('group_account_pmis_user'))]"/>
             <field name="perm_read">1</field>
             <field name="perm_write">1</field>

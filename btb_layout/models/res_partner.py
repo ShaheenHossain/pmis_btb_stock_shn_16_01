@@ -16,6 +16,10 @@ class pmisCompany(models.Model):
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
+    sl = fields.Char(string="SL")
+
+
+
     pds_id = fields.Char("PDS ID")
     _sql_constraints = [
         ('pds_id_unique', 'unique (pds_id)',

@@ -50,3 +50,13 @@ class btbStockReport(models.TransientModel):
             return move_line_id.move_id.sale_line_id.order_id.purpose
         else:
             return move_line_id.reference
+
+    def action_export_xlsx(self):
+        """Open the Excel export of this ledger in a new tab. Additive feature,
+        implemented via a lightweight controller instead of a new module dependency."""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_url',
+            'url': '/btb_stock/stock_report/xlsx/%s' % self.id,
+            'target': 'self',
+        }

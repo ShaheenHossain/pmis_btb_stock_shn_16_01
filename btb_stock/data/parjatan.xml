@@ -15,8 +15,8 @@
             <field name="street2" >Bangladesh Tourism Board</field>
             <field name="city" >Agargaon</field>
             <field name="state_id" ref="base.state_bd_dhaka"/>
-            <field name="logo" type="base64" file="pmis/static/src/img/bdgov.png"/>
-            <field name="logo2" type="base64" file="pmis/static/src/img/parjatan.png"/>
+            <field name="logo" type="base64" file="btb_stock/static/src/img/bdgov.png"/>
+            <field name="logo2" type="base64" file="btb_stock/static/src/img/parjatan.png"/>
         </record>-->
 
                 <record id="base.main_company" model="res.company">
@@ -25,8 +25,8 @@
             <field name="street2">Bangladesh Tourism Board</field>
             <field name="city">Agargaon</field>
             <field name="state_id" ref="state_bd_dhaka"/>
-            <field name="logo" type="base64" file="pmis/static/src/img/bdgov.png"/>
-            <field name="logo2" type="base64" file="pmis/static/src/img/parjatan.png"/>
+            <field name="logo" type="base64" file="btb_stock/static/src/img/bdgov.png"/>
+            <field name="logo2" type="base64" file="btb_stock/static/src/img/parjatan.png"/>
         </record>
 
 

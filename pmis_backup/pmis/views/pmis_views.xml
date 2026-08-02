@@ -1,0 +1,165 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<record id="pmis_bcs_cadre_form" model="ir.ui.view">
+        <field name="name">pmis.bcs.cadre.view</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.bcs.cadre</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<record id="pmis_bcs_cadre_list" model="ir.ui.view">
+        <field name="name">pmis.bcs.cadre.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.bcs.cadre</field>
+        <field name="arch" type="xml">
+            <tree>
+                        <field name="name"/>
+                        <field name="description"/>
+            </tree>
+        </field>
+    </record>
+<record id="pmis_circular_form" model="ir.ui.view">
+        <field name="name">pmis.join.circular.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.joining.circular</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Joining Circulars">
+                        <field name="name"/>
+                        <field name="circular_date"/>
+                        <field name="attachment"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<record id="pmis_circular_list" model="ir.ui.view">
+        <field name="name">pmis.join.circular.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.joining.circular</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="circular_date"/>
+                <field name="attachment"/>
+            </tree>
+        </field>
+    </record>
+<record id="pmis_bcs_form" model="ir.ui.view">
+        <field name="name">pmis.bcs.view</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.bcs</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="sl"/>
+                        <field name="name"/>
+                        <field name="join_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<record id="pmis_bcs_tree" model="ir.ui.view">
+        <field name="name">pmis.bcs.list</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.bcs</field>
+        <field name="arch" type="xml">
+            <tree>
+                        <field name="sl"/>
+                        <field name="name"/>
+                        <field name="join_date"/>
+            </tree>
+        </field>
+    </record>
+
+<record id="pmis_degree_form" model="ir.ui.view">
+        <field name="name">pmis.degree.form.view</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.degree</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="degree"/>
+                        <field name="subject_ids" widget="many2many_tags"/>
+                        <field name="abv"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<record id="pmis_degree_list" model="ir.ui.view">
+        <field name="name">pmis.degree.list.view</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.degree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="degree"/>
+                <field name="abv"/>
+            </tree>
+        </field>
+    </record>
+<record id="pmis_education_subject_form" model="ir.ui.view">
+        <field name="name">pmis.education.subject.view</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.education.subject</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="degree_ids" widget="many2many_tags"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<record id="pmis_education_subject_list" model="ir.ui.view">
+        <field name="name">pmis.education.subject.list.view</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.education.subject</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="degree_ids" widget="many2many_tags"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+<record id="pmis_result_system_line_form" model="ir.ui.view">
+        <field name="name">pmis.result.system.line.form</field>
+        <field name="priority" eval="1"/>
+        <field name="model">pmis.result.system.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+
+                    <field name="name"/>
+                    <field name="grading_system"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+  </data>
+</odoo>

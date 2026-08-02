@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Remove all commented code to clean up -->
+
+        <!-- Module Category -->
+        <record model="ir.module.category" id="module_category_pmis_user">
+            <field name="name">PMIS</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <!-- PMIS User Group (Can only see own record) -->
+        <record id="group_account_pmis_user" model="res.groups">
+            <field name="name">PMIS / User</field>
+            <field name="category_id" ref="module_category_pmis_user"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- PMIS Manager Group (Can see all records) -->
+        <record id="group_account_pmis_manager" model="res.groups">
+            <field name="name">PMIS / Manager</field>
+            <field name="category_id" ref="module_category_pmis_user"/>
+            <field name="implied_ids" eval="[(4, ref('group_account_pmis_user'))]"/>
+        </record>
+
+        <!-- PMIS Admin Group (Full access) -->
+        <record id="group_account_pmis_admin" model="res.groups">
+            <field name="name">PMIS / Admin</field>
+            <field name="category_id" ref="module_category_pmis_user"/>
+            <field name="implied_ids" eval="[(4, ref('group_account_pmis_manager'))]"/>
+        </record>
+
+        <!-- Record Rules -->
+
+
+        <!-- Rule for Users: Can only see their own record -->
+        <record id="read_own_pmis_rule" model="ir.rule">
+            <field name="name">PMIS: Read Own Contact</field>
+            <field name="model_id" ref="model_res_partner"/>
+
+            <field name="domain_force">
+                [
+                '|',
+                ('contact_type', '!=', 2),
+                ('id', '=', user.partner_id.id)
+                ]
+            </field>
+
+            <field name="groups" eval="[(4, ref('group_account_pmis_user'))]"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">0</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <!-- Rule 2: Managers can read/write all PMIS contacts -->
+        <record id="read_all_pmis_rule" model="ir.rule">
+            <field name="name">PMIS: Manager Access All</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_manager'))]"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">0</field>
+        </record>
+
+        <!-- Rule 3: Admin has full access -->
+        <record id="admin_full_access_rule" model="ir.rule">
+            <field name="name">PMIS: Admin Full Access</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_admin'))]"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <!-- Additional rules for PMIS specific models -->
+        <record id="pmis_posting_record_user_rule" model="ir.rule">
+            <field name="name">PMIS: User Own Posting Records</field>
+            <field name="model_id" ref="model_pmis_posting_record"/>
+            <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_user'))]"/>
+        </record>
+
+        <record id="pmis_posting_record_manager_rule" model="ir.rule">
+            <field name="name">PMIS: Manager All Posting Records</field>
+            <field name="model_id" ref="model_pmis_posting_record"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_manager'))]"/>
+        </record>
+
+        <record id="pmis_education_record_user_rule" model="ir.rule">
+            <field name="name">PMIS: User Own Education Records</field>
+            <field name="model_id" ref="model_pmis_education_record"/>
+            <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_user'))]"/>
+        </record>
+
+        <record id="pmis_education_record_manager_rule" model="ir.rule">
+            <field name="name">PMIS: Manager All Education Records</field>
+            <field name="model_id" ref="model_pmis_education_record"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_manager'))]"/>
+        </record>
+
+        <record id="pmis_training_line_user_rule" model="ir.rule">
+            <field name="name">PMIS: User Own Training Records</field>
+            <field name="model_id" ref="model_pmis_training_line"/>
+            <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_user'))]"/>
+        </record>
+
+        <record id="pmis_training_line_manager_rule" model="ir.rule">
+            <field name="name">PMIS: Manager All Training Records</field>
+            <field name="model_id" ref="model_pmis_training_line"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_manager'))]"/>
+        </record>
+
+        <record id="pmis_leave_user_rule" model="ir.rule">
+            <field name="name">PMIS: User Own Leave Records</field>
+            <field name="model_id" ref="model_pmis_leave"/>
+            <field name="domain_force">[('person_id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_user'))]"/>
+        </record>
+
+        <record id="pmis_leave_manager_rule" model="ir.rule">
+            <field name="name">PMIS: Manager All Leave Records</field>
+            <field name="model_id" ref="model_pmis_leave"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_account_pmis_manager'))]"/>
+        </record>
+
+        <record id="pmis_res_partner_user_rule" model="ir.rule">
+            <field name="name">PMIS User: Only own profile</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">[('id', '=', user.partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('pmis.group_account_pmis_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+
+        <!-- Rule for managers: can see all person type contacts -->
+        <record id="pmis_res_partner_manager_rule" model="ir.rule">
+            <field name="name">PMIS Manager: All persons</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">[('contact_type', '=', 2)]</field>
+            <field name="groups" eval="[(4, ref('pmis.group_account_pmis_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Rule for admin: full access -->
+        <record id="pmis_res_partner_admin_rule" model="ir.rule">
+            <field name="name">PMIS Admin: Full access</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="groups" eval="[(4, ref('pmis.group_account_pmis_admin'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</odoo>

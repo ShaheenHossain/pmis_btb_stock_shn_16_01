@@ -1,0 +1,2 @@
+id,perm_create,perm_unlink,perm_read,perm_write,domain_force,name,groups/id,model_id/id
+__export__.ir_rule_157_1feffa3b,TRUE,,TRUE,TRUE,"['|',('partner_id','=',user.partner_id.id),('user_id','=',user.id)]",Ashraf,btb_stock.group_account_btb_stock_user,btb_stock.model_sale_order
